@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>162</y>
+      <w>66</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[JSP]
+modifierProfil</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>96</x>
+      <y>132</y>
+      <w>714</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>IHM</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>198</x>
+      <y>162</y>
+      <w>66</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[JSP]
+profilVendeur</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>276</x>
+      <y>162</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[JSP]
+parametresEnchere</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>372</x>
+      <y>162</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[JSP]
+detailsEnchere</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>162</y>
+      <w>90</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[JSP] HOME
+listeEnchere</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>162</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[JSP]
+Se connecter</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>708</x>
+      <y>162</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[JSP] HOME
+Créer un compte</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>168</y>
+      <w>54</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>168</y>
+      <w>48</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>168</y>
+      <w>42</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>102</x>
+      <y>288</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[SERVLET]
+ModifierProfil</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>288</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[SERVLET]
+Enchérir</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>288</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[SERVLET]
+GestionEnchere</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>384</x>
+      <y>288</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[SERVLET]
+Deconnexion</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>288</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[SERVLET]
+Filtrage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>288</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>[SERVLET]
+Connexion</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>180</y>
+      <w>18</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>180</y>
+      <w>342</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+Profil supprimé</panel_attributes>
+    <additional_attributes>550.0;10.0;550.0;120.0;10.0;120.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>84</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red
+GET</panel_attributes>
+    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>198</x>
+      <y>84</y>
+      <w>108</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=black
+Request</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>108</y>
+      <w>48</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green
+POST</panel_attributes>
+    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>198</x>
+      <y>108</y>
+      <w>108</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=black
+Forward</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>138</x>
+      <y>180</y>
+      <w>84</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+Profil modifié</panel_attributes>
+    <additional_attributes>120.0;10.0;120.0;90.0;10.0;90.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>180</y>
+      <w>54</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;130.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>180</y>
+      <w>66</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;180.0;90.0;100.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>222</x>
+      <y>180</y>
+      <w>300</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>480.0;10.0;480.0;140.0;10.0;140.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>258</x>
+      <y>180</y>
+      <w>42</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;180.0;50.0;100.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>438</x>
+      <y>180</y>
+      <w>48</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;40.0;60.0;40.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>180</y>
+      <w>48</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>60.0;10.0;60.0;60.0;10.0;60.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>180</y>
+      <w>18</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>180</y>
+      <w>18</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>174</y>
+      <w>42</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>180</y>
+      <w>18</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>612</x>
+      <y>180</y>
+      <w>72</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+Error Password</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>180</y>
+      <w>18</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>636</x>
+      <y>180</y>
+      <w>90</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green
+
+
+
+
+Mot de passe oublié</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>516</x>
+      <y>144</y>
+      <w>216</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0;340.0;10.0;340.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>654</x>
+      <y>180</y>
+      <w>138</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=red</panel_attributes>
+    <additional_attributes>10.0;210.0;210.0;210.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>654</x>
+      <y>180</y>
+      <w>156</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=red
+Error input</panel_attributes>
+    <additional_attributes>180.0;10.0;180.0;190.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>828</x>
+      <y>144</y>
+      <w>336</w>
+      <h>468</h>
+    </coordinates>
+    <panel_attributes>BO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>96</x>
+      <y>384</y>
+      <w>714</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>BLL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>96</x>
+      <y>606</y>
+      <w>828</w>
+      <h>222</h>
+    </coordinates>
+    <panel_attributes>DAL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>636</y>
+      <w>156</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>**DAOFactory**
+--
++ getCategorieDAO() : CategorieDAO
++ getUtilisateurDAO() : UtilisateurDAO
++ getArticleVenduDAO : ArticleVendu
++ getRetraitDAO() : RetraitDAO
++ EnchereDAO() : EnchereDAO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>516</x>
+      <y>630</y>
+      <w>156</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+*DAO&lt;T&gt;*
+--
++ insert(T)
++ update(T)
++ selectByID(int) : T
++ selectAll() : List&lt;T&gt;
++ delete(T)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>162</x>
+      <y>744</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*CategorieDAOJdbcImpl*
+--
++ insert(Categorie) : Categorie
++ update(Categorie)
++ selectByID(int) : Categorie
++ selectAll() : List&lt;Categorie&gt;
++ delete(Categorie)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>306</x>
+      <y>744</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*UtilisateurDAOJdbcImpl*
+--
++ insert(Utilisateur) : Utilisateur
++ update(Utilisateur)
++ selectByID(int) : Utilisateur
++ selectAll() : List&lt;Utilisateur&gt;
++ delete(Utilisateur)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>744</y>
+      <w>138</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*ArticleVenduDAOJdbcImpl*
+--
++ insert(ArticleVendu) ArticleVendu
++ update(ArticleVendu)
++ selectByID(int) : ArticleVendu
++ selectAll() : List&lt;ArticleVendu&gt;
++ delete(ArticleVendu)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>744</y>
+      <w>132</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*RetraitDAOJdbcImpl*
+--
++ insert(Retrait)
++ update(Retrait)
++ selectByID(int) : Retrait
++ selectAll() : List&lt;Retrait&gt;
++ delete(Retrait)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>768</x>
+      <y>744</y>
+      <w>132</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*EnchereDAOJdbcImpl*
+--
++ insert(Enchere)
++ update(Enchere)
++ selectByID(int) : Enchere
++ selectAll() : List&lt;Enchere&gt;
++ delete(Enchere)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>258</x>
+      <y>702</y>
+      <w>336</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;40.0;540.0;40.0;540.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>318</x>
+      <y>702</y>
+      <w>276</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;40.0;440.0;40.0;440.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>702</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>702</y>
+      <w>102</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;70.0;150.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>702</y>
+      <w>222</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>350.0;70.0;350.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>414</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*UtilisateurManager*
+--
++ ajouter(Categorie) : 
++ update(Categorie)
++ selectByID(int) : Categorie
++ selectAll() : List&lt;Categorie&gt;
++ delete(Categorie)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>414</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*EnchereManager*
+--
++ insert(Categorie)
++ update(Categorie)
++ selectByID(int) : Categorie
++ selectAll() : List&lt;Categorie&gt;
++ delete(Categorie)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>372</x>
+      <y>414</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*ArticleVenduManager*
+--
++ insert(Categorie)
++ update(Categorie)
++ selectByID(int) : Categorie
++ selectAll() : List&lt;Categorie&gt;
++ delete(Categorie)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>498</x>
+      <y>414</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*RetraitManager*
+--
++ insert(Categorie)
++ update(Categorie)
++ selectByID(int) : Categorie
++ selectAll() : List&lt;Categorie&gt;
++ delete(Categorie)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>414</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>*CategorieManager*
+--
++ insert(Categorie)
++ update(Categorie)
++ selectByID(int) : Categorie
++ selectAll() : List&lt;Categorie&gt;
++ delete(Categorie)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>144</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+fg=green</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0;80.0;10.0;80.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>834</x>
+      <y>162</y>
+      <w>126</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>Utilisateur
+--
+- noUtilisateur: int
+- pseudo: String
+- nom: String
+- prenom: String
+- email: String
+- telephone: String
+- rue; String
+- codePostal: Long
+- ville: String
+- motDePasse: String
+- credit: int
+- administrateur: boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>294</y>
+      <w>42</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+achete</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>834</x>
+      <y>372</y>
+      <w>126</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>ArticleVendu
+--
+- noArticle: int
+- nomArticle: String
+- description: String
+- dateDebutEncheres: Date
+- dateFinEncheres: Date
+- miseAPrix: float
+- prixVente: float
+- etatVente: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>888</x>
+      <y>294</y>
+      <w>36</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+vend</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>204</y>
+      <w>126</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>Enchere
+--
+- dateEnchere : Date
+- montantEnchere: float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>954</x>
+      <y>192</y>
+      <w>90</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+enchérit</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>954</x>
+      <y>318</y>
+      <w>84</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+concerne</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1032</x>
+      <y>366</y>
+      <w>126</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Categorie
+--
+- noCategorie : int
+- libelle: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>954</x>
+      <y>402</y>
+      <w>90</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=*
+CategorieArticle</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1032</x>
+      <y>438</y>
+      <w>126</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>Retrait
+--
+- rue : String
+- codePostal: long
+- ville: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>918</x>
+      <y>504</y>
+      <w>126</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1
+lieuRetrait</panel_attributes>
+    <additional_attributes>190.0;90.0;10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
