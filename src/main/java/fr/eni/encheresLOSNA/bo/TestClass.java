@@ -16,6 +16,7 @@ public class TestClass {
 	 */
 	public TestClass() {
 		super();
+		
 	}
 
 	/**
@@ -39,6 +40,10 @@ public class TestClass {
 	 */
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	
+	public void fonctionAdrien() {
+		System.out.println("Cette fonction est créée par Adrien depuis chez lui :D");
 	}
 	
 }
