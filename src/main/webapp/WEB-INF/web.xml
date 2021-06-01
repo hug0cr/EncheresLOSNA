@@ -1,12 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee; http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>EncheresLOSNA</display-name>
+  
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>/WEB-INF/listeEncheres.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>listeEncheres</servlet-name>
+  	<jsp-file>/WEB-INF/listeEncheres.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>listeEncheres</servlet-name>
+  	<url-pattern>/liseEncheres</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>seConnecter</servlet-name>
+  	<jsp-file>/WEB-INF/seConnecter.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>seConnecter</servlet-name>
+  	<url-pattern>/seConnecter</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>creerCompte</servlet-name>
+  	<jsp-file>/WEB-INF/creerCompte.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>creerCompte</servlet-name>
+  	<url-pattern>/creerCompte</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>detailsEncheres</servlet-name>
+  	<jsp-file>/WEB-INF/detailsEncheres.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>detailsEncheres</servlet-name>
+  	<url-pattern>/detailsEncheres</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>parametresEncheres</servlet-name>
+  	<jsp-file>/WEB-INF/parametresEncheres.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>parametresEncheres</servlet-name>
+  	<url-pattern>/parametresEncheres</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>profilVendeur</servlet-name>
+  	<jsp-file>/WEB-INF/profilVendeur.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>profilVendeur</servlet-name>
+  	<url-pattern>/profilVendeur</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>modifierProfil</servlet-name>
+  	<jsp-file>/WEB-INF/modifierProfil.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>modifierProfil</servlet-name>
+  	<url-pattern>/modifierProfil</url-pattern>
+  </servlet-mapping>
 </web-app>

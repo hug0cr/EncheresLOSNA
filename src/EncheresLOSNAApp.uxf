@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>6</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>20</x>
+      <y>130</y>
+      <w>110</w>
+      <h>40</h>
+=======
       <x>12</x>
       <y>78</y>
       <w>66</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[JSP]
 modifierProfil</panel_attributes>
@@ -17,9 +24,15 @@ modifierProfil</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
+<<<<<<< HEAD
+      <y>80</y>
+      <w>1190</w>
+      <h>330</h>
+=======
       <y>48</y>
       <w>714</w>
       <h>198</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>IHM</panel_attributes>
     <additional_attributes/>
@@ -27,10 +40,17 @@ modifierProfil</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>170</x>
+      <y>130</y>
+      <w>110</w>
+      <h>40</h>
+=======
       <x>102</x>
       <y>78</y>
       <w>66</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[JSP]
 profilVendeur</panel_attributes>
@@ -39,10 +59,17 @@ profilVendeur</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>300</x>
+      <y>130</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>180</x>
       <y>78</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[JSP]
 parametresEnchere</panel_attributes>
@@ -51,10 +78,17 @@ parametresEnchere</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>460</x>
+      <y>130</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>276</x>
       <y>78</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[JSP]
 detailsEnchere</panel_attributes>
@@ -63,10 +97,17 @@ detailsEnchere</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>620</x>
+      <y>130</y>
+      <w>150</w>
+      <h>40</h>
+=======
       <x>372</x>
       <y>78</y>
       <w>90</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[JSP] HOME
 listeEnchere</panel_attributes>
@@ -75,10 +116,17 @@ listeEnchere</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>830</x>
+      <y>130</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>498</x>
       <y>78</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[JSP]
 Se connecter</panel_attributes>
@@ -87,10 +135,17 @@ Se connecter</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1020</x>
+      <y>130</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>612</x>
       <y>78</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[JSP] HOME
 Créer un compte</panel_attributes>
@@ -99,10 +154,17 @@ Créer un compte</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>760</x>
+      <y>140</y>
+      <w>90</w>
+      <h>30</h>
+=======
       <x>456</x>
       <y>84</y>
       <w>54</w>
       <h>18</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green</panel_attributes>
@@ -111,10 +173,17 @@ fg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>960</x>
+      <y>140</y>
+      <w>80</w>
+      <h>30</h>
+=======
       <x>576</x>
       <y>84</y>
       <w>48</w>
       <h>18</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green</panel_attributes>
@@ -123,10 +192,17 @@ fg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>120</x>
+      <y>140</y>
+      <w>70</w>
+      <h>30</h>
+=======
       <x>72</x>
       <y>84</y>
       <w>42</w>
       <h>18</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green</panel_attributes>
@@ -135,10 +211,17 @@ fg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>10</x>
+      <y>340</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>6</x>
       <y>204</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[SERVLET]
 ModifierProfil</panel_attributes>
@@ -147,10 +230,17 @@ ModifierProfil</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>320</x>
+      <y>340</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>192</x>
       <y>204</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[SERVLET]
 Enchérir</panel_attributes>
@@ -159,10 +249,17 @@ Enchérir</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>160</x>
+      <y>340</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>96</x>
       <y>204</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[SERVLET]
 GestionEnchere</panel_attributes>
@@ -171,10 +268,17 @@ GestionEnchere</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>480</x>
+      <y>340</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>288</x>
       <y>204</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[SERVLET]
 Deconnexion</panel_attributes>
@@ -183,10 +287,17 @@ Deconnexion</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>640</x>
+      <y>340</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>384</x>
       <y>204</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[SERVLET]
 Filtrage</panel_attributes>
@@ -195,10 +306,17 @@ Filtrage</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>800</x>
+      <y>340</y>
+      <w>140</w>
+      <h>40</h>
+=======
       <x>480</x>
       <y>204</y>
       <w>84</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>[SERVLET]
 Connexion</panel_attributes>
@@ -207,10 +325,17 @@ Connexion</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>20</x>
+      <y>160</y>
+      <w>30</w>
+      <h>200</h>
+=======
       <x>12</x>
       <y>96</y>
       <w>18</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red</panel_attributes>
@@ -219,10 +344,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>120</x>
+      <y>160</y>
+      <w>570</w>
+      <h>200</h>
+=======
       <x>72</x>
       <y>96</y>
       <w>342</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red
@@ -232,10 +364,17 @@ Profil supprimé</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>40</x>
+      <y>0</y>
+      <w>80</w>
+      <h>40</h>
+=======
       <x>24</x>
       <y>0</y>
       <w>48</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red
@@ -245,10 +384,17 @@ GET</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>170</x>
+      <y>0</y>
+      <w>180</w>
+      <h>40</h>
+=======
       <x>102</x>
       <y>0</y>
       <w>108</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=black
@@ -258,10 +404,17 @@ Request</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>40</x>
+      <y>40</y>
+      <w>80</w>
+      <h>40</h>
+=======
       <x>24</x>
       <y>24</y>
       <w>48</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green
@@ -271,10 +424,17 @@ POST</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>170</x>
+      <y>40</y>
+      <w>180</w>
+      <h>40</h>
+=======
       <x>102</x>
       <y>24</y>
       <w>108</w>
       <h>24</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=black
@@ -284,10 +444,17 @@ Forward</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>70</x>
+      <y>160</y>
+      <w>140</w>
+      <h>200</h>
+=======
       <x>42</x>
       <y>96</y>
       <w>84</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red
@@ -297,10 +464,17 @@ Profil modifié</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>440</x>
+      <y>160</y>
+      <w>90</w>
+      <h>200</h>
+=======
       <x>264</x>
       <y>96</y>
       <w>54</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red</panel_attributes>
@@ -309,10 +483,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>400</x>
+      <y>160</y>
+      <w>110</w>
+      <h>200</h>
+=======
       <x>240</x>
       <y>96</y>
       <w>66</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red</panel_attributes>
@@ -321,10 +502,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>210</x>
+      <y>160</y>
+      <w>500</w>
+      <h>200</h>
+=======
       <x>126</x>
       <y>96</y>
       <w>300</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red</panel_attributes>
@@ -333,10 +521,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>270</x>
+      <y>160</y>
+      <w>70</w>
+      <h>200</h>
+=======
       <x>162</x>
       <y>96</y>
       <w>42</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red</panel_attributes>
@@ -345,10 +540,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>570</x>
+      <y>160</y>
+      <w>80</w>
+      <h>200</h>
+=======
       <x>342</x>
       <y>96</y>
       <w>48</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green</panel_attributes>
@@ -357,10 +559,17 @@ fg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>590</x>
+      <y>160</y>
+      <w>80</w>
+      <h>200</h>
+=======
       <x>354</x>
       <y>96</y>
       <w>48</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=green</panel_attributes>
@@ -369,10 +578,17 @@ fg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>720</x>
+      <y>160</y>
+      <w>30</w>
+      <h>200</h>
+=======
       <x>432</x>
       <y>96</y>
       <w>18</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red</panel_attributes>
@@ -381,10 +597,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>740</x>
+      <y>160</y>
+      <w>30</w>
+      <h>200</h>
+=======
       <x>444</x>
       <y>96</y>
       <w>18</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red</panel_attributes>
@@ -393,10 +616,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>760</x>
+      <y>150</y>
+      <w>70</w>
+      <h>210</h>
+=======
       <x>456</x>
       <y>90</y>
       <w>42</w>
       <h>126</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red</panel_attributes>
@@ -405,10 +635,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>840</x>
+      <y>160</y>
+      <w>30</w>
+      <h>200</h>
+=======
       <x>504</x>
       <y>96</y>
       <w>18</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red</panel_attributes>
@@ -417,10 +654,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>860</x>
+      <y>160</y>
+      <w>120</w>
+      <h>200</h>
+=======
       <x>516</x>
       <y>96</y>
       <w>72</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red
@@ -430,10 +674,17 @@ Error Password</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>920</x>
+      <y>160</y>
+      <w>30</w>
+      <h>200</h>
+=======
       <x>552</x>
       <y>96</y>
       <w>18</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=green</panel_attributes>
@@ -442,10 +693,17 @@ fg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>900</x>
+      <y>160</y>
+      <w>150</w>
+      <h>200</h>
+=======
       <x>540</x>
       <y>96</y>
       <w>90</w>
       <h>120</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green
@@ -459,10 +717,17 @@ Mot de passe oublié</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>700</x>
+      <y>100</y>
+      <w>360</w>
+      <h>50</h>
+=======
       <x>420</x>
       <y>60</y>
       <w>216</w>
       <h>30</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green</panel_attributes>
@@ -471,10 +736,17 @@ fg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>930</x>
+      <y>160</y>
+      <w>230</w>
+      <h>230</h>
+=======
       <x>558</x>
       <y>96</y>
       <w>138</w>
       <h>138</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=red</panel_attributes>
@@ -483,10 +755,17 @@ fg=red</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>930</x>
+      <y>160</y>
+      <w>260</w>
+      <h>210</h>
+=======
       <x>558</x>
       <y>96</y>
       <w>156</w>
       <h>126</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;-
 fg=red
@@ -496,10 +775,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1220</x>
+      <y>100</y>
+      <w>560</w>
+      <h>780</h>
+=======
       <x>732</x>
       <y>60</y>
       <w>336</w>
       <h>468</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>BO</panel_attributes>
     <additional_attributes/>
@@ -508,9 +794,15 @@ Error input</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
+<<<<<<< HEAD
+      <y>500</y>
+      <w>1190</w>
+      <h>330</h>
+=======
       <y>300</y>
       <w>714</w>
       <h>198</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>BLL</panel_attributes>
     <additional_attributes/>
@@ -519,9 +811,15 @@ Error input</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>0</x>
+<<<<<<< HEAD
+      <y>870</y>
+      <w>1380</w>
+      <h>370</h>
+=======
       <y>522</y>
       <w>828</w>
       <h>222</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>DAL</panel_attributes>
     <additional_attributes/>
@@ -529,10 +827,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>20</x>
+      <y>920</y>
+      <w>260</w>
+      <h>120</h>
+=======
       <x>12</x>
       <y>552</y>
       <w>156</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>**DAOFactory**
 --
@@ -546,10 +851,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>700</x>
+      <y>910</y>
+      <w>260</w>
+      <h>130</h>
+=======
       <x>420</x>
       <y>546</y>
       <w>156</w>
       <h>78</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 *DAO&lt;T&gt;*
@@ -564,10 +876,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>110</x>
+      <y>1100</y>
+      <w>200</w>
+      <h>120</h>
+=======
       <x>66</x>
       <y>660</y>
       <w>120</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*CategorieDAOJdbcImpl*
 --
@@ -581,10 +900,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>350</x>
+      <y>1100</y>
+      <w>210</w>
+      <h>120</h>
+=======
       <x>210</x>
       <y>660</y>
       <w>126</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*UtilisateurDAOJdbcImpl*
 --
@@ -598,10 +924,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>600</x>
+      <y>1100</y>
+      <w>230</w>
+      <h>120</h>
+=======
       <x>360</x>
       <y>660</y>
       <w>138</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*ArticleVenduDAOJdbcImpl*
 --
@@ -615,10 +948,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>860</x>
+      <y>1100</y>
+      <w>220</w>
+      <h>120</h>
+=======
       <x>516</x>
       <y>660</y>
       <w>132</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*RetraitDAOJdbcImpl*
 --
@@ -632,10 +972,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1120</x>
+      <y>1100</y>
+      <w>220</w>
+      <h>120</h>
+=======
       <x>672</x>
       <y>660</y>
       <w>132</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*EnchereDAOJdbcImpl*
 --
@@ -649,10 +996,17 @@ Error input</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>270</x>
+      <y>1030</y>
+      <w>560</w>
+      <h>90</h>
+=======
       <x>162</x>
       <y>618</y>
       <w>336</w>
       <h>54</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;40.0;540.0;40.0;540.0;10.0</additional_attributes>
@@ -660,10 +1014,17 @@ Error input</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>370</x>
+      <y>1030</y>
+      <w>460</w>
+      <h>90</h>
+=======
       <x>222</x>
       <y>618</y>
       <w>276</w>
       <h>54</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;40.0;440.0;40.0;440.0;10.0</additional_attributes>
@@ -671,10 +1032,17 @@ Error input</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>800</x>
+      <y>1030</y>
+      <w>30</w>
+      <h>90</h>
+=======
       <x>480</x>
       <y>618</y>
       <w>18</w>
       <h>54</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -682,10 +1050,17 @@ Error input</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>800</x>
+      <y>1030</y>
+      <w>170</w>
+      <h>90</h>
+=======
       <x>480</x>
       <y>618</y>
       <w>102</w>
       <h>54</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>150.0;70.0;150.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
@@ -693,10 +1068,17 @@ Error input</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>800</x>
+      <y>1030</y>
+      <w>370</w>
+      <h>90</h>
+=======
       <x>480</x>
       <y>618</y>
       <w>222</w>
       <h>54</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>350.0;70.0;350.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
@@ -704,10 +1086,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>20</x>
+      <y>550</y>
+      <w>200</w>
+      <h>120</h>
+=======
       <x>12</x>
       <y>330</y>
       <w>120</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*UtilisateurManager*
 --
@@ -721,10 +1110,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>240</x>
+      <y>550</y>
+      <w>200</w>
+      <h>120</h>
+=======
       <x>144</x>
       <y>330</y>
       <w>120</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*EnchereManager*
 --
@@ -738,10 +1134,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>460</x>
+      <y>550</y>
+      <w>200</w>
+      <h>120</h>
+=======
       <x>276</x>
       <y>330</y>
       <w>120</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*ArticleVenduManager*
 --
@@ -755,10 +1158,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>670</x>
+      <y>550</y>
+      <w>200</w>
+      <h>120</h>
+=======
       <x>402</x>
       <y>330</y>
       <w>120</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*RetraitManager*
 --
@@ -772,10 +1182,17 @@ Error input</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>890</x>
+      <y>550</y>
+      <w>200</w>
+      <h>120</h>
+=======
       <x>534</x>
       <y>330</y>
       <w>120</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>*CategorieManager*
 --
@@ -789,10 +1206,17 @@ Error input</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>560</x>
+      <y>100</y>
+      <w>100</w>
+      <h>50</h>
+=======
       <x>336</x>
       <y>60</y>
       <w>60</w>
       <h>30</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 fg=green</panel_attributes>
@@ -801,10 +1225,17 @@ fg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1230</x>
+      <y>130</y>
+      <w>210</w>
+      <h>230</h>
+=======
       <x>738</x>
       <y>78</y>
       <w>126</w>
       <h>138</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>Utilisateur
 --
@@ -815,7 +1246,7 @@ fg=green</panel_attributes>
 - email: String
 - telephone: String
 - rue; String
-- codePostal: Long
+- codePostal: int
 - ville: String
 - motDePasse: String
 - credit: int
@@ -825,10 +1256,17 @@ fg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1240</x>
+      <y>350</y>
+      <w>70</w>
+      <h>150</h>
+=======
       <x>744</x>
       <y>210</y>
       <w>42</w>
       <h>90</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -839,10 +1277,17 @@ achete</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1230</x>
+      <y>480</y>
+      <w>210</w>
+      <h>230</h>
+=======
       <x>738</x>
       <y>288</y>
       <w>126</w>
       <h>138</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>ArticleVendu
 --
@@ -859,10 +1304,17 @@ achete</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1320</x>
+      <y>350</y>
+      <w>60</w>
+      <h>150</h>
+=======
       <x>792</x>
       <y>210</y>
       <w>36</w>
       <h>90</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -873,10 +1325,17 @@ vend</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1540</x>
+      <y>200</y>
+      <w>210</w>
+      <h>230</h>
+=======
       <x>924</x>
       <y>120</y>
       <w>126</w>
       <h>138</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>Enchere
 --
@@ -887,10 +1346,17 @@ vend</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1430</x>
+      <y>180</y>
+      <w>150</w>
+      <h>50</h>
+=======
       <x>858</x>
       <y>108</y>
       <w>90</w>
       <h>30</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -901,10 +1367,17 @@ enchérit</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1430</x>
+      <y>390</y>
+      <w>140</w>
+      <h>170</h>
+=======
       <x>858</x>
       <y>234</y>
       <w>84</w>
       <h>102</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=-
 m1=*
@@ -915,10 +1388,17 @@ concerne</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1560</x>
+      <y>470</y>
+      <w>210</w>
+      <h>70</h>
+=======
       <x>936</x>
       <y>282</y>
       <w>126</w>
       <h>42</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>Categorie
 --
@@ -929,10 +1409,17 @@ concerne</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1430</x>
+      <y>530</y>
+      <w>150</w>
+      <h>140</h>
+=======
       <x>858</x>
       <y>318</y>
       <w>90</w>
       <h>84</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -943,10 +1430,17 @@ CategorieArticle</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1560</x>
+      <y>590</y>
+      <w>210</w>
+      <h>230</h>
+=======
       <x>936</x>
       <y>354</y>
       <w>126</w>
       <h>138</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>Retrait
 --
@@ -958,10 +1452,17 @@ CategorieArticle</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
+<<<<<<< HEAD
+      <x>1370</x>
+      <y>700</y>
+      <w>210</w>
+      <h>120</h>
+=======
       <x>822</x>
       <y>420</y>
       <w>126</w>
       <h>72</h>
+>>>>>>> refs/remotes/origin/bo
     </coordinates>
     <panel_attributes>lt=-
 m1=1
