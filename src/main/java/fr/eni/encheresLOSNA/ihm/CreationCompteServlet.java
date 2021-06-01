@@ -25,6 +25,13 @@ public class CreationCompteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("./listeEncheres");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String prenom = request.getParameter("prenom");
 		String nom = request.getParameter("nom");
 		String pseudo = request.getParameter("pseudo");
@@ -39,10 +46,12 @@ public class CreationCompteServlet extends HttpServlet {
 		
 		UtilisateurManager userMgr = UtilisateurManager.getInstance();
 		RequestDispatcher compteOK = request.getRequestDispatcher("./listeEncheres");
-		RequestDispatcher conpteNotOK = request.getRequestDispatcher("./creerCompte?type=error");
+		RequestDispatcher compteNotOK = request.getRequestDispatcher("./creerCompte");
 		
 		
 		if (!motDePasse.equals(confirmation)) {
+			request.setAttribute("motDePasse", "notOK");
+			compteNotOK.forward(request, response);
 		} else {
 			Utilisateur user = new Utilisateur(pseudo, nom, prenom, mail, phone, rue, codePostal, ville, motDePasse, 0, false);
 			try {
@@ -51,17 +60,8 @@ public class CreationCompteServlet extends HttpServlet {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
+			compteOK.forward(request, response);
 		}
-		
-		compteOK.forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 	
