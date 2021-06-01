@@ -10,7 +10,7 @@
 	<%@ include file="./component/header.jspf" %>
 	
 	<h1>Mon profil</h1>
-	<form action="./CreationCompteServlet" method="post">
+	<form action="./ProfilServlet?type=crea" method="post">
 		<label for="prenom">Prénom : </label>
 		<input type="text" name="prenom" placeholder="Votre prénom" required>
 		<label for="nom">Nom : </label>

@@ -71,7 +71,7 @@ public class UtilisateurManager {
 	 * @param utilisateur
 	 * @throws BLLException
 	 */
-	public void updateArticle(Utilisateur utilisateur) throws BLLException {
+	public void updateUtilisateur(Utilisateur utilisateur) throws BLLException {
 		try {
 			validerUtilisateur(utilisateur);
 			utilisateurDAO.update(utilisateur);
@@ -86,7 +86,7 @@ public class UtilisateurManager {
 	 * @param utilisateur
 	 * @throws BLLException
 	 */
-	public void removeArticle(Utilisateur utilisateur) throws BLLException{
+	public void removeUtilisateur(Utilisateur utilisateur) throws BLLException{
 		try {
 			utilisateurDAO.delete(utilisateur);
 		} catch (DALException e) {

@@ -25,12 +25,12 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>creerCompte</servlet-name>
-  	<jsp-file>/WEB-INF/creerCompte.jsp</jsp-file>
+  	<servlet-name>creerProfil</servlet-name>
+  	<jsp-file>/WEB-INF/creerProfil.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>creerCompte</servlet-name>
-  	<url-pattern>/creerCompte</url-pattern>
+  	<servlet-name>creerProfil</servlet-name>
+  	<url-pattern>/creerProfil</url-pattern>
   </servlet-mapping>
   
   <servlet>
