@@ -11,7 +11,7 @@ import java.util.List;
  * @date 1 juin 2021 - 08:54:35
  */
 public class Utilisateur {
-	private int noUtilisateur;
+	private Integer noUtilisateur;
 	private String pseudo;
 	private String nom;
 	private String prenom;
@@ -21,8 +21,8 @@ public class Utilisateur {
 	private String codePostal;
 	private String ville;
 	private String motDePasse;
-	private int credit;
-	private boolean administrateur;
+	private Integer credit;
+	private Boolean administrateur;
 	
 	private List<ArticleVendu> listeAchats;
 	private List<ArticleVendu> listeVentes;
@@ -38,16 +38,49 @@ public class Utilisateur {
 	//Getters & Setters
 
 	/**
+	 * Constructeur sans les listes
+	 * @param noUtilisateur
+	 * @param pseudo
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param telephone
+	 * @param rue
+	 * @param codePostal
+	 * @param ville
+	 * @param motDePasse
+	 * @param credit
+	 * @param administrateur
+	 */
+	public Utilisateur(Integer noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			String codePostal, String ville, String motDePasse, Integer credit, Boolean administrateur) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+		this.administrateur = administrateur;
+
+	}
+
+	/**
 	 * @return the noUtilisateur
 	 */
-	public int getNoUtilisateur() {
+	public Integer getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
 	/**
 	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setNoUtilisateur(int noUtilisateur) {
+	public void setNoUtilisateur(Integer noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
@@ -180,28 +213,28 @@ public class Utilisateur {
 	/**
 	 * @return the credit
 	 */
-	public int getCredit() {
+	public Integer getCredit() {
 		return credit;
 	}
 
 	/**
 	 * @param credit the credit to set
 	 */
-	public void setCredit(int credit) {
+	public void setCredit(Integer credit) {
 		this.credit = credit;
 	}
 
 	/**
 	 * @return the administrateur
 	 */
-	public boolean isAdministrateur() {
+	public Boolean isAdministrateur() {
 		return administrateur;
 	}
 
 	/**
 	 * @param administrateur the administrateur to set
 	 */
-	public void setAdministrateur(boolean administrateur) {
+	public void setAdministrateur(Boolean administrateur) {
 		this.administrateur = administrateur;
 	}
 
