@@ -49,7 +49,7 @@ public class UtilisateurManager {
 	 * @throws BLLException
 	 */
 	public void addUtilisateur(Utilisateur newUtilisateur) throws BLLException {
-		if(newUtilisateur.getNoUtilisateur() != null){
+		if(newUtilisateur.getNoUtilisateur() != null) {
 			throw new BLLException("Utilisateur déjà existant.");
 		}
 		try {

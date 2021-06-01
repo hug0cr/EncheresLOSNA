@@ -3,8 +3,7 @@
  */
 package fr.eni.encheresLOSNA.bll;
 
-import fr.eni.encheresLOSNA.bo.Categorie;
-import fr.eni.encheresLOSNA.dal.DAO;
+import fr.eni.encheresLOSNA.dal.CategorieDAO;
 import fr.eni.encheresLOSNA.dal.DAOFactory;
 
 /**
@@ -13,7 +12,8 @@ import fr.eni.encheresLOSNA.dal.DAOFactory;
  */
 public class CategorieManager {
 
-	private DAO<Categorie> categorieDAO;
+	
+	private CategorieDAO categorieDAO;
 	private static CategorieManager instance = null;
 	
 	public static CategorieManager getInstance() {

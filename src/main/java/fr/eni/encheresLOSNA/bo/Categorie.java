@@ -11,7 +11,7 @@ import java.util.List;
  * @date 1 juin 2021 - 09:47:20
  */
 public class Categorie {
-	private int noCategorie;
+	private Integer noCategorie;
 	private String libelle;
 	
 	private List<ArticleVendu> listeArticles;
@@ -28,14 +28,14 @@ public class Categorie {
 	/**
 	 * @return the noCategorie
 	 */
-	public int getNoCategorie() {
+	public Integer getNoCategorie() {
 		return noCategorie;
 	}
 
 	/**
 	 * @param noCategorie the noCategorie to set
 	 */
-	public void setNoCategorie(int noCategorie) {
+	public void setNoCategorie(Integer noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
