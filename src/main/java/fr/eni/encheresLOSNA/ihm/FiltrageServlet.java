@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.encheresLOSNA.bll.CategorieManager;
+import fr.eni.encheresLOSNA.bll.EnchereManager;
 import fr.eni.encheresLOSNA.bo.Enchere;
 
 /**
@@ -33,7 +35,20 @@ public class FiltrageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String categorie = (String) request.getAttribute("categorie");
 		String motCle = (String) request.getAttribute("nomArticle");
+		EnchereManager enchereMgr = EnchereManager.getInstance();
 		
+		List<Enchere> lesEncheresByKW = enchereMgr.getEncheresByKW(motCle);
+		List<Enchere> lesEncheresByCategorie = enchereMgr.getEncheresByCategorie(categorie);
+		Enchere[] enchereToPrint = new Enchere[lesEncheresByCategorie.size()];
+		int i = 0;
+		
+		for (Enchere enchere : lesEncheresByCategorie) {
+			if (lesEncheresByKW.contains(enchere)) {
+				enchereToPrint[i] = enchere;
+				i++;
+			}
+		}
+		request.setAttribute("lesEncheres", enchereToPrint);
 		doGet(request, response);
 	}
 

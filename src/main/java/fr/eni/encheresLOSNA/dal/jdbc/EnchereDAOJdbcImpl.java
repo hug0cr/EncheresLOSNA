@@ -7,6 +7,7 @@ import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.Enchere;
 import fr.eni.encheresLOSNA.dal.DAO;
+import fr.eni.encheresLOSNA.dal.EnchereDAO;
 
 
 /**
@@ -14,7 +15,7 @@ import fr.eni.encheresLOSNA.dal.DAO;
  * @version EncheresLOSNA - V1.0
  * @date 1 juin 2021 - 11:04:17
  */
-public class EnchereDAOJdbcImpl implements DAO<Enchere> {
+public class EnchereDAOJdbcImpl implements DAO<Enchere>, EnchereDAO {
 
 	/**
 	 * {@inheritDoc}
@@ -54,6 +55,16 @@ public class EnchereDAOJdbcImpl implements DAO<Enchere> {
 	@Override
 	public void delete(Enchere t) {
 		
+	}
+
+	@Override
+	public List<Enchere> selectByKW(String kw) {
+		return null;
+	}
+
+	@Override
+	public List<Enchere> selectByCategorie(String categorie) {
+		return null;
 	}
 
 }
