@@ -25,7 +25,7 @@ public class DAOFactory {
 		return new CategorieDAOJdbcImpl();
 	}
 	
-	public static DAO<Utilisateur> getUtilisateurDAO(){
+	public static UtilisateurDAO getUtilisateurDAO(){
 		return new UtilisateurDOAJdbcImpl();
 	}
 	

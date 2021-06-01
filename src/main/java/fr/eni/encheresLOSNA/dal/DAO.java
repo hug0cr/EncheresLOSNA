@@ -11,9 +11,9 @@ import java.util.List;
  * @date 1 juin 2021 - 10:27:23
  */
 public interface DAO<T> {
-	public void insert(T t);
-	public void update(T t);
-	public T selectById(int id);
-	public List<T> selectAll();
-	public void delete(T t);
+	public void insert(T t) throws DALException;
+	public void update(T t) throws DALException;
+	public T selectById(int id) throws DALException;
+	public List<T> selectAll() throws DALException;
+	public void delete(T t) throws DALException;
 }
