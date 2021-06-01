@@ -11,7 +11,7 @@
 	<%@ include file="./component/header.jspf" %>
 	<h1>Liste des enchères</h1>
 	<h2>Filtres :</h2>
-	<form action="/FiltrageServlet" method="post">
+	<form action="./FiltrageServlet" method="post">
 		<input type="text" name="nomArticle" placeholder="Le nom de l'article contient...">
 		<label for="categorie">Catégorie</label>
 		<select name="categorie">
