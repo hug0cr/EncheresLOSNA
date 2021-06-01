@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.encheresLOSNA.bo.Enchere;
+
 /**
  * Servlet implementation class FiltrageServlet
  */
@@ -31,7 +33,6 @@ public class FiltrageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String categorie = (String) request.getAttribute("categorie");
 		String motCle = (String) request.getAttribute("nomArticle");
-		List<Enchere> = 
 		
 		doGet(request, response);
 	}
