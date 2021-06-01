@@ -14,7 +14,7 @@ public class Categorie {
 	private int noCategorie;
 	private String libelle;
 	
-	private List<ArticleVendu> listeAriticles;
+	private List<ArticleVendu> listeArticles;
 
 	/**
 	 * Constructeur
@@ -57,14 +57,14 @@ public class Categorie {
 	 * @return the listeAriticles
 	 */
 	public List<ArticleVendu> getListeAriticles() {
-		return listeAriticles;
+		return listeArticles;
 	}
 
 	/**
 	 * @param listeAriticles the listeAriticles to set
 	 */
 	public void setListeAriticles(List<ArticleVendu> listeAriticles) {
-		this.listeAriticles = listeAriticles;
+		this.listeArticles = listeAriticles;
 	}
 	
 	

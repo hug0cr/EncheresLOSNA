@@ -27,7 +27,7 @@ public class Utilisateur {
 	private List<ArticleVendu> listeAchats;
 	private List<ArticleVendu> listeVentes;
 	private List<Enchere> listeEncheres;
-	
+
 	/**
 	 * Constructeur
 	 */
