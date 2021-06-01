@@ -17,13 +17,19 @@ import fr.eni.encheresLOSNA.dal.UtilisateurDAO;
  */
 public class UtilisateurManager {
 	
+	private static UtilisateurManager instance;
 	private static UtilisateurDAO utilisateurDAO;
+	
+	public static UtilisateurManager getInstance() {
+		if (instance == null) instance = new UtilisateurManager();
+		return instance;
+	}
 	
 	/**
 	 * Constructeur
 	 * @throws BLLException
 	 */
-	public UtilisateurManager() throws BLLException {
+	private UtilisateurManager() {
 		utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
 	
