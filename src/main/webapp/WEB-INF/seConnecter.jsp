@@ -21,6 +21,8 @@
 	<a href="./motDePasseOublie">Mot de passe oublié</a>
 	</form>
 	
+	<p><a href="./creerCompte">Créer un compte</a></p>
+	
 	<%@ include file="./component/footer.jspf" %>
 </body>
 </html>
