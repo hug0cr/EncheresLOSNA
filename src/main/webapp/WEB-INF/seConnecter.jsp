@@ -14,7 +14,7 @@
 	<label for="id">Identifiant</label>
 	<input type="text" name="id">
 	<label for="mdp">Mot de passe</label>
-	<input type="text" name="mdp">
+	<input type="password" name="mdp">
 	<input type="checkbox" name="seSouvenirDeMoi">
 	<label for="seSouvenirDeMoi">Se souvenir de moi</label>
 	<button type="submit">Connexion</button>

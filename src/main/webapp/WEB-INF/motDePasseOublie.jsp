@@ -10,8 +10,8 @@
 </head>
 <body>
     <form action="./ConnexionServlet" method="POST">
-        <label for="mail">Votre email</label>
-        <input type="email" name="mail" required autofocus>
+        <label for="mailOubli">Votre email</label>
+        <input type="email" name="mailOubli" required autofocus>
         <button type="submit">Envoyer</button>
     </form>
 </body>

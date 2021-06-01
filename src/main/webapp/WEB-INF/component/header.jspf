@@ -1,4 +1,4 @@
 <header>
 	<p>Enchères LOSNA</p>
-	<p><a href="./ConnexionServlet">S'inscrire - Se Connecter</a></p>
+	<p><a href="./seConnecter">S'inscrire - Se Connecter</a></p>
 </header>

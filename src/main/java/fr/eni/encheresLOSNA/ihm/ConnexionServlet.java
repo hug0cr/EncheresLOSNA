@@ -35,13 +35,17 @@ public class ConnexionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("mail") != null) {
-			
+		if (request.getParameter("mailOubli") != null) {
+			System.out.println("Envoi de mail");
 			// Envoi du mail
+			doGet(request, response);
 			
-		} else throw new ServletException("Mot de passe oublié - Mauvais e-mail");
+		} else {
+			System.out.println("On vérifie la connexion");
+			if (request.getParameter("seSouvenirDeMoi") != null) System.out.println("On doit se souvenir");
+			else System.out.println("On ne doit pas se souvenir");
+		}
 		
-		doGet(request, response);
 	}
 
 }
