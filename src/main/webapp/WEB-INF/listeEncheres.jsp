@@ -18,7 +18,17 @@
 			<option value="all" selected>Toutes</option>
 			<!-- Ajouter dynamiquement les <option> en fonction de la table Categorie -->
 		</select>
+		<button type="submit">Rechercher</button>
 	</form>
+	<section id="liste-encheres">
+		<div class="enchere">
+			<img alt="une image" src="">
+			<h4><a>Titre de l'annonce</a></h4>
+			<p>Prix : 210 points</p>
+			<p>Fin de l'enchère : 10/08/2021</p>
+			<p>Vendeur : <a>jojo44</a></p>
+		</div>
+	</section>
 	<%@ include file="./component/footer.jspf" %>
 </body>
 </html>
