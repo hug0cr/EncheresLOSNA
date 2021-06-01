@@ -68,4 +68,15 @@
   	<servlet-name>modifierProfil</servlet-name>
   	<url-pattern>/modifierProfil</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>motDePasseOublie</servlet-name>
+  	<jsp-file>/WEB-INF/motDePasseOublie.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>motDePasseOublie</servlet-name>
+  	<url-pattern>/motDePasseOublie</url-pattern>
+  </servlet-mapping>
+  
+
 </web-app>

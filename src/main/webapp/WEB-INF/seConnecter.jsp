@@ -10,7 +10,7 @@
 	<%@ include file="./component/header.jspf" %>
 	
 	<h1>Se connecter</h1>
-	<form action="/ConnexionServlet" method="post">
+	<form action="./ConnexionServlet" method="post">
 	<label for="id">Identifiant</label>
 	<input type="text" name="id">
 	<label for="mdp">Mot de passe</label>
@@ -18,7 +18,7 @@
 	<input type="checkbox" name="seSouvenirDeMoi">
 	<label for="seSouvenirDeMoi">Se souvenir de moi</label>
 	<button type="submit">Connexion</button>
-	<a href="/ConnexionServlet?type=oubliMDP&email=false">Mot de passe oublié</a>
+	<a href="./motDePasseOublie">Mot de passe oublié</a>
 	</form>
 	
 	<%@ include file="./component/footer.jspf" %>
