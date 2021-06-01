@@ -4,9 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Les Objets Sont Nos Amis - Liste des enchères</title>
+<meta name="description" content="Découvrez les enchères « Les objets sont nos amis » ! Une plateforme web pour permettre la cession d’objets de seconde main sans transaction financière.">
 </head>
 <body>
-
+	<%@ include file="./component/header.jspf" %>
+	<h1>Liste des enchères</h1>
+	<h2>Filtres :</h2>
+	<form action="/FiltrageServlet" method="post">
+		<input type="text" name="nomArticle" placeholder="Le nom de l'article contient...">
+		<label for="categorie">Catégorie</label>
+		<select name="categorie">
+			<option value="all" selected>Toutes</option>
+			<!-- Ajouter dynamiquement les <option> en fonction de la table Categorie -->
+		</select>
+	</form>
+	<%@ include file="./component/footer.jspf" %>
 </body>
 </html>

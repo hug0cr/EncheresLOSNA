@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%@ include file="./component/header.jspf" %>
+	<%@ include file="./component/footer.jspf" %>
 </body>
 </html>
