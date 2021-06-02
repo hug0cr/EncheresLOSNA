@@ -35,6 +35,40 @@ public class UtilisateurManager {
 	
 	/**
 	 * Methode en charge de
+	 * @param id
+	 * @return
+	 * @throws BLLException
+	 */
+	public Utilisateur getUtilisateurById(int id) throws BLLException {
+		Utilisateur u = null;
+		try {
+			u = utilisateurDAO.selectById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération utilisateur", e);
+		}
+		return u;
+	}
+	
+	/**
+	 * Methode en charge de
+	 * @param email
+	 * @return
+	 * @throws BLLException
+	 */
+	public Utilisateur getUtilisateurByEmail(String email) throws BLLException {
+		Utilisateur u = null;
+		try {
+			u = utilisateurDAO.selectByEmail(email);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération utilisateur", e);
+		}
+		return u;
+	}
+	
+	/**
+	 * Methode en charge de
 	 * @return
 	 * @throws BLLException
 	 */
@@ -44,7 +78,7 @@ public class UtilisateurManager {
 			utilisateurs = utilisateurDAO.selectAll();
 		} catch (DALException e) {
 			e.printStackTrace();
-			throw new BLLException("Erreur récupération catalogue", e);
+			throw new BLLException("Erreur récupération utilisateur", e);
 		}
 		return utilisateurs;
 	}

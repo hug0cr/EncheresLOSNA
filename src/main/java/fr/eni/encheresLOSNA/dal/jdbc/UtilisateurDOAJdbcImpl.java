@@ -51,6 +51,21 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			+ "administrateur "
 			+ "FROM UTILISATEURS WHERE no_utilisateur=?;";
 	
+	private final String SELECT_BY_EMAIL = "SELECT "
+			+ "no_utilisateur, "
+			+ "pseudo, "
+			+ "nom, "
+			+ "prenom, "
+			+ "email, "
+			+ "telephone, "
+			+ "rue, "
+			+ "code_postal, "
+			+ "ville, "
+			+ "mot_de_passe, "
+			+ "credit, "
+			+ "administrateur "
+			+ "FROM UTILISATEURS WHERE email=?;";
+	
 	private final String UPDATE = "UPDATE UTILISATEURS SET "
 			+ "pseudo=?, "
 			+ "nom=?, "
@@ -245,6 +260,41 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 		} catch (Exception e) {
 			e.getMessage();
 		}	
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * @throws DALException 
+	 */
+	@Override
+	public Utilisateur selectByEmail(String email) throws DALException {
+		Utilisateur u = null;
+		
+		try {
+			
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_BY_EMAIL);
+			
+			stmt.setString(1, email);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				
+				u = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), 
+						rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), 
+						rs.getString("telephone"), rs.getString("rue"), 
+						rs.getString("code_postal"), rs.getString("ville"), 
+						rs.getString("mot_de_passe"), rs.getInt("credit"),
+						rs.getBoolean("administrateur"));
+			}
+			
+			stmt.close();
+			//JdbcTools.closeConnection();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select by ID error");
+		}	
+		return u;
 	}
 
 }

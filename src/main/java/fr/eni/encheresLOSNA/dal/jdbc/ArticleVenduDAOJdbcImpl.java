@@ -19,6 +19,7 @@ import fr.eni.encheresLOSNA.dal.DALException;
  * @author hug0cr
  * @version EncheresLOSNA - V1.0
  * @date 1 juin 2021 - 11:07:47
+ * Voir ensemble comment gérer état vente
  */
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	
@@ -72,7 +73,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			stmt = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
 			
 			stmt.setString(1, t.getNomArticle());
@@ -81,8 +82,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			stmt.setDate(4, t.getDateFinEncheres());
 			stmt.setFloat(5, t.getMiseAPrix());
 			stmt.setFloat(6, t.getPrixVente());
-			stmt.setInt(7, t.getVendeur().getNoUtilisateur());
-			stmt.setInt(8, t.getCategorieArticle().getNoCategorie());
+			stmt.setInt(7, t.getNoUtilisateur());
+			stmt.setInt(8, t.getNoCategorie());
 			
 			int rowsAffected = stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
@@ -92,7 +93,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			}
 				
 			stmt.close();
-			JdbcTools.closeConnection();		
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Insert error");
 		} catch (Exception e) {
@@ -109,7 +111,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			stmt = con.prepareStatement(UPDATE);
 			
 			stmt.setString(1, t.getNomArticle());
@@ -118,8 +120,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			stmt.setDate(4, t.getDateFinEncheres());
 			stmt.setFloat(5, t.getMiseAPrix());
 			stmt.setFloat(6, t.getPrixVente());
-			stmt.setInt(7, t.getVendeur().getNoUtilisateur());
-			stmt.setInt(8, t.getCategorieArticle().getNoCategorie());
+			stmt.setInt(7, t.getNoUtilisateur());
+			stmt.setInt(8, t.getNoCategorie());
 			stmt.setInt(9, t.getNoArticle());
 			
 			int rowsAffected = stmt.executeUpdate();
@@ -127,7 +129,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			System.out.println(rowsAffected + " ligne modifiée");
 			
 			stmt.close();
-			JdbcTools.closeConnection();
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Update error");
 		} catch (Exception e) {
@@ -145,24 +148,23 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		
 		try {
 			
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID);
 			
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
-				//TODO récupère l'objet Utilisateur et Categorie ?
-//				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
-//						rs.getString("description"), rs.getDate("date_debut_encheres"), 
-//						rs.getDate("date_fin_encheres"), rs.getFloat("prix_initial"), 
-//						rs.getFloat("prix_vente"), rs.getInt("no_utilisateur"), 
-//						rs.getInt("no_categorie"));
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+						rs.getString("description"), rs.getDate("date_debut_encheres"), 
+						rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), 
+						rs.getInt("prix_vente"), rs.getString("etat_vente"),
+						rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));
 			}
 			
 			stmt.close();
-			JdbcTools.closeConnection();
-			
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select by ID error");
 		}	
@@ -180,22 +182,22 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		ArticleVendu a = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(SELECT_ALL);
 			
 			while (rs.next()) {
-//				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
-//				rs.getString("description"), rs.getDate("date_debut_encheres"), 
-//				rs.getDate("date_fin_encheres"), rs.getFloat("prix_initial"), 
-//				rs.getFloat("prix_vente"), rs.getInt("no_utilisateur"), 
-//				rs.getInt("no_categorie"));			
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+				rs.getString("description"), rs.getDate("date_debut_encheres"), 
+				rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), 
+				rs.getInt("prix_vente"), rs.getString("etat_vente"),
+				rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
 				listeArticlesVendus.add(a);
 			}
 			
 			stmt.close();
-			JdbcTools.closeConnection();
-			
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select all error");
 		}			
@@ -211,7 +213,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			stmt = con.prepareStatement(DELETE);
 			stmt.setInt(1, t.getNoArticle());
 			
@@ -220,8 +222,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			System.out.println(rowsAffected + " ligne supprimée");
 			
 			stmt.close();
-			JdbcTools.closeConnection();
-			
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Delete error");
 		} catch (Exception e) {

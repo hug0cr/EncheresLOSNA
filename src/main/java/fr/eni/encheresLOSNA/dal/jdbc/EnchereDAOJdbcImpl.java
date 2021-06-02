@@ -15,7 +15,7 @@ import fr.eni.encheresLOSNA.dal.EnchereDAO;
  * @version EncheresLOSNA - V1.0
  * @date 1 juin 2021 - 11:04:17
  */
-public class EnchereDAOJdbcImpl implements DAO<Enchere>, EnchereDAO {
+public class EnchereDAOJdbcImpl implements EnchereDAO {
 	//TODO continuer ici
 	private static final String SELECT_BY_CATEGORIE = "SELECT no_utilisateur, no_article, date_enchere, montant_enchere FROM ENCHERES WHERE marque = ?";
 	/**
@@ -56,16 +56,6 @@ public class EnchereDAOJdbcImpl implements DAO<Enchere>, EnchereDAO {
 	@Override
 	public void delete(Enchere t) {
 		
-	}
-
-	@Override
-	public List<Enchere> selectByKW(String kw) {
-		return null;
-	}
-
-	@Override
-	public List<Enchere> selectByCategorie(String categorie) {
-		return null;
 	}
 
 }

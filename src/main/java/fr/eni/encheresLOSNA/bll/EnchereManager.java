@@ -28,11 +28,11 @@ public class EnchereManager {
 		this.enchereDAO = DAOFactory.getEnchereDAO();
 	}
 	
-	public List<Enchere> getEncheresByKW(String keyWord){
-		return this.enchereDAO.selectByKW(keyWord);
-	}
-	
-	public List<Enchere> getEncheresByCategorie(String categorie){
-		return this.enchereDAO.selectByCategorie(categorie);
-	}
+//	public List<Enchere> getEncheresByKW(String keyWord){
+//		return this.enchereDAO.selectByKW(keyWord);
+//	}
+//	
+//	public List<Enchere> getEncheresByCategorie(String categorie){
+//		return this.enchereDAO.selectByCategorie(categorie);
+//	}
 }
