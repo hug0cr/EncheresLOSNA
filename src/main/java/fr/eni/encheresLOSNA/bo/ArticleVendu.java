@@ -4,7 +4,6 @@
 package fr.eni.encheresLOSNA.bo;
 
 import java.sql.Date;
-import java.util.List;
 
 /**
  * @author hug0cr
@@ -17,15 +16,14 @@ public class ArticleVendu {
 	private String description;
 	private Date dateDebutEncheres;
 	private Date dateFinEncheres;
-	private float miseAPrix;
-	private float prixVente;
+	private Integer miseAPrix;
+	private Integer prixVente;
 	private String etatVente;
-	
-	//private Utilisateur acheteur;
-	private Utilisateur vendeur;
-	private Retrait lieuRetrait;
-	private Categorie categorieArticle;
-	private List<Enchere> listeEncheres;
+
+	private Integer noUtilisateur;
+	//private Retrait lieuRetrait;
+	private Integer noCategorie;
+	//private List<Enchere> listeEncheres;
 	
 	/**
 	 * Constructeur
@@ -34,7 +32,67 @@ public class ArticleVendu {
 		super();
 	}
 	
+	/**
+	 * Constructeur
+	 * @param noArticle
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebutEncheres
+	 * @param dateFinEncheres
+	 * @param miseAPrix
+	 * @param prixVente
+	 * @param etatVente -> enlever pour le moment
+	 * @param noUtilisateur
+	 * @param noCategorie
+	 */
+	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
+			Date dateFinEncheres, Integer miseAPrix, Integer prixVente,/* String etatVente, */Integer noUtilisateur,
+			Integer noCategorie) {
+		super();
+		this.noArticle = noArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		//this.etatVente = etatVente;
+		this.noUtilisateur = noUtilisateur;
+		this.noCategorie = noCategorie;
+	}
+
+
+
 	// Getters & Setters
+
+	/**
+	 * Constructeur
+	 * @param noArticle
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebutEncheres
+	 * @param dateFinEncheres
+	 * @param miseAPrix
+	 * @param prixVente
+	 * @param etatVente
+	 * @param noUtilisateur
+	 * @param noCategorie
+	 */
+	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
+			Date dateFinEncheres, Integer miseAPrix, Integer prixVente, String etatVente, Integer noUtilisateur,
+			Integer noCategorie) {
+		super();
+		this.noArticle = noArticle;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebutEncheres = dateDebutEncheres;
+		this.dateFinEncheres = dateFinEncheres;
+		this.miseAPrix = miseAPrix;
+		this.prixVente = prixVente;
+		this.etatVente = etatVente;
+		this.noUtilisateur = noUtilisateur;
+		this.noCategorie = noCategorie;
+	}
 
 	/**
 	 * @return the noArticle
@@ -109,28 +167,28 @@ public class ArticleVendu {
 	/**
 	 * @return the miseAPrix
 	 */
-	public float getMiseAPrix() {
+	public Integer getMiseAPrix() {
 		return miseAPrix;
 	}
 
 	/**
 	 * @param miseAPrix the miseAPrix to set
 	 */
-	public void setMiseAPrix(float miseAPrix) {
+	public void setMiseAPrix(Integer miseAPrix) {
 		this.miseAPrix = miseAPrix;
 	}
 
 	/**
 	 * @return the prixVente
 	 */
-	public float getPrixVente() {
+	public Integer getPrixVente() {
 		return prixVente;
 	}
 
 	/**
 	 * @param prixVente the prixVente to set
 	 */
-	public void setPrixVente(float prixVente) {
+	public void setPrixVente(Integer prixVente) {
 		this.prixVente = prixVente;
 	}
 
@@ -149,59 +207,33 @@ public class ArticleVendu {
 	}
 
 	/**
-	 * @return the vendeur
+	 * @return the noUtilisateur
 	 */
-	public Utilisateur getVendeur() {
-		return vendeur;
+	public Integer getNoUtilisateur() {
+		return noUtilisateur;
 	}
 
 	/**
-	 * @param vendeur the vendeur to set
+	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setVendeur(Utilisateur vendeur) {
-		this.vendeur = vendeur;
+	public void setNoUtilisateur(Integer noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
 	}
 
 	/**
-	 * @return the lieuRetrait
+	 * @return the noCategorie
 	 */
-	public Retrait getLieuRetrait() {
-		return lieuRetrait;
+	public Integer getNoCategorie() {
+		return noCategorie;
 	}
 
 	/**
-	 * @param lieuRetrait the lieuRetrait to set
+	 * @param noCategorie the noCategorie to set
 	 */
-	public void setLieuRetrait(Retrait lieuRetrait) {
-		this.lieuRetrait = lieuRetrait;
+	public void setNoCategorie(Integer noCategorie) {
+		this.noCategorie = noCategorie;
 	}
 
-	/**
-	 * @return the categorieArticle
-	 */
-	public Categorie getCategorieArticle() {
-		return categorieArticle;
-	}
-
-	/**
-	 * @param categorieArticle the categorieArticle to set
-	 */
-	public void setCategorieArticle(Categorie categorieArticle) {
-		this.categorieArticle = categorieArticle;
-	}
-
-	/**
-	 * @return the listeEncheres
-	 */
-	public List<Enchere> getListeEncheres() {
-		return listeEncheres;
-	}
-
-	/**
-	 * @param listeEncheres the listeEncheres to set
-	 */
-	public void setListeEncheres(List<Enchere> listeEncheres) {
-		this.listeEncheres = listeEncheres;
-	}
+	
 		
 }
