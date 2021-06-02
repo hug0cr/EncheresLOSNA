@@ -11,5 +11,5 @@ import fr.eni.encheresLOSNA.bo.Enchere;
  * @date 2 juin 2021 - 12:02:07
  */
 public interface EnchereDAO extends DAO<Enchere> {
-
+	public void updateMontantEnchere (Integer nouveauMontant, Integer noUtilisateur, Integer noArticle) throws DALException;
 }
