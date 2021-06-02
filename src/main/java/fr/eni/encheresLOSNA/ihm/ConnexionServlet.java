@@ -4,6 +4,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,8 +42,6 @@ public class ConnexionServlet extends HttpServlet {
 			doGet(request, response);
 			
 		} else {
-			System.out.println("On vérifie la connexion");
-			
 			String id = (String) request.getParameter("mail");
 			String mdp = (String) request.getParameter("mdp");
 			try {
@@ -65,8 +64,12 @@ public class ConnexionServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setMaxInactiveInterval(10 * 60);
 				session.setAttribute("user", user);
-				if (request.getParameter("seSouvenirDeMoi") != null) session.setAttribute("seSouvenirDeMoi", true);
-				else session.setAttribute("seSouvenirDeMoi", false);
+				if (request.getParameter("seSouvenirDeMoi") != null) {
+					Cookie cookie = new Cookie("loginLOSNA", user.getEmail());
+					cookie.setHttpOnly(true);
+					cookie.setMaxAge(3600*24*60);
+					response.addCookie(cookie);
+				}
 				request.getRequestDispatcher("./listeEncheres").forward(request, response);
 			}
 		}
