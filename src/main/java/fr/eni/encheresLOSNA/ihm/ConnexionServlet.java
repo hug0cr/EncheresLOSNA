@@ -49,21 +49,27 @@ public class ConnexionServlet extends HttpServlet {
 				user = userMgr.getUtilisateurByEmail(id);
 			} catch (BLLException e) {
 				e.printStackTrace();
-				request.setAttribute("messageeErreur", "Adresse e-mail inconnue");
+				request.setAttribute("messageeErreur", "Erreur Base de données");
 				request.getRequestDispatcher("./seConnecter").forward(request, response);
 			}
 			
-			if (mdp != user.getMotDePasse()) {
+			if (user == null) {
+				request.setAttribute("messageeErreur", "Utilisateur inconnu");
+				request.getRequestDispatcher("./seConnecter").forward(request, response);
+			}
+			
+			if (!mdp.equals(user.getMotDePasse())) {
 				request.setAttribute("messageeErreur", "Mot de passe incorrect");
 				request.getRequestDispatcher("./seConnecter").forward(request, response);
 			} else {
 				HttpSession session = request.getSession();
 				session.setMaxInactiveInterval(10 * 60);
+				session.setAttribute("user", user);
 				if (request.getParameter("seSouvenirDeMoi") != null) session.setAttribute("seSouvenirDeMoi", true);
 				else session.setAttribute("seSouvenirDeMoi", false);
+				request.getRequestDispatcher("./listeEncheres").forward(request, response);
 			}
 		}
-		request.getRequestDispatcher("./listeEncheres").forward(request, response);
 		
 	}
 

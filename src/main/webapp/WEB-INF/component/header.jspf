@@ -1,4 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header>
 	<p>Enchères LOSNA</p>
-	<p><a href="./seConnecter">S'inscrire - Se Connecter</a></p>
+	
+	<c:if test="${empty sessionScope.user}">
+		<p><a href="./seConnecter">S'inscrire - Se Connecter</a></p>
+	</c:if>
+	<c:if test="${!empty sessionScope.user}">
+		<p><a href="./DeconnexionServlet">Se déconnecter</a></p>
+	</c:if>
 </header>
