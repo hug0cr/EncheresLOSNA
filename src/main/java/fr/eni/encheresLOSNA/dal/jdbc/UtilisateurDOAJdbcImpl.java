@@ -292,7 +292,7 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
-			throw new DALException("Select by ID error");
+			throw new DALException("Select by email error");
 		}	
 		return u;
 	}
