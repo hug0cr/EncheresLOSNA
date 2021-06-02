@@ -19,7 +19,6 @@ import fr.eni.encheresLOSNA.dal.DALException;
  * @author hug0cr
  * @version EncheresLOSNA - V1.0
  * @date 1 juin 2021 - 11:07:47
- * Voir ensemble comment gérer état vente
  */
 public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	
@@ -93,7 +92,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			}
 				
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Insert error");
@@ -129,7 +127,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			System.out.println(rowsAffected + " ligne modifiée");
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Update error");
@@ -163,7 +160,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			}
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select by ID error");
@@ -175,7 +171,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	 * {@inheritDoc}
 	 * @throws DALException 
 	 */
-	// TODO pareil qu'au dessus
 	@Override
 	public List<ArticleVendu> selectAll() throws DALException {
 		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
@@ -196,7 +191,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			}
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select all error");
@@ -222,7 +216,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			System.out.println(rowsAffected + " ligne supprimée");
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Delete error");

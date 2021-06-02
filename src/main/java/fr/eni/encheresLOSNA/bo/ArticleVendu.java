@@ -4,6 +4,7 @@
 package fr.eni.encheresLOSNA.bo;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 /**
  * @author hug0cr
@@ -46,7 +47,7 @@ public class ArticleVendu {
 	 * @param noCategorie
 	 */
 	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
-			Date dateFinEncheres, Integer miseAPrix, Integer prixVente,/* String etatVente, */Integer noUtilisateur,
+			Date dateFinEncheres, Integer miseAPrix, Integer prixVente, Integer noUtilisateur,
 			Integer noCategorie) {
 		super();
 		this.noArticle = noArticle;
@@ -56,12 +57,31 @@ public class ArticleVendu {
 		this.dateFinEncheres = dateFinEncheres;
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
-		//this.etatVente = etatVente;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
+		this.etatVente = verificationEtatVente(dateDebutEncheres, dateFinEncheres);
 	}
 
-
+	/**
+	 * Methode en charge d'attribuer un état à l'attribut etatVente en fonction des dates de début et de fin d'enchère
+	 * @param dateFinEncheres 
+	 * @param dateDebutEncheres
+	 * @return
+	 */
+	private String verificationEtatVente(Date dateDebutEncheres, Date dateFinEncheres) {
+		String etatVente = null;
+		Date maintenant = new Date(Calendar.getInstance().getTimeInMillis());
+		
+		if (maintenant.before(dateDebutEncheres)) {
+			etatVente = "Créée";
+		} else if (maintenant.after(dateDebutEncheres) && maintenant.before(dateFinEncheres)) {
+			etatVente = "En cours";
+		} else if (maintenant.after(dateFinEncheres)) {
+			etatVente = "Enchères terminées";
+		}
+		
+		return etatVente;
+	}
 
 	// Getters & Setters
 
