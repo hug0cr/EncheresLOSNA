@@ -3,7 +3,7 @@
 <Context>
 	<Resource
 		name = "jdbc/pool_cnx"
-		driverClassName = "com.microsoft.sqlserver.jdbc.SQLSeerverDriver"
+		driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		type = "javax.sql.DataSource"
 		
 		url = "jdbc:sqlserver://localhost;database=ENCHERES"

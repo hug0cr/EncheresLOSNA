@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.Utilisateur;
+import fr.eni.encheresLOSNA.dal.ConnectionProvider;
 import fr.eni.encheresLOSNA.dal.DALException;
 import fr.eni.encheresLOSNA.dal.UtilisateurDAO;
 
@@ -80,7 +81,7 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			stmt = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
 			
 			stmt.setString(1, t.getPseudo());
@@ -103,7 +104,8 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			}
 				
 			stmt.close();
-			JdbcTools.closeConnection();		
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Insert error");
 		} catch (Exception e) {
@@ -120,7 +122,7 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			stmt = con.prepareStatement(UPDATE);
 			
 			stmt.setString(1, t.getPseudo());
@@ -141,7 +143,8 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			System.out.println(rowsAffected + " ligne modifiée");
 			
 			stmt.close();
-			JdbcTools.closeConnection();
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Update error");
 		} catch (Exception e) {
@@ -159,7 +162,7 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 		
 		try {
 			
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			PreparedStatement stmt = con.prepareStatement(SELECT_BY_ID);
 			
 			stmt.setInt(1, id);
@@ -176,8 +179,8 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			}
 			
 			stmt.close();
-			JdbcTools.closeConnection();
-			
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select by ID error");
 		}	
@@ -194,7 +197,7 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 		Utilisateur u = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(SELECT_ALL);
 			
@@ -209,8 +212,8 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			}
 			
 			stmt.close();
-			JdbcTools.closeConnection();
-			
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select all error");
 		}			
@@ -227,7 +230,7 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 		PreparedStatement stmt = null;
 		
 		try {
-			con = JdbcTools.getConnection();
+			con = ConnectionProvider.getConnection();
 			stmt = con.prepareStatement(DELETE);
 			stmt.setInt(1, t.getNoUtilisateur());
 			
@@ -236,8 +239,8 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			System.out.println(rowsAffected + " ligne supprimée");
 			
 			stmt.close();
-			JdbcTools.closeConnection();
-			
+			//JdbcTools.closeConnection();
+			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Delete error");
 		} catch (Exception e) {
