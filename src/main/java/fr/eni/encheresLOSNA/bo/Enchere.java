@@ -24,6 +24,23 @@ public class Enchere {
 	public Enchere() {
 		super();
 	}
+	
+	/**
+	 * Constructeur
+	 * @param noUtilisateur
+	 * @param noArticle
+	 * @param dateEnchere
+	 * @param montantEnchere
+	 */
+	public Enchere(Integer noUtilisateur, Integer noArticle, Date dateEnchere, Integer montantEnchere) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.noArticle = noArticle;
+		this.dateEnchere = dateEnchere;
+		this.montantEnchere = montantEnchere;
+	}
+
+
 
 	/**
 	 * @return the noUtilisateur
