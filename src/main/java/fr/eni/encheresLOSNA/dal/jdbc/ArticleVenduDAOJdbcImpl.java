@@ -6,6 +6,7 @@ package fr.eni.encheresLOSNA.dal.jdbc;
 import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
+import fr.eni.encheresLOSNA.dal.ArticleVenduDAO;
 import fr.eni.encheresLOSNA.dal.DAO;
 
 /**
@@ -13,7 +14,7 @@ import fr.eni.encheresLOSNA.dal.DAO;
  * @version EncheresLOSNA - V1.0
  * @date 1 juin 2021 - 11:07:47
  */
-public class ArticleVenduDAOJdbcImpl implements DAO<ArticleVendu> {
+public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 
 	/**
 	 * {@inheritDoc}
@@ -53,6 +54,16 @@ public class ArticleVenduDAOJdbcImpl implements DAO<ArticleVendu> {
 	@Override
 	public void delete(ArticleVendu t) {
 		
+	}
+
+	@Override
+	public List<ArticleVendu> selectByKW(String kw) {
+		return null;
+	}
+
+	@Override
+	public List<ArticleVendu> selectByCategorie(String categorie) {
+		return null;
 	}
 
 }

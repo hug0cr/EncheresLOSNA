@@ -79,10 +79,10 @@ public class ProfilServlet extends HttpServlet {
 		String confirmation = request.getParameter("confirmation");
 		
 		if (!motDePasse.equals(confirmation)) {
-			request.setAttribute("confirmation", "notOK");
-			return user;
+			request.setAttribute("confirmationMDP", false);
 		} else {
 			user = new Utilisateur(pseudo, nom, prenom, mail, phone, rue, codePostal, ville, motDePasse, 0, false);
+			request.setAttribute("confirmationMDP", true);
 		}
 		return user;
 	}
