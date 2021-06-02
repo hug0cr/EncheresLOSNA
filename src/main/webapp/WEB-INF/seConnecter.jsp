@@ -11,8 +11,8 @@
 	
 	<h1>Se connecter</h1>
 	<form action="./ConnexionServlet" method="post">
-	<label for="id">Identifiant</label>
-	<input type="text" name="id">
+	<label for="id">Votre e-mail</label>
+	<input type="text" name="mail">
 	<label for="mdp">Mot de passe</label>
 	<input type="password" name="mdp">
 	<input type="checkbox" name="seSouvenirDeMoi">
