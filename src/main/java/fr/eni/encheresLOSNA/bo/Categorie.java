@@ -3,8 +3,6 @@
  */
 package fr.eni.encheresLOSNA.bo;
 
-import java.util.List;
-
 /**
  * @author hug0cr
  * @version EncheresLOSNA - V1.0
@@ -14,7 +12,7 @@ public class Categorie {
 	private Integer noCategorie;
 	private String libelle;
 	
-	private List<ArticleVendu> listeArticles;
+	//private List<ArticleVendu> listeArticles;
 
 	/**
 	 * Constructeur
@@ -25,6 +23,17 @@ public class Categorie {
 
 	// Getters & Setters
 	
+	/**
+	 * Constructeur
+	 * @param noCategorie
+	 * @param libelle
+	 */
+	public Categorie(Integer noCategorie, String libelle) {
+		super();
+		this.noCategorie = noCategorie;
+		this.libelle = libelle;
+	}
+
 	/**
 	 * @return the noCategorie
 	 */
@@ -53,19 +62,19 @@ public class Categorie {
 		this.libelle = libelle;
 	}
 
-	/**
-	 * @return the listeAriticles
-	 */
-	public List<ArticleVendu> getListeAriticles() {
-		return listeArticles;
-	}
-
-	/**
-	 * @param listeAriticles the listeAriticles to set
-	 */
-	public void setListeAriticles(List<ArticleVendu> listeAriticles) {
-		this.listeArticles = listeAriticles;
-	}
+//	/**
+//	 * @return the listeAriticles
+//	 */
+//	public List<ArticleVendu> getListeAriticles() {
+//		return listeArticles;
+//	}
+//
+//	/**
+//	 * @param listeAriticles the listeAriticles to set
+//	 */
+//	public void setListeAriticles(List<ArticleVendu> listeAriticles) {
+//		this.listeArticles = listeAriticles;
+//	}
 	
 	
 }

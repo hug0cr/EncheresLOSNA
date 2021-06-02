@@ -33,38 +33,7 @@ public class ArticleVenduManager {
 		articleVenduDAO = DAOFactory.getArticleVenduDAO();
 	}
 	
-	/**
-	 * Methode en charge de
-	 * @param id
-	 * @return
-	 * @throws BLLException
-	 */
-	public ArticleVendu getArticleVenduById(int id) throws BLLException {
-		ArticleVendu a = null;
-		try {
-			a = articleVenduDAO.selectById(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new BLLException("Erreur récupération utilisateur", e);
-		}
-		return a;
-	}
-	
-	/**
-	 * Methode en charge de
-	 * @return
-	 * @throws BLLException
-	 */
-	public List<ArticleVendu> getArticleVendu() throws BLLException {
-		List<ArticleVendu> articlesVendus = null;
-		try {
-			articlesVendus = articleVenduDAO.selectAll();
-		} catch (DALException e) {
-			e.printStackTrace();
-			throw new BLLException("Erreur récupération des articles vendus", e);
-		}
-		return articlesVendus;
-	}
+	///////// Méthodes insert, update, selectById, selectAll, delete //////////
 	
 	/**
 	 * Methode en charge de
@@ -100,6 +69,40 @@ public class ArticleVenduManager {
 	
 	/**
 	 * Methode en charge de
+	 * @param id
+	 * @return
+	 * @throws BLLException
+	 */
+	public ArticleVendu getArticleVenduById(int id) throws BLLException {
+		ArticleVendu a = null;
+		try {
+			a = articleVenduDAO.selectById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération article", e);
+		}
+		return a;
+	}
+	
+	/**
+	 * Methode en charge de
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVendus() throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectAll();
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles vendus", e);
+		}
+		return articlesVendus;
+	}
+
+	
+	/**
+	 * Methode en charge de
 	 * @param utilisateur
 	 * @throws BLLException
 	 */
@@ -111,6 +114,13 @@ public class ArticleVenduManager {
 		}	
 	}
 	
+	///////// Fin des méthodes de base //////////
+	
+	/**
+	 * Methode en charge de
+	 * @param a
+	 * @throws BLLException
+	 */
 	public void validerArticleVendu(ArticleVendu a) throws BLLException
 	{
 		boolean valide = true;
