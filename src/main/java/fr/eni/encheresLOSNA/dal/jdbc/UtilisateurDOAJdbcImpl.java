@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.Utilisateur;
-import fr.eni.encheresLOSNA.dal.ConnectionProvider;
 import fr.eni.encheresLOSNA.dal.DALException;
 import fr.eni.encheresLOSNA.dal.UtilisateurDAO;
 

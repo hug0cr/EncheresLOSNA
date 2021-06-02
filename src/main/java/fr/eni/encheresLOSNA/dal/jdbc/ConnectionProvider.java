@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.eni.encheresLOSNA.dal;
+package fr.eni.encheresLOSNA.dal.jdbc;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * @version EncheresLOSNA - V1.0
  * @date 2 juin 2021 - 10:14:04
  */
-public abstract class ConnectionProvider {
+abstract class ConnectionProvider {
 	private static DataSource dataSource;
     
     /**
