@@ -11,10 +11,12 @@ import java.sql.Date;
  * @date 1 juin 2021 - 09:45:58
  */
 public class Enchere {
+	private Integer noUtilisateur;
+	private Integer noArticle;
 	private Date dateEnchere;
-	private float montantEnchere;
+	private Integer montantEnchere;
 	
-	private Utilisateur encherisseur;
+	//private Utilisateur encherisseur;
 
 	/**
 	 * Constructeur
@@ -22,8 +24,34 @@ public class Enchere {
 	public Enchere() {
 		super();
 	}
-	
-	//Getters & Setters
+
+	/**
+	 * @return the noUtilisateur
+	 */
+	public Integer getNoUtilisateur() {
+		return noUtilisateur;
+	}
+
+	/**
+	 * @param noUtilisateur the noUtilisateur to set
+	 */
+	public void setNoUtilisateur(Integer noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+
+	/**
+	 * @return the noArticle
+	 */
+	public Integer getNoArticle() {
+		return noArticle;
+	}
+
+	/**
+	 * @param noArticle the noArticle to set
+	 */
+	public void setNoArticle(Integer noArticle) {
+		this.noArticle = noArticle;
+	}
 
 	/**
 	 * @return the dateEnchere
@@ -42,30 +70,18 @@ public class Enchere {
 	/**
 	 * @return the montantEnchere
 	 */
-	public float getMontantEnchere() {
+	public Integer getMontantEnchere() {
 		return montantEnchere;
 	}
 
 	/**
 	 * @param montantEnchere the montantEnchere to set
 	 */
-	public void setMontantEnchere(float montantEnchere) {
+	public void setMontantEnchere(Integer montantEnchere) {
 		this.montantEnchere = montantEnchere;
 	}
-
-	/**
-	 * @return the encherisseur
-	 */
-	public Utilisateur getEncherisseur() {
-		return encherisseur;
-	}
-
-	/**
-	 * @param encherisseur the encherisseur to set
-	 */
-	public void setEncherisseur(Utilisateur encherisseur) {
-		this.encherisseur = encherisseur;
-	}
 	
+	//Getters & Setters
+
 	
 }

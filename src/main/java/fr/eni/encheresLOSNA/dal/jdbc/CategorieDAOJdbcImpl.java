@@ -6,6 +6,7 @@ package fr.eni.encheresLOSNA.dal.jdbc;
 import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.Categorie;
+import fr.eni.encheresLOSNA.dal.CategorieDAO;
 import fr.eni.encheresLOSNA.dal.DAO;
 
 /**
@@ -13,8 +14,10 @@ import fr.eni.encheresLOSNA.dal.DAO;
  * @version EncheresLOSNA - V1.0
  * @date 1 juin 2021 - 11:09:37
  */
-public class CategorieDAOJdbcImpl implements DAO<Categorie> {
+public class CategorieDAOJdbcImpl implements CategorieDAO {
 
+	
+	
 	/**
 	 * {@inheritDoc}
 	 */

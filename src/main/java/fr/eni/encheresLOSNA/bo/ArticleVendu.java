@@ -12,7 +12,7 @@ import java.util.List;
  * @date 1 juin 2021 - 09:48:47
  */
 public class ArticleVendu {
-	private int noArticle;
+	private Integer noArticle;
 	private String nomArticle;
 	private String description;
 	private Date dateDebutEncheres;
@@ -39,14 +39,14 @@ public class ArticleVendu {
 	/**
 	 * @return the noArticle
 	 */
-	public int getNoArticle() {
+	public Integer getNoArticle() {
 		return noArticle;
 	}
 
 	/**
 	 * @param noArticle the noArticle to set
 	 */
-	public void setNoArticle(int noArticle) {
+	public void setNoArticle(Integer noArticle) {
 		this.noArticle = noArticle;
 	}
 
