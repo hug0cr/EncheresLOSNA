@@ -47,7 +47,6 @@ public class ArticleVendu {
 	 * @param dateFinEncheres
 	 * @param miseAPrix
 	 * @param prixVente
-	 * @param etatVente -> enlever pour le moment
 	 * @param noUtilisateur
 	 * @param noCategorie
 	 */
