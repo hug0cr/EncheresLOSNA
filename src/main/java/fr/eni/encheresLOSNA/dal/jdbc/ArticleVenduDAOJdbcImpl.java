@@ -55,7 +55,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "prix_vente, "
 			+ "no_utilisateur, "
 			+ "no_categorie "
-			+ "FROM ARTICLES_VENDUS WHERE nom_article LIKE ? OR description LIKE %?%;";
+			+ "FROM ARTICLES_VENDUS WHERE nom_article LIKE ? OR description LIKE '%'+?+'%';";
 	
 	private static final String SELECT_ENCHERES_EN_COURS = "SELECT "
 			+ "no_article, "
