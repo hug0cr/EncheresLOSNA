@@ -45,7 +45,6 @@ public class ArticleVendu {
 	 * @param dateFinEncheres
 	 * @param miseAPrix
 	 * @param prixVente
-	 * @param etatVente -> enlever pour le moment
 	 * @param noUtilisateur
 	 * @param noCategorie
 	 */
@@ -74,12 +73,11 @@ public class ArticleVendu {
 	 * @param dateFinEncheres
 	 * @param miseAPrix
 	 * @param prixVente
-	 * @param etatVente
 	 * @param noUtilisateur
 	 * @param noCategorie
 	 */
 	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
-			Integer miseAPrix, Integer prixVente, String etatVente, Integer noUtilisateur, Integer noCategorie) {
+			Integer miseAPrix, Integer prixVente, Integer noUtilisateur, Integer noCategorie) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -87,7 +85,6 @@ public class ArticleVendu {
 		this.dateFinEncheres = dateFinEncheres;
 		this.miseAPrix = miseAPrix;
 		this.prixVente = prixVente;
-		this.etatVente = etatVente;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 		this.etatVente = verificationEtatVente(dateDebutEncheres, dateFinEncheres);
