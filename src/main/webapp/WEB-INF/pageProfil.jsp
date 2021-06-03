@@ -19,14 +19,14 @@
 
 	<c:if test="${Param.type == monProfil }">
 		<h1>Mon profil</h1>
-		<p>Pseudo :</p>
-		<p>Nom :</p>
-		<p>Prenom :</p>
-		<p>Email :</p>
-		<p>Téléphone :</p>
-		<p>Rue :</p>
-		<p>Code postal :</p>
-		<p>Ville :</p>
+		<p>Pseudo : ${user.pseudo }</p>
+		<p>Nom : ${user.nom }</p>
+		<p>Prenom : ${user.prenom }</p>
+		<p>Email : ${user.email }</p>
+		<p>Téléphone : ${user.telephone }</p>
+		<p>Rue : ${user.rue }</p>
+		<p>Code postal : ${user.codePostal }</p>
+		<p>Ville : ${user.ville }</p>
 
 		<c:if test="${!empty sessionScope.user }">
 			<p>
