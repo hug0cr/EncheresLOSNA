@@ -3,6 +3,8 @@
  */
 package fr.eni.encheresLOSNA.dal;
 
+import java.util.List;
+
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
 
 /**
@@ -11,5 +13,6 @@ import fr.eni.encheresLOSNA.bo.ArticleVendu;
  * @date 1 juin 2021 - 19:46:18
  */
 public interface ArticleVenduDAO extends DAO<ArticleVendu> {
-
+	public List<ArticleVendu> selectByKW(String keyWord) throws DALException;
+	public List<ArticleVendu> selectEncheresEnCours() throws DALException;
 }

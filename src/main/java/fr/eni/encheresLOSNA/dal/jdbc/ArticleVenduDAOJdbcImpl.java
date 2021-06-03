@@ -45,6 +45,30 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE no_article=?;";
 	
+	private static final String SELECT_BY_KW = "SELECT "
+			+ "no_article, "
+			+ "nom_article, "
+			+ "description, "
+			+ "date_debut_encheres, "
+			+ "date_fin_encheres, "
+			+ "prix_initial, "
+			+ "prix_vente, "
+			+ "no_utilisateur, "
+			+ "no_categorie "
+			+ "FROM ARTICLES_VENDUS WHERE nom_article LIKE ? OR description LIKE %?%;";
+	
+	private static final String SELECT_ENCHERES_EN_COURS = "SELECT "
+			+ "no_article, "
+			+ "nom_article, "
+			+ "description, "
+			+ "date_debut_encheres, "
+			+ "date_fin_encheres, "
+			+ "prix_initial, "
+			+ "prix_vente, "
+			+ "no_utilisateur, "
+			+ "no_categorie "
+			+ "FROM ARTICLES_VENDUS WHERE date_debut_encheres < GETDATE() AND date_fin_encheres > GETDATE();";
+	
 	private final String UPDATE = "UPDATE ARTICLES_VENDUS SET "
 			+ "nom_article=?, "
 			+ "nom_article=?, "
@@ -222,6 +246,71 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		} catch (Exception e) {
 			e.getMessage();
 		}	
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * @throws DALException 
+	 */
+	// TODO vérifier si la requête s'exécute correctement avec le %?% pour rechercher les descriptions
+	@Override
+	public List<ArticleVendu> selectByKW(String keyWord) throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_BY_KW);
+			
+			stmt.setString(1, keyWord);
+			stmt.setString(2, keyWord);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+				rs.getString("description"), rs.getDate("date_debut_encheres"), 
+				rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), 
+				rs.getInt("prix_vente"), rs.getString("etat_vente"),
+				rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select by keyword error");
+		}			
+		return listeArticlesVendus;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<ArticleVendu> selectEncheresEnCours() throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT_ENCHERES_EN_COURS);
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+				rs.getString("description"), rs.getDate("date_debut_encheres"), 
+				rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), 
+				rs.getInt("prix_vente"), rs.getString("etat_vente"),
+				rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select encheres en cours error");
+		}			
+		return listeArticlesVendus;
 	}
 
 }
