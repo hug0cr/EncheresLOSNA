@@ -6,6 +6,10 @@
 		<p><a href="./seConnecter">S'inscrire - Se Connecter</a></p>
 	</c:if>
 	<c:if test="${!empty sessionScope.user}">
-		<p><a href="./DeconnexionServlet">Se déconnecter</a></p>
+		<ul>
+		<li><a href="./gestionArticle?type=new">Vendre un article</a></li>
+		<li><a href="./pageProfil?type=monProfil">Mon profil</a></li>
+		<li><a href="./DeconnexionServlet">Se déconnecter</a></li>
+		</ul>
 	</c:if>
 </header>

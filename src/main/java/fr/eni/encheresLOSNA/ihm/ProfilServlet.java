@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.encheresLOSNA.bll.BLLException;
 import fr.eni.encheresLOSNA.bll.UtilisateurManager;
@@ -37,24 +38,33 @@ public class ProfilServlet extends HttpServlet {
 		UtilisateurManager userMgr = UtilisateurManager.getInstance();
 		RequestDispatcher home = request.getRequestDispatcher("./listeEncheres");
 		RequestDispatcher creaProfil = request.getRequestDispatcher("./creerProfil");
-		RequestDispatcher profilVendeur = request.getRequestDispatcher("./profilVendeur");
-		RequestDispatcher modifierProfil = request.getRequestDispatcher("./modifierProfil");
+		RequestDispatcher pageProfil = request.getRequestDispatcher("./pageProfil");
+		RequestDispatcher gererProfil = request.getRequestDispatcher("./gererProfil");
 		Utilisateur user = createUser(request);
 		request.setAttribute("error", false);
 		
 		if (type.equals("modif")) {
+			HttpSession session = request.getSession();
+			Utilisateur userSession = (Utilisateur) session.getAttribute("user");
+			
+			user.setMotDePasse(userSession.getMotDePasse());
+			user.setNoUtilisateur(userSession.getNoUtilisateur());
 			try {
 				userMgr.updateUtilisateur(user);
-				profilVendeur.forward(request, response);
+				session.setAttribute("user", user);
+				pageProfil.forward(request, response);
 			} catch (BLLException e) {
 				e.printStackTrace();
 				request.setAttribute("error", true);
-				modifierProfil.forward(request, response);
+				gererProfil.forward(request, response);
 			}
 		}
 		if (type.equals("crea")) {
 			try {
 				userMgr.addUtilisateur(user);
+				HttpSession session = request.getSession();
+				session.setMaxInactiveInterval(10 * 60);
+				session.setAttribute("user", user);
 				home.forward(request, response);
 			} catch (BLLException e) {
 				e.printStackTrace();

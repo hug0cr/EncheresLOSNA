@@ -4,15 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Profil vendeur</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="./component/header.jspf" %>
-	
-	<p>
-	Voici un profil vendeur
-	</p>
-	
-	<%@ include file="./component/footer.jspf" %>
+	<%@ include file="./component/header.jspf"%>
+
+	<%@ include file="./component/footer.jspf"%>
 </body>
 </html>

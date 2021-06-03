@@ -25,12 +25,12 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>creerProfil</servlet-name>
-  	<jsp-file>/WEB-INF/creerProfil.jsp</jsp-file>
+  	<servlet-name>gererProfil</servlet-name>
+  	<jsp-file>/WEB-INF/gererProfil.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>creerProfil</servlet-name>
-  	<url-pattern>/creerProfil</url-pattern>
+  	<servlet-name>gererProfil</servlet-name>
+  	<url-pattern>/gererProfil</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -78,5 +78,22 @@
   	<url-pattern>/motDePasseOublie</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>gestionArticle</servlet-name>
+  	<jsp-file>/WEB-INF/gestionArticle.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>gestionArticle</servlet-name>
+  	<url-pattern>/gestionArticle</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>pageProfil</servlet-name>
+  	<jsp-file>/WEB-INF/pageProfil.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pageProfil</servlet-name>
+  	<url-pattern>/pageProfil</url-pattern>
+  </servlet-mapping>
 
 </web-app>
