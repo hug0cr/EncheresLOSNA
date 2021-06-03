@@ -167,6 +167,9 @@ public class ArticleVenduManager {
 			sb.append("Un numéro de catégorie est obligatoire.\n");
 			valide = false;
 		}
+		if (a.getDateFinEncheres().before(a.getDateDebutEncheres())) {
+			sb.append("La date de début des enchères doit être antérieur à la date de fin des enchères.\n");
+		}
 		
 		if(!valide){
 			throw new BLLException(sb.toString());
