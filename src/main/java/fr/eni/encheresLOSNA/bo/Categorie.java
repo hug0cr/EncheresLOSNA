@@ -20,9 +20,16 @@ public class Categorie {
 	public Categorie() {
 		super();
 	}
-
-	// Getters & Setters
 	
+	/**
+	 * Constructeur
+	 * @param libelle
+	 */
+	public Categorie(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
+
 	/**
 	 * Constructeur
 	 * @param noCategorie
@@ -33,6 +40,8 @@ public class Categorie {
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
 	}
+
+	// Getters & Setters
 
 	/**
 	 * @return the noCategorie
