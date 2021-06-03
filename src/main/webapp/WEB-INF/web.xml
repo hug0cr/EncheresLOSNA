@@ -3,6 +3,7 @@
   <display-name>EncheresLOSNA</display-name>
   
   <welcome-file-list>
+  	<welcome-file>Controler</welcome-file>
     <welcome-file>/WEB-INF/listeEncheres.jsp</welcome-file>
   </welcome-file-list>
   

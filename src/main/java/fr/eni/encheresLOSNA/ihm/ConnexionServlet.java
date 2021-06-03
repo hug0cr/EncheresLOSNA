@@ -62,7 +62,7 @@ public class ConnexionServlet extends HttpServlet {
 				request.getRequestDispatcher("./seConnecter").forward(request, response);
 			} else {
 				HttpSession session = request.getSession();
-				session.setMaxInactiveInterval(10 * 60);
+				session.setMaxInactiveInterval(5 * 60);
 				session.setAttribute("user", user);
 				if (request.getParameter("seSouvenirDeMoi") != null) {
 					Cookie cookie = new Cookie("loginLOSNA", user.getEmail());
