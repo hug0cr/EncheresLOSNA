@@ -169,6 +169,22 @@ public class ArticleVenduManager {
 	
 	/**
 	 * Methode en charge de
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVendusTop50() throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectTop50();
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération du top 50 des articles vendus ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de
 	 * @param a
 	 * @throws BLLException
 	 */
