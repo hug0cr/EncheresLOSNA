@@ -3,7 +3,7 @@
  */
 package fr.eni.encheresLOSNA.bo;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Calendar;
 
 import fr.eni.encheresLOSNA.bll.BLLException;
@@ -28,6 +28,8 @@ public class ArticleVendu {
 	
 	private Utilisateur vendeur;
 
+	
+	public static final String ETAT_CREE = "Crée", ETAT_EN_COURS = "En cours", ETAT_ENCHERES_TERMINEES = "Enchères terminées", ETAT_RETRAIT_EFFECTUE = "Retrait effectué";
 	
 	/**
 	 * Constructeur
@@ -66,28 +68,26 @@ public class ArticleVendu {
 		this.vendeur = recuperationDuVendeur(noUtilisateur);
 	}
 
-	/**
-	 * Constructeur
-	 * @param nomArticle
-	 * @param description
-	 * @param dateDebutEncheres
-	 * @param dateFinEncheres
+	
+	/** ArticleVendu Constructor
+	 * @param nomArticle le nom de l'article
+	 * @param description la description
+	 * @param dateDebutEncheres la date de début des enchères
+	 * @param dateFinEncheres la date de fin des enchères
 	 * @param miseAPrix
-	 * @param prixVente
-	 * @param etatVente
 	 * @param noUtilisateur
 	 * @param noCategorie
 	 */
 	public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres,
-			Integer miseAPrix, Integer prixVente, String etatVente, Integer noUtilisateur, Integer noCategorie) {
+			Integer miseAPrix, Integer noUtilisateur, Integer noCategorie) {
 		super();
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
 		this.dateFinEncheres = dateFinEncheres;
 		this.miseAPrix = miseAPrix;
-		this.prixVente = prixVente;
-		this.etatVente = etatVente;
+		this.prixVente = null;
+		this.etatVente = ETAT_CREE;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 		this.etatVente = verificationEtatVente(dateDebutEncheres, dateFinEncheres);
