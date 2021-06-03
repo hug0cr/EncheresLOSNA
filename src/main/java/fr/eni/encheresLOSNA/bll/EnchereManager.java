@@ -58,12 +58,5 @@ public class EnchereManager {
 			throw new BLLException("Erreur d'update sur le montant de l'enchère", e);
 		}
 	}
-	
-//	public List<Enchere> getEncheresByKW(String keyWord){
-//		return this.enchereDAO.selectByKW(keyWord);
-//	}
-//	
-//	public List<Enchere> getEncheresByCategorie(String categorie){
-//		return this.enchereDAO.selectByCategorie(categorie);
-//	}
+
 }

@@ -118,6 +118,57 @@ public class ArticleVenduManager {
 	
 	/**
 	 * Methode en charge de
+	 * @param keyWord
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVendusByKW(String keyWord) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectByKW(keyWord);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles vendus par mot-clé ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVendusEnCours() throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectEncheresEnCours();
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles vendus en cours de vente ", e);
+		}
+		return articlesVendus;
+	}
+	
+
+	/**
+	 * Methode en charge de
+	 * @param noUtilisateur
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVendusEnCoursByUtilisateur(Integer noUtilisateur) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectEncheresEnCoursDUnUtilisateur(noUtilisateur);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles vendus en cours de vente d'un utilisateur ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de
 	 * @param a
 	 * @throws BLLException
 	 */

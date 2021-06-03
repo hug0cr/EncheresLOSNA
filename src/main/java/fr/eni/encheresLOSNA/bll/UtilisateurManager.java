@@ -33,55 +33,7 @@ public class UtilisateurManager {
 		utilisateurDAO = DAOFactory.getUtilisateurDAO();
 	}
 	
-	/**
-	 * Methode en charge de
-	 * @param id
-	 * @return
-	 * @throws BLLException
-	 */
-	public Utilisateur getUtilisateurById(int id) throws BLLException {
-		Utilisateur u = null;
-		try {
-			u = utilisateurDAO.selectById(id);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new BLLException("Erreur récupération utilisateur", e);
-		}
-		return u;
-	}
-	
-	/**
-	 * Methode en charge de
-	 * @param email
-	 * @return
-	 * @throws BLLException
-	 */
-	public Utilisateur getUtilisateurByEmail(String email) throws BLLException {
-		Utilisateur u = null;
-		try {
-			u = utilisateurDAO.selectByEmail(email);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new BLLException("Erreur récupération utilisateur", e);
-		}
-		return u;
-	}
-	
-	/**
-	 * Methode en charge de
-	 * @return
-	 * @throws BLLException
-	 */
-	public List<Utilisateur> getUtilisateurs() throws BLLException {
-		List<Utilisateur> utilisateurs = null;
-		try {
-			utilisateurs = utilisateurDAO.selectAll();
-		} catch (DALException e) {
-			e.printStackTrace();
-			throw new BLLException("Erreur récupération utilisateur", e);
-		}
-		return utilisateurs;
-	}
+	///////// Méthodes insert, update, selectById, selectAll, delete //////////
 	
 	/**
 	 * Methode en charge de
@@ -117,6 +69,39 @@ public class UtilisateurManager {
 	
 	/**
 	 * Methode en charge de
+	 * @param id
+	 * @return
+	 * @throws BLLException
+	 */
+	public Utilisateur getUtilisateurById(int id) throws BLLException {
+		Utilisateur u = null;
+		try {
+			u = utilisateurDAO.selectById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération utilisateur", e);
+		}
+		return u;
+	}
+	
+	/**
+	 * Methode en charge de
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<Utilisateur> getUtilisateurs() throws BLLException {
+		List<Utilisateur> utilisateurs = null;
+		try {
+			utilisateurs = utilisateurDAO.selectAll();
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération utilisateur", e);
+		}
+		return utilisateurs;
+	}
+	
+	/**
+	 * Methode en charge de
 	 * @param utilisateur
 	 * @throws BLLException
 	 */
@@ -127,6 +112,26 @@ public class UtilisateurManager {
 			throw new BLLException("Echec de la suppression de l'utilisateur - ", e);
 		}	
 	}
+	
+	///////// Fin des méthodes de base //////////
+	
+	/**
+	 * Methode en charge de
+	 * @param email
+	 * @return
+	 * @throws BLLException
+	 */
+	public Utilisateur getUtilisateurByEmail(String email) throws BLLException {
+		Utilisateur u = null;
+		try {
+			u = utilisateurDAO.selectByEmail(email);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération utilisateur", e);
+		}
+		return u;
+	}
+	
 	
 	public void validerUtilisateur(Utilisateur u) throws BLLException
 	{

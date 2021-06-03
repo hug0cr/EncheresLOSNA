@@ -85,7 +85,7 @@ public class CategorieManager {
 	 * @return
 	 * @throws BLLException
 	 */
-	public List<Categorie> getCategorie() throws BLLException {
+	public List<Categorie> getCategories() throws BLLException {
 		List<Categorie> categories = null;
 		try {
 			categories = categorieDAO.selectAll();

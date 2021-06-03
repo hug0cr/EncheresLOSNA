@@ -135,39 +135,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	public Enchere selectById(int id) {
 		return null;
 	}
-	
-	/**
-	 * Methode en charge de
-	 * @param nouveauMontant
-	 * @param noUtilisateur
-	 * @param noArticle
-	 * @throws DALException 
-	 */
-	public void updateMontantEnchere (Integer nouveauMontant, Integer noUtilisateur, Integer noArticle) throws DALException {
-		PreparedStatement stmt = null;
-		
-		try {
-			con = ConnectionProvider.getConnection();
-			stmt = con.prepareStatement(UPDATE_MONTANT_ENCHERE);
-			
-			stmt.setTimestamp(1, Timestamp.from(Instant.now()));
-			stmt.setInt(2, nouveauMontant);
-			stmt.setInt(3, noUtilisateur);
-			stmt.setInt(4, noArticle);
-			
-			int rowsAffected = stmt.executeUpdate();
-			
-			System.out.println(rowsAffected + " ligne modifiée");
-			
-			stmt.close();
-			//JdbcTools.closeConnection();
-			con.close();
-		} catch (SQLException e) {
-			throw new DALException("Update du montant de l'enchère error");
-		} catch (Exception e) {
-			e.getMessage();
-		}	
-	}
 
 	/**
 	 * {@inheritDoc}
@@ -204,6 +171,39 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	@Override
 	public void delete(Enchere t) {
 		
+	}
+	
+	/**
+	 * Methode en charge de
+	 * @param nouveauMontant
+	 * @param noUtilisateur
+	 * @param noArticle
+	 * @throws DALException 
+	 */
+	public void updateMontantEnchere (Integer nouveauMontant, Integer noUtilisateur, Integer noArticle) throws DALException {
+		PreparedStatement stmt = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			stmt = con.prepareStatement(UPDATE_MONTANT_ENCHERE);
+			
+			stmt.setTimestamp(1, Timestamp.from(Instant.now()));
+			stmt.setInt(2, nouveauMontant);
+			stmt.setInt(3, noUtilisateur);
+			stmt.setInt(4, noArticle);
+			
+			int rowsAffected = stmt.executeUpdate();
+			
+			System.out.println(rowsAffected + " ligne modifiée");
+			
+			stmt.close();
+			//JdbcTools.closeConnection();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Update du montant de l'enchère error");
+		} catch (Exception e) {
+			e.getMessage();
+		}	
 	}
 
 }
