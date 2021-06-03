@@ -6,6 +6,9 @@ package fr.eni.encheresLOSNA.bo;
 import java.sql.Date;
 import java.util.Calendar;
 
+import fr.eni.encheresLOSNA.bll.BLLException;
+import fr.eni.encheresLOSNA.bll.UtilisateurManager;
+
 /**
  * @author hug0cr
  * @version EncheresLOSNA - V1.0
@@ -20,11 +23,11 @@ public class ArticleVendu {
 	private Integer miseAPrix;
 	private Integer prixVente;
 	private String etatVente;
-
 	private Integer noUtilisateur;
-	//private Retrait lieuRetrait;
 	private Integer noCategorie;
-	//private List<Enchere> listeEncheres;
+	
+	private Utilisateur vendeur;
+
 	
 	/**
 	 * Constructeur
@@ -60,6 +63,23 @@ public class ArticleVendu {
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 		this.etatVente = verificationEtatVente(dateDebutEncheres, dateFinEncheres);
+		this.vendeur = recuperationDuVendeur(noUtilisateur);
+	}
+
+	/**
+	 * Methode en charge de
+	 * @param noUtilisateur
+	 * @return
+	 */
+	private Utilisateur recuperationDuVendeur(Integer noUtilisateur) {
+		Utilisateur vendeur = null;
+		try {
+			vendeur = UtilisateurManager.getInstance().getUtilisateurById(noUtilisateur);
+		} catch (BLLException e) {
+			System.err.println("Echec de récupération du vendeur sur l'article.");
+			e.printStackTrace();
+		}
+		return vendeur;
 	}
 
 	/**
@@ -254,6 +274,18 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 	}
 
-	
+	/**
+	 * @return the vendeur
+	 */
+	public Utilisateur getVendeur() {
+		return vendeur;
+	}
+
+	/**
+	 * @param vendeur the vendeur to set
+	 */
+	public void setVendeur(Utilisateur vendeur) {
+		this.vendeur = vendeur;
+	}
 		
 }
