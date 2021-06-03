@@ -10,17 +10,7 @@
 <body>
 	<%@ include file="./component/header.jspf" %>
 	
-	<%
-		Cookie[] cookies = request.getCookies();
-		for (Cookie c : cookies){
-			if (c.getName().equals("loginLOSNA")){
-				String login = c.getValue();
-			}
-		}
-	%>
-	
 	<h1>Se connecter</h1>
-	<h2>${login}</h2>
 	<form action="./ConnexionServlet" method="post">
 	<label for="id">Votre e-mail</label>
 	
@@ -41,7 +31,7 @@
 	<a href="./motDePasseOublie">Mot de passe oublié</a>
 	</form>
 	
-	<p><a href="./creerProfil">Créer un compte</a></p>
+	<p><a href="./gererProfil">Créer un compte</a></p>
 	
 	<%@ include file="./component/footer.jspf" %>
 </body>

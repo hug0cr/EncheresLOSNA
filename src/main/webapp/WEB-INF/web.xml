@@ -86,5 +86,14 @@
   	<servlet-name>gestionArticle</servlet-name>
   	<url-pattern>/gestionArticle</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>pageProfil</servlet-name>
+  	<jsp-file>/WEB-INF/pageProfil.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pageProfil</servlet-name>
+  	<url-pattern>/pageProfil</url-pattern>
+  </servlet-mapping>
 
 </web-app>
