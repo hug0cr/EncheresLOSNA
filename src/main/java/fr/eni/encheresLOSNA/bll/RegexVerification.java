@@ -12,18 +12,25 @@ import java.util.regex.Pattern;
  * @date 3 juin 2021 - 14:44:59
  */
 public class RegexVerification {
-	private String ONLY_LETTERS_AND_NUMBERS = "^[A-Za-Z0-9]+$";
-	private String VALID_EMAIL = "^[\\\\w!#$%&'*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,6}$";
-
+	public static String VALID_EMAIL = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+	public static String ONLY_LETTERS_AND_NUMBERS = "^[a-zA-Z0-9]+$";
+	public static String ONLY_FIVE_DIGITS = "^[0-9]{5,5}$";
+	
 	public static boolean isValidEmail(String email) {
-		boolean isValid = false;
-		String regex = "^[\\\\w!#$%&'*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,6}$";
-	 
-		Pattern pattern = Pattern.compile(regex);
-
+		Pattern pattern = Pattern.compile(VALID_EMAIL);
 		Matcher matcher = pattern.matcher(email);
-		isValid = matcher.matches();
-		return isValid;
+		return matcher.matches();
 	}
 	
+	public static boolean isOnlyLettersAndNumbers(String string) {
+		Pattern pattern = Pattern.compile(ONLY_LETTERS_AND_NUMBERS);
+		Matcher matcher = pattern.matcher(string);
+		return matcher.matches();
+	}
+	
+	public static boolean isOnlyFiveDigits(String string) {
+		Pattern pattern = Pattern.compile(ONLY_FIVE_DIGITS);
+		Matcher matcher = pattern.matcher(string);
+		return matcher.matches();
+	}
 }
