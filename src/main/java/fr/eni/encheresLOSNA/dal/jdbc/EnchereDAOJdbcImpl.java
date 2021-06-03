@@ -55,7 +55,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	
 	private final String UPDATE_MONTANT_ENCHERE = "UPDATE ENCHERES SET date_enchere=?, montant_enchere=? WHERE no_utilisateur=? AND no_article=?";
 	
-	private final String DELETE = "DELETE FROM ENCHERES WHERE no_utilisateur=?;";
+	private final String DELETE = "DELETE FROM ENCHERES WHERE no_utilisateur=? AND no_article=?;";
 	
 	private final String SELECT_ALL = "SELECT * FROM ENCHERES;";
 	
@@ -87,7 +87,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 //			}
 				
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Insert error");
@@ -119,7 +118,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			System.out.println(rowsAffected + " ligne modifiée");
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Update error");
@@ -157,7 +155,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			}
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select all error");
@@ -167,10 +164,29 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 
 	/**
 	 * {@inheritDoc}
+	 * @throws DALException 
 	 */
 	@Override
-	public void delete(Enchere t) {
+	public void delete(Enchere t) throws DALException {
+		PreparedStatement stmt = null;
 		
+		try {
+			con = ConnectionProvider.getConnection();
+			stmt = con.prepareStatement(DELETE);
+			stmt.setInt(1, t.getNoUtilisateur());
+			stmt.setInt(2, t.getNoArticle());
+			
+			int rowsAffected = stmt.executeUpdate();
+			
+			System.out.println(rowsAffected + " ligne supprimée");
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Delete error");
+		} catch (Exception e) {
+			e.getMessage();
+		}
 	}
 	
 	/**
@@ -197,7 +213,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			System.out.println(rowsAffected + " ligne modifiée");
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Update du montant de l'enchère error");

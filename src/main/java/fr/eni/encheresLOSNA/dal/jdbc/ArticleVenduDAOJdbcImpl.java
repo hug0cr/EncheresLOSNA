@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
-import fr.eni.encheresLOSNA.bo.Utilisateur;
 import fr.eni.encheresLOSNA.dal.ArticleVenduDAO;
 import fr.eni.encheresLOSNA.dal.DALException;
 
@@ -81,6 +80,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_utilisateur, "
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE date_debut_encheres < GETDATE() AND date_fin_encheres > GETDATE() AND no_utilisateur=?;";
+	
+	private static final String SELECT_TOP_50 = "SELECT TOP (50) * FROM ARTICLES_VENDUS;";
 	
 	private final String UPDATE = "UPDATE ARTICLES_VENDUS SET "
 			+ "nom_article=?, "
@@ -354,6 +355,36 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select encheres en cours d'un utilisateur error");
+		}			
+		return listeArticlesVendus;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<ArticleVendu> selectTop50() throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT_TOP_50);
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+				rs.getString("description"), rs.getDate("date_debut_encheres"), 
+				rs.getDate("date_fin_encheres"), rs.getInt("prix_initial"), 
+				rs.getInt("prix_vente"), rs.getString("etat_vente"),
+				rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select top 50 Articles vendus error ");
 		}			
 		return listeArticlesVendus;
 	}
