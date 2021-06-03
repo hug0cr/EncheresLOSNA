@@ -33,23 +33,23 @@ public class FiltrageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String categorie = (String) request.getAttribute("categorie");
-		String motCle = (String) request.getAttribute("nomArticle");
-		EnchereManager enchereMgr = EnchereManager.getInstance();
-		
-		List<Enchere> lesEncheresByKW = enchereMgr.getEncheresByKW(motCle);
-		List<Enchere> lesEncheresByCategorie = enchereMgr.getEncheresByCategorie(categorie);
-		Enchere[] enchereToPrint = new Enchere[lesEncheresByCategorie.size()];
-		int i = 0;
-		
-		for (Enchere enchere : lesEncheresByCategorie) {
-			if (lesEncheresByKW.contains(enchere)) {
-				enchereToPrint[i] = enchere;
-				i++;
-			}
-		}
-		request.setAttribute("lesEncheres", enchereToPrint);
-		doGet(request, response);
+//		String categorie = (String) request.getAttribute("categorie");
+//		String motCle = (String) request.getAttribute("nomArticle");
+//		EnchereManager enchereMgr = EnchereManager.getInstance();
+//		
+//		List<Enchere> lesEncheresByKW = enchereMgr.getEncheresByKW(motCle);
+//		List<Enchere> lesEncheresByCategorie = enchereMgr.getEncheresByCategorie(categorie);
+//		Enchere[] enchereToPrint = new Enchere[lesEncheresByCategorie.size()];
+//		int i = 0;
+//		
+//		for (Enchere enchere : lesEncheresByCategorie) {
+//			if (lesEncheresByKW.contains(enchere)) {
+//				enchereToPrint[i] = enchere;
+//				i++;
+//			}
+//		}
+//		request.setAttribute("lesEncheres", enchereToPrint);
+//		doGet(request, response);
 	}
 
 }
