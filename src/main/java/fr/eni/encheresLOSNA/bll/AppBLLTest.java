@@ -35,7 +35,6 @@ public class AppBLLTest {
 		try {
 			u1 = UtilisateurManager.getInstance().getUtilisateurById(1);
 		} catch (BLLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

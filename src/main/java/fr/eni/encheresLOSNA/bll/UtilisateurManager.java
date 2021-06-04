@@ -143,8 +143,12 @@ public class UtilisateurManager {
 		}
 		
 		//Les attributs des utilisateur sont obligatoires
-		if(u.getPseudo() == null || u.getPseudo().trim().length()==0) {
-			sb.append("Le pseudo de l'utilisateur est obligatoire.\n");
+//		if(u.getPseudo() == null || u.getPseudo().trim().length()==0) {
+//			sb.append("Le pseudo de l'utilisateur est obligatoire.\n");
+//			valide = false;
+//		}
+		if (!RegexVerification.isOnlyLettersAndNumbers(u.getPseudo())) {
+			sb.append(RegexVerification.ONLY_LETTERS_AND_NUMBERS_DESCRIPTION + "\n");
 			valide = false;
 		}
 		if(u.getPrenom() == null || u.getPrenom().trim().length()==0) {
@@ -155,28 +159,44 @@ public class UtilisateurManager {
 			sb.append("Le nom est obligatoire.\n");
 			valide = false;
 		}
-		if(u.getEmail() == null || u.getEmail().trim().length()==0){
-			sb.append("L'email est obligatoire.\n");
+//		if(u.getEmail() == null || u.getEmail().trim().length()==0){
+//			sb.append("L'email est obligatoire.\n");
+//			valide = false;
+//		}
+		if (!RegexVerification.isValidEmail(u.getEmail())) {
+			sb.append("L'email doit être valide.\n");
 			valide = false;
 		}
-		if(u.getTelephone() == null || u.getTelephone().trim().length()==0){
-			sb.append("Le numéro de téléphone est obligatoire.\n");
+//		if(u.getTelephone() == null || u.getTelephone().trim().length()==0){
+//			sb.append("Le numéro de téléphone est obligatoire.\n");
+//			valide = false;
+//		}
+		if (!RegexVerification.isOnlyTenDigits(u.getTelephone())) {
+			sb.append("Le numéro de téléphone doit contenir 10 chiffres.\n");
 			valide = false;
 		}
 		if(u.getRue() == null || u.getRue().trim().length()==0){
 			sb.append("La rue est obligatoire.\n");
 			valide = false;
 		}
-		if(u.getCodePostal() == null || u.getCodePostal().trim().length()==0){
-			sb.append("Le code postal est obligatoire.\n");
+//		if(u.getCodePostal() == null || u.getCodePostal().trim().length()==0){
+//			sb.append("Le code postal est obligatoire.\n");
+//			valide = false;
+//		}
+		if (!RegexVerification.isOnlyFiveDigits(u.getCodePostal())) {
+			sb.append("Le code postal doit contenir 5 chiffres.\n");
 			valide = false;
 		}
 		if(u.getVille() == null || u.getVille().trim().length()==0){
 			sb.append("La ville est obligatoire.\n");
 			valide = false;
 		}
-		if(u.getMotDePasse() == null || u.getMotDePasse().trim().length()==0){
-			sb.append("Le mot de passe est obligatoire.\n");
+//		if(u.getMotDePasse() == null || u.getMotDePasse().trim().length()==0){
+//			sb.append("Le mot de passe est obligatoire.\n");
+//			valide = false;
+//		}
+		if (!RegexVerification.isValidPassword(u.getMotDePasse())) {
+			sb.append(RegexVerification.VALID_PASSWORD_DESCRIPTION + "\n");
 			valide = false;
 		}
 		if(u.getCredit() == null){
