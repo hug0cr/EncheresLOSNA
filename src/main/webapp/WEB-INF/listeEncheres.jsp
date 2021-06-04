@@ -20,7 +20,7 @@
 	<h1>Liste des enchères</h1>
 	<h2>Filtres :</h2>
 	<form action="./FiltrageServlet" method="post">
-		<input type="text" name="nomArticle" placeholder="Le nom de l'article contient...">
+		<input type="text" name="motCle" placeholder="Le nom de l'article contient...">
 		<label for="categorie">Catégorie : </label>
 		<select name="categorie" required>
 			<option value="0" selected>Toutes</option>

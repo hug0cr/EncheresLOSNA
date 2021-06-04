@@ -1,6 +1,7 @@
 package fr.eni.encheresLOSNA.ihm;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -37,22 +38,26 @@ public class Controler extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext application = this.getServletContext();
 		CategorieManager categorieMgr = CategorieManager.getInstance();
-		List<Categorie> categories = null;
-		List<ArticleVendu> lesArticles = null;
-		try {
-			categories = categorieMgr.getCategories();
-		} catch (BLLException e) {
-			e.printStackTrace();
+		List<Categorie> categories = new ArrayList<Categorie>();
+		List<ArticleVendu> lesArticles = new ArrayList<ArticleVendu>();
+		
+		if (application.getAttribute("categories") == null) {
+			try {
+				categories = categorieMgr.getCategories();
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
+			application.setAttribute("categories", categories);
 		}
-		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
-		try {
-			lesArticles = articleMgr.getArticlesVendusTop50();
-		} catch (BLLException e) {
-			e.printStackTrace();
+		if (request.getAttribute("lesArticles") == null) {
+			try {
+				lesArticles = ArticleVenduManager.getInstance().getArticlesVendusTop50();
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("lesArticles", lesArticles);
 		}
-		request.setAttribute("lesArticles", lesArticles);
-		application.setAttribute("categories", categories);
-		request.getRequestDispatcher("./listeEncheres").forward(request, response);
+		request.getRequestDispatcher("./listeEncheres").forward(request, response);			
 	}
 
 	/**
