@@ -17,44 +17,31 @@
 <body>
 	<%@ include file="./component/header.jspf"%>
 	<h1>Liste des enchères</h1>
-
-
-
-
-	<c:if test="${empty sessionScope.user}">
-		<!-- Utilisateur non connecté -->
-		<h2>Filtres :</h2>
-		<form action="./FiltrageServlet" method="post">
-			<input type="text" name="nomArticle" placeholder="Le nom de l'article contient...">
-			<label for="categorie">Catégorie : </label>
-			<select name="categorie" required>
-				<option value="0" selected>Toutes</option>
+	<h2>Filtres :</h2>
+	<form action="./FiltrageServlet" method="post">
+		<input type="text" name="nomArticle" placeholder="Le nom de l'article contient...">
+		<label for="categorie">Catégorie : </label>
+		<select name="categorie" required>
+			<option value="0" selected>Toutes</option>
 			<c:forEach items="${categories}" var="c">
 				<option value="${c.noCategorie}">${c.libelle}</option>
 			</c:forEach>
-			</select>
-			<button type="submit">Rechercher</button>
-		</form>
+		</select>
+		<button type="submit">Rechercher</button>
+	</form>
+	<c:if test="${empty sessionScope.user}">
+		<!-- Utilisateur non connecté -->
 		<section id="liste-encheres">
-
-			<%
-				ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
-				List<ArticleVendu> lesArticles = articleMgr.getArticlesVendusTop50(); // A modifier avec getLast50Articles()
-			%>
-
 			<c:forEach items="${lesArticles }" begin="0" end="10" var="article">
 				<div class="enchere">
 					<img alt="une image" src="">
 					<h4>${article.nomArticle}</h4>
-					<p>Mise à prix : ${article.miseAPrix}</p>
+					<p>Prix : ${article.prixVente}</p>
 					<p>Fin des enchères : ${article.dateFinEncheres}</p>
 					<p>Vendeur : ${article.vendeur.pseudo}</p>
 				</div>
 			</c:forEach>
-
 		</section>
-
-
 	</c:if>
 
 
@@ -62,6 +49,17 @@
 
 	<c:if test="${!empty sessionScope.user}">
 		<!-- Utilisateur connecté -->
+		<section id="liste-encheres">
+			<c:forEach items="${lesArticles }" begin="0" end="10" var="article">
+				<div class="enchere">
+					<img alt="une image" src="">
+					<h4>${article.nomArticle}</h4>
+					<p>Mise à prix : ${article.prixVente}</p>
+					<p>Fin des enchères : ${article.dateFinEncheres}</p>
+					<p>Vendeur : ${article.vendeur.pseudo}</p>
+				</div>
+			</c:forEach>
+		</section>
 	</c:if>
 
 

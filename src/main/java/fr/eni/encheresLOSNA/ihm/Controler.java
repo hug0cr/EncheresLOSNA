@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
 import fr.eni.encheresLOSNA.bll.BLLException;
 import fr.eni.encheresLOSNA.bll.CategorieManager;
+import fr.eni.encheresLOSNA.bo.ArticleVendu;
 import fr.eni.encheresLOSNA.bo.Categorie;
 
 /**
@@ -36,11 +38,19 @@ public class Controler extends HttpServlet {
 		ServletContext application = this.getServletContext();
 		CategorieManager categorieMgr = CategorieManager.getInstance();
 		List<Categorie> categories = null;
+		List<ArticleVendu> lesArticles = null;
 		try {
 			categories = categorieMgr.getCategories();
 		} catch (BLLException e) {
 			e.printStackTrace();
 		}
+		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
+		try {
+			lesArticles = articleMgr.getArticlesVendusTop50();
+		} catch (BLLException e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("lesArticles", lesArticles);
 		application.setAttribute("categories", categories);
 		request.getRequestDispatcher("./listeEncheres").forward(request, response);
 	}

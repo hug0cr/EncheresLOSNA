@@ -25,7 +25,7 @@ public class FiltrageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/listeEncheres");
+		RequestDispatcher rd = request.getRequestDispatcher("/Controler");
 		rd.forward(request, response);
 	}
 
