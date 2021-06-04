@@ -236,6 +236,7 @@ public class ArticleVenduManager {
 		}
 		if (a.getDateFinEncheres().before(a.getDateDebutEncheres())) {
 			sb.append("La date de début des enchères doit être antérieur à la date de fin des enchères.\n");
+			valide = false;
 		}
 		
 		if(!valide){

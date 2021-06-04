@@ -33,6 +33,7 @@ public class ArticleServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String type = (String) request.getParameter("type");
 		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
 		ArticleVendu article = createArticle(request, articleMgr);
@@ -69,7 +70,7 @@ public class ArticleServlet extends HttpServlet {
 		String description = request.getParameter("description");
 		Integer categorie = Integer.parseInt(request.getParameter("categorie"));
 		Integer miseAPrix = Integer.parseInt(request.getParameter("prix"));
-		SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			dateDebutEncheres = formatDate.parse(request.getParameter("dateDebut"));
 			dateFinEncheres = formatDate.parse(request.getParameter("dateFin"));

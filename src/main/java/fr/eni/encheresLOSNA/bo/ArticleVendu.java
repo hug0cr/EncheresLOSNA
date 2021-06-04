@@ -85,8 +85,7 @@ public class ArticleVendu {
 		this.dateDebutEncheres = dateDebutEncheres;
 		this.dateFinEncheres = dateFinEncheres;
 		this.miseAPrix = miseAPrix;
-		this.prixVente = null;
-		this.etatVente = ETAT_CREE;
+		this.prixVente = miseAPrix;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 		this.etatVente = verificationEtatVente(dateDebutEncheres, dateFinEncheres);
