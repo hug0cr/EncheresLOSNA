@@ -133,35 +133,6 @@ public class ArticleVendu {
 	// Getters & Setters
 
 	/**
-	 * Constructeur
-	 * @param noArticle
-	 * @param nomArticle
-	 * @param description
-	 * @param dateDebutEncheres
-	 * @param dateFinEncheres
-	 * @param miseAPrix
-	 * @param prixVente
-	 * @param etatVente
-	 * @param noUtilisateur
-	 * @param noCategorie
-	 */
-	public ArticleVendu(Integer noArticle, String nomArticle, String description, Date dateDebutEncheres,
-			Date dateFinEncheres, Integer miseAPrix, Integer prixVente, String etatVente, Integer noUtilisateur,
-			Integer noCategorie) {
-		super();
-		this.noArticle = noArticle;
-		this.nomArticle = nomArticle;
-		this.description = description;
-		this.dateDebutEncheres = dateDebutEncheres;
-		this.dateFinEncheres = dateFinEncheres;
-		this.miseAPrix = miseAPrix;
-		this.prixVente = prixVente;
-		this.etatVente = etatVente;
-		this.noUtilisateur = noUtilisateur;
-		this.noCategorie = noCategorie;
-	}
-
-	/**
 	 * @return the noArticle
 	 */
 	public Integer getNoArticle() {
