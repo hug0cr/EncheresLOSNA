@@ -124,8 +124,9 @@ public class ArticleVenduManager {
 	 */
 	public List<ArticleVendu> getArticlesVendusByKW(String keyWord) throws BLLException {
 		List<ArticleVendu> articlesVendus = null;
+		String keyWordTrimmed = keyWord.trim();
 		try {
-			articlesVendus = articleVenduDAO.selectByKW(keyWord);
+			articlesVendus = articleVenduDAO.selectByKW(keyWordTrimmed);
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles vendus par mot-clé ", e);
