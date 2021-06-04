@@ -1,18 +1,18 @@
 package fr.eni.encheresLOSNA.ihm;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.encheresLOSNA.bll.CategorieManager;
-import fr.eni.encheresLOSNA.bll.EnchereManager;
-import fr.eni.encheresLOSNA.bo.Enchere;
+import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
+import fr.eni.encheresLOSNA.bll.BLLException;
+import fr.eni.encheresLOSNA.bo.ArticleVendu;
 
 /**
  * Servlet implementation class FiltrageServlet
@@ -25,31 +25,52 @@ public class FiltrageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/Controler");
-		rd.forward(request, response);
+		request.getRequestDispatcher("/Controler").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String categorie = (String) request.getAttribute("categorie");
-//		String motCle = (String) request.getAttribute("nomArticle");
-//		EnchereManager enchereMgr = EnchereManager.getInstance();
-//		
-//		List<Enchere> lesEncheresByKW = enchereMgr.getEncheresByKW(motCle);
-//		List<Enchere> lesEncheresByCategorie = enchereMgr.getEncheresByCategorie(categorie);
-//		Enchere[] enchereToPrint = new Enchere[lesEncheresByCategorie.size()];
-//		int i = 0;
-//		
-//		for (Enchere enchere : lesEncheresByCategorie) {
-//			if (lesEncheresByKW.contains(enchere)) {
-//				enchereToPrint[i] = enchere;
-//				i++;
-//			}
-//		}
-//		request.setAttribute("lesEncheres", enchereToPrint);
-//		doGet(request, response);
+		Integer categorie = Integer.parseInt(request.getParameter("categorie"));
+		String motCle = (String) request.getParameter("motCle");
+		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
+		
+		List<ArticleVendu> lesArticlesParKW = new ArrayList<ArticleVendu>();
+		List<ArticleVendu> lesArticlesParCategorie = new ArrayList<ArticleVendu>();
+		List<ArticleVendu> articlesToPrint = new ArrayList<ArticleVendu>();
+		
+		if (categorie == 0 && motCle.equals("")) {
+			try {
+				articlesToPrint = articleMgr.getArticlesVendusTop50();
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
+		} else if (categorie == 0) {
+			try {
+				articlesToPrint = articleMgr.getArticlesVendusByKW(motCle);
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
+		} else if (motCle.equals("")) {
+			try {
+				articlesToPrint = articleMgr.getArticlesVendusByCategorie(categorie);
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				lesArticlesParCategorie = articleMgr.getArticlesVendusByCategorie(categorie);
+				lesArticlesParKW = articleMgr.getArticlesVendusByKW(motCle);
+			} catch (BLLException e) {
+				e.printStackTrace();
+			}
+			for (ArticleVendu article : lesArticlesParCategorie) {
+				if (lesArticlesParKW.contains(article)) articlesToPrint.add(article);
+			}
+		}
+		request.setAttribute("lesArticles", articlesToPrint);
+		doGet(request, response);
 	}
 
 }
