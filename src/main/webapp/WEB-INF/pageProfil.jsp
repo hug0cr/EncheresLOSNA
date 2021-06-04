@@ -11,7 +11,7 @@
 </c:if>
 
 <c:if test="${param.type != 'monProfil' }">
-	<title>Profil de</title>
+	<title>Profil de ${user.pseudo }</title>
 </c:if>
 </head>
 <body>
@@ -36,15 +36,14 @@
 	</c:if>
 
 	<c:if test="${param.type != 'monProfil' }">
-		<h1>Profil de </h1>
-		<p>Pseudo :</p>
-		<p>Nom :</p>
-		<p>Prenom :</p>
-		<p>Email :</p>
-		<p>Téléphone :</p>
-		<p>Rue :</p>
-		<p>Code postal :</p>
-		<p>Ville :</p>
+		<h1>Profil de ${user.pseudo}</h1>
+		<p>Nom : ${user.nom }</p>
+		<p>Prenom : ${user.prenom }</p>
+		<p>Email : ${user.email }</p>
+		<p>Téléphone : ${user.telephone }</p>
+		<p>Rue : ${user.rue }</p>
+		<p>Code postal : ${user.codePostal }</p>
+		<p>Ville : ${user.ville }</p>
 	</c:if>
 
 
