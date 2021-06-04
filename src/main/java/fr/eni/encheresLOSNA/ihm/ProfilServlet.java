@@ -63,7 +63,7 @@ public class ProfilServlet extends HttpServlet {
 			try {
 				userMgr.addUtilisateur(user);
 				HttpSession session = request.getSession();
-				session.setMaxInactiveInterval(10 * 60);
+				session.setMaxInactiveInterval(5 * 60);
 				session.setAttribute("user", user);
 				home.forward(request, response);
 			} catch (BLLException e) {
