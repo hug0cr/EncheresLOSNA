@@ -40,7 +40,18 @@ public class Enchere {
 		this.montantEnchere = montantEnchere;
 	}
 
-
+	/**
+	 * Constructeur
+	 * @param noUtilisateur
+	 * @param noArticle
+	 * @param montantEnchere
+	 */
+	public Enchere(Integer noUtilisateur, Integer noArticle, Integer montantEnchere) {
+		super();
+		this.noUtilisateur = noUtilisateur;
+		this.noArticle = noArticle;
+		this.montantEnchere = montantEnchere;
+	}
 
 	/**
 	 * @return the noUtilisateur

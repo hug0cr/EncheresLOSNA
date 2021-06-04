@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import fr.eni.encheresLOSNA.bo.Enchere;
 import fr.eni.encheresLOSNA.bo.Utilisateur;
 
 /**
@@ -23,12 +24,20 @@ public class AppBLLTest {
 	 */
 	public static void main(String[] args) {
 		String email1 = "user@domain.com";
-		String string = "jojo44";
+		String string = "jo44";
 		String cp = "44000";
 		
 		System.out.println(RegexVerification.isValidEmail(email1));
 		System.out.println(RegexVerification.isOnlyLettersAndNumbers(string));
+		System.out.println(RegexVerification.isOnlyFiveDigits(cp));
 		
+		Enchere enchere3 = new Enchere(3, 3, 50);
+		
+		try {
+			EnchereManager.getInstance().addEnchere(enchere3);
+		} catch (BLLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
