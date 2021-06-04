@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="format-detection" content="telephone=no" />
 <c:if test="${param.type == 'new' }">
 	<title>Nouvelle annonce</title>
 </c:if>

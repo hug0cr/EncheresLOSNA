@@ -25,8 +25,20 @@ public class ProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("./listeEncheres");
-		rd.forward(request, response);
+		if (request.getParameter("type").equals("suppr")) {
+			UtilisateurManager userMgr = UtilisateurManager.getInstance();
+			HttpSession session = request.getSession(false);
+			try {
+				userMgr.removeUtilisateur((Utilisateur) session.getAttribute("user"));
+				request.setAttribute("message", "Profil supprimé avec succès");
+				session.invalidate();
+				request.getRequestDispatcher("./Controler").forward(request, response);
+			} catch (BLLException e) {
+				request.setAttribute("message", "La suppression du profil a échoué");
+				request.getRequestDispatcher("./gererProfil").forward(request, response);
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/**
@@ -68,20 +80,6 @@ public class ProfilServlet extends HttpServlet {
 				request.setAttribute("message", "La création du profil a échoué");
 				gererProfil.forward(request, response);
 			}
-			break;
-		case "suppr":
-			try {
-				userMgr.removeUtilisateur((Utilisateur) session.getAttribute("user"));
-				request.setAttribute("message", "Profil supprimé avec succès");
-				session.invalidate();
-				request.getRequestDispatcher("./Controler").forward(request, response);
-			} catch (BLLException e) {
-				request.setAttribute("message", "La suppression du profil a échoué");
-				e.printStackTrace();
-			}
-			break;
-		default:
-			request.getRequestDispatcher("./Controler").forward(request, response);
 			break;
 		}
 	}
