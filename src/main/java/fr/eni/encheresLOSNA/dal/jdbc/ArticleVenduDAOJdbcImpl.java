@@ -45,6 +45,18 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE no_article=?;";
 	
+	private final String SELECT_BY_NO_CATEGORIE = "SELECT "
+			+ "no_article, "
+			+ "nom_article, "
+			+ "description, "
+			+ "date_debut_encheres, "
+			+ "date_fin_encheres, "
+			+ "prix_initial, "
+			+ "prix_vente, "
+			+ "no_utilisateur, "
+			+ "no_categorie "
+			+ "FROM ARTICLES_VENDUS WHERE no_categorie=?;";
+	
 	private static final String SELECT_BY_KW = "SELECT "
 			+ "no_article, "
 			+ "nom_article, "
@@ -379,6 +391,37 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select top 50 Articles vendus error ");
+		}			
+		return listeArticlesVendus;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<ArticleVendu> selectByCategorie(Integer noCategorie) throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_BY_NO_CATEGORIE);
+			
+			stmt.setInt(1, noCategorie);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+						rs.getString("description"), new java.util.Date(rs.getDate("date_debut_encheres").getTime()), 
+						new java.util.Date(rs.getDate("date_fin_encheres").getTime()), rs.getInt("prix_initial"), 
+						rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select by categorie error");
 		}			
 		return listeArticlesVendus;
 	}

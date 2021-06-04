@@ -185,6 +185,23 @@ public class ArticleVenduManager {
 	
 	/**
 	 * Methode en charge de
+	 * @param noCategorie
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVendusByCategorie(Integer noCategorie) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectByCategorie(noCategorie);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles vendus par categorie ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de
 	 * @param a
 	 * @throws BLLException
 	 */
