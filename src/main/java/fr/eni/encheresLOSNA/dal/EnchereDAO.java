@@ -3,6 +3,8 @@
  */
 package fr.eni.encheresLOSNA.dal;
 
+import java.util.List;
+
 import fr.eni.encheresLOSNA.bo.Enchere;
 
 /**
@@ -12,4 +14,6 @@ import fr.eni.encheresLOSNA.bo.Enchere;
  */
 public interface EnchereDAO extends DAO<Enchere> {
 	public void updateMontantEnchere (Integer nouveauMontant, Integer noUtilisateur, Integer noArticle) throws DALException;
+	public List<Enchere> selectAllByNoUtilisateur(Integer noUtilisateur) throws DALException;
+	public List<Enchere> selectAllByNoArticle(Integer noArticle) throws DALException;
 }

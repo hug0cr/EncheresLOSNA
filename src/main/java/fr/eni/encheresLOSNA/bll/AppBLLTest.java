@@ -31,14 +31,15 @@ public class AppBLLTest {
 		System.out.println(RegexVerification.isOnlyLettersAndNumbers(string));
 		System.out.println(RegexVerification.isOnlyFiveDigits(cp));
 		
-		Enchere enchere3 = new Enchere(3, 3, 50);
-		
+		Utilisateur u1 = null;
 		try {
-			EnchereManager.getInstance().addEnchere(enchere3);
+			u1 = UtilisateurManager.getInstance().getUtilisateurById(1);
 		} catch (BLLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		System.out.println(u1);
 	}
 
 }

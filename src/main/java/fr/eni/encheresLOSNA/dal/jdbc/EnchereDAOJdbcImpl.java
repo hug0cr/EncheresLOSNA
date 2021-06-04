@@ -39,7 +39,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			+ "montant_enchere "
 			+ "FROM ENCHERES WHERE no_utilisateur=?;";
 	
-	private final String SELECT_BY_NO_ARTICLE = "SELECT * "
+	private final String SELECT_ALL_BY_NO_ARTICLE = "SELECT * "
 			+ "no_utilisateur, "
 			+ "no_article, "
 			+ "date_enchere, "
@@ -58,6 +58,8 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	private final String DELETE = "DELETE FROM ENCHERES WHERE no_utilisateur=? AND no_article=?;";
 	
 	private final String SELECT_ALL = "SELECT * FROM ENCHERES;";
+	
+	private final String SELECT_NO_UTILISATEUR_NO_ARTICLE = "SELECT * FROM ENCHERES WHERE no_utilisateur=? AND no_article=?;";
 	
 	private static Connection con;
 	
@@ -219,6 +221,64 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 		} catch (Exception e) {
 			e.getMessage();
 		}	
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<Enchere> selectAllByNoUtilisateur(Integer noUtilisateur) throws DALException {
+		List<Enchere> listeEncheres = new ArrayList<>();
+		Enchere enchere = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_BY_NO_UTILISATEUR);
+			
+			stmt.setInt(1, noUtilisateur);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				enchere = new Enchere(rs.getInt("no_utilisateur"), rs.getInt("no_article"), 
+						rs.getDate("date_enchere"), rs.getInt("montant_enchere"));			
+				listeEncheres.add(enchere);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select all by noUtilisateur error");
+		}			
+		return listeEncheres;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public List<Enchere> selectAllByNoArticle(Integer noArticle) throws DALException {
+		List<Enchere> listeEncheres = new ArrayList<>();
+		Enchere enchere = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_BY_NO_ARTICLE);
+			
+			stmt.setInt(1, noArticle);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				enchere = new Enchere(rs.getInt("no_utilisateur"), rs.getInt("no_article"), 
+						rs.getDate("date_enchere"), rs.getInt("montant_enchere"));			
+				listeEncheres.add(enchere);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select all by noUtilisateur error");
+		}			
+		return listeEncheres;
 	}
 
 }

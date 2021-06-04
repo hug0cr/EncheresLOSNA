@@ -38,9 +38,9 @@ public class EnchereManager {
 	 * @throws BLLException
 	 */
 	public void addEnchere(Enchere newEnchere) throws BLLException {
-		if(newEnchere.getNoArticle() != null && newEnchere.getNoUtilisateur() != null) {
-			throw new BLLException("Enchère déjà existant.");
-		}
+//		if(newEnchere.getNoArticle() != null && newEnchere.getNoUtilisateur() != null) {
+//			throw new BLLException("Enchère déjà existant.");
+//		}
 		try {
 			validerEnchere(newEnchere);
 			enchereDAO.insert(newEnchere);
@@ -119,6 +119,34 @@ public class EnchereManager {
 			e.printStackTrace();
 			throw new BLLException("Erreur d'update sur le montant de l'enchère", e);
 		}
+	}
+	
+	/**
+	 * Methode en charge de
+	 * @param noUtilisateur
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<Enchere> getAllByNoUtilisateur(Integer noUtilisateur) throws BLLException {
+		List<Enchere> encheres = null;
+		try {
+			encheres = enchereDAO.selectAllByNoUtilisateur(noUtilisateur);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des enchères par noUtilisateur", e);
+		}
+		return encheres;
+	}
+	
+	public List<Enchere> getAllByNoArticle(Integer noArticle) throws BLLException {
+		List<Enchere> encheres = null;
+		try {
+			encheres = enchereDAO.selectAllByNoUtilisateur(noArticle);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des enchères par noArticle", e);
+		}
+		return encheres;
 	}
 	
 	/**
