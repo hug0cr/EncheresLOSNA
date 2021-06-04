@@ -26,10 +26,12 @@
 		<h2>Filtres :</h2>
 		<form action="./FiltrageServlet" method="post">
 			<input type="text" name="nomArticle" placeholder="Le nom de l'article contient...">
-			<label for="categorie">Catégorie</label>
-			<select name="categorie">
-				<option value="all" selected>Toutes</option>
-				<!-- Ajouter dynamiquement les <option> en fonction de la table Categorie -->
+			<label for="categorie">Catégorie : </label>
+			<select name="categorie" required>
+				<option value="0" selected>Toutes</option>
+			<c:forEach items="${categories}" var="c">
+				<option value="${c.noCategorie}">${c.libelle}</option>
+			</c:forEach>
 			</select>
 			<button type="submit">Rechercher</button>
 		</form>

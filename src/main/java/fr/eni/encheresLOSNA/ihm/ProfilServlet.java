@@ -36,17 +36,15 @@ public class ProfilServlet extends HttpServlet {
 		
 		String type = (String) request.getParameter("type");
 		UtilisateurManager userMgr = UtilisateurManager.getInstance();
-		RequestDispatcher home = request.getRequestDispatcher("./listeEncheres");
-		RequestDispatcher creaProfil = request.getRequestDispatcher("./creerProfil");
+		RequestDispatcher home = request.getRequestDispatcher("./Controler");
 		RequestDispatcher pageProfil = request.getRequestDispatcher("./pageProfil");
 		RequestDispatcher gererProfil = request.getRequestDispatcher("./gererProfil");
 		Utilisateur user = createUser(request);
 		request.setAttribute("error", false);
-		
-		if (type.equals("modif")) {
-			HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+		switch (type) {
+		case "modif":
 			Utilisateur userSession = (Utilisateur) session.getAttribute("user");
-			
 			user.setMotDePasse(userSession.getMotDePasse());
 			user.setNoUtilisateur(userSession.getNoUtilisateur());
 			try {
@@ -55,23 +53,37 @@ public class ProfilServlet extends HttpServlet {
 				pageProfil.forward(request, response);
 			} catch (BLLException e) {
 				e.printStackTrace();
-				request.setAttribute("error", true);
+				request.setAttribute("message", "La modification du profil a échoué");
 				gererProfil.forward(request, response);
 			}
-		}
-		if (type.equals("crea")) {
+			break;
+		case "crea":
 			try {
 				userMgr.addUtilisateur(user);
-				HttpSession session = request.getSession();
 				session.setMaxInactiveInterval(5 * 60);
 				session.setAttribute("user", user);
 				home.forward(request, response);
 			} catch (BLLException e) {
 				e.printStackTrace();
-				request.setAttribute("error", true);
-				creaProfil.forward(request, response);
+				request.setAttribute("message", "La création du profil a échoué");
+				gererProfil.forward(request, response);
 			}
-		}	
+			break;
+		case "suppr":
+			try {
+				userMgr.removeUtilisateur((Utilisateur) session.getAttribute("user"));
+				request.setAttribute("message", "Profil supprimé avec succès");
+				session.invalidate();
+				request.getRequestDispatcher("./Controler").forward(request, response);
+			} catch (BLLException e) {
+				request.setAttribute("message", "La suppression du profil a échoué");
+				e.printStackTrace();
+			}
+			break;
+		default:
+			request.getRequestDispatcher("./Controler").forward(request, response);
+			break;
+		}
 	}
 	
 	private Utilisateur createUser(HttpServletRequest request) throws ServletException, IOException {

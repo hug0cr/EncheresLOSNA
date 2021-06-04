@@ -67,11 +67,11 @@
 		<input type="password" name="motDePasse" placeholder="Votre nouveau mot de passe">
 		<label for="confirmation">Confirmation : </label>
 		<input type="password" name="confirmation" placeholder="Confirmation">
-		<button type="submit">Modifier</button>
-		</form>
+		<button type="submit">Entegistrer</button>
 		<p>
-			<a href="./listeEncheres">Annuler</a>
+			<a href="./ProfilServlet?type=suppr">Supprimer le compte</a>
 		</p>
+		</form>
 	</c:if>
 	<%@ include file="./component/footer.jspf"%>
 </body>
