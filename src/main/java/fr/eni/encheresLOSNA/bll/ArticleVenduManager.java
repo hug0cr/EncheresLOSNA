@@ -125,6 +125,7 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> getArticlesVendusByKW(String keyWord) throws BLLException {
 		List<ArticleVendu> articlesVendus = null;
 		String keyWordTrimmed = keyWord.trim();
+		keyWordTrimmed = keyWordTrimmed.toLowerCase();
 		try {
 			articlesVendus = articleVenduDAO.selectByKW(keyWordTrimmed);
 		} catch (DALException e) {
