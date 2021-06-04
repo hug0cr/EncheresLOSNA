@@ -25,9 +25,9 @@ public class ProfilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("type").equals("suppr")) {
-			UtilisateurManager userMgr = UtilisateurManager.getInstance();
-			HttpSession session = request.getSession(false);
+		UtilisateurManager userMgr = UtilisateurManager.getInstance();
+		HttpSession session = request.getSession(false);
+		if (request.getParameter("type") != null && request.getParameter("type").equals("suppr")) {
 			try {
 				userMgr.removeUtilisateur((Utilisateur) session.getAttribute("user"));
 				request.setAttribute("message", "Profil supprimé avec succès");
@@ -36,6 +36,21 @@ public class ProfilServlet extends HttpServlet {
 			} catch (BLLException e) {
 				request.setAttribute("message", "La suppression du profil a échoué");
 				request.getRequestDispatcher("./gererProfil").forward(request, response);
+				e.printStackTrace();
+			}
+		}
+		if (request.getParameter("user") != null) {
+			Integer noUtilisateur = Integer.parseInt(request.getParameter("user"));
+			Utilisateur userSession = (Utilisateur) session.getAttribute("user");
+			Utilisateur user;
+			if (noUtilisateur == userSession.getNoUtilisateur()) {
+				request.getRequestDispatcher("./pageProfil?type=monProfil").forward(request, response);
+			}
+			try {
+				user = userMgr.getUtilisateurById(noUtilisateur);
+				request.setAttribute("user", user);
+				request.getRequestDispatcher("./pageProfil").forward(request, response);
+			} catch (BLLException e) {
 				e.printStackTrace();
 			}
 		}
