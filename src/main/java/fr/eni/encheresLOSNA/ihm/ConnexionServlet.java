@@ -70,7 +70,7 @@ public class ConnexionServlet extends HttpServlet {
 					cookie.setMaxAge(3600*24*60);
 					response.addCookie(cookie);
 				}
-				request.getRequestDispatcher("./listeEncheres").forward(request, response);
+				request.getRequestDispatcher("./Controler").forward(request, response);
 			}
 		}
 		
