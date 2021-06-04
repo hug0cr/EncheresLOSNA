@@ -117,14 +117,14 @@ public class ArticleVendu {
 	 */
 	private String verificationEtatVente(Date dateDebutEncheres, Date dateFinEncheres) {
 		String etatVente = null;
-		Date maintenant = new Date(Calendar.getInstance().getTimeInMillis());
+		Date maintenant = new Date(Calendar.getInstance().getTimeInMillis()); // Date.getTime()
 		
 		if (maintenant.before(dateDebutEncheres)) {
-			etatVente = "Créée";
+			etatVente = ETAT_CREE;
 		} else if (maintenant.after(dateDebutEncheres) && maintenant.before(dateFinEncheres)) {
-			etatVente = "En cours";
+			etatVente = ETAT_EN_COURS;
 		} else if (maintenant.after(dateFinEncheres)) {
-			etatVente = "Enchères terminées";
+			etatVente = ETAT_ENCHERES_TERMINEES;
 		}
 		
 		return etatVente;
