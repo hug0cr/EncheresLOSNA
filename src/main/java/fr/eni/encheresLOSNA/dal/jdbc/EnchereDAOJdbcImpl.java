@@ -331,7 +331,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 		} catch (SQLException e) {
 			throw new DALException("Select isAlreadyCreated error");
 		}
-		System.out.println(enchereATester);
 		boolean isAlreadyCreated = true;
 		if (enchereATester == null) {
 			isAlreadyCreated = false;
