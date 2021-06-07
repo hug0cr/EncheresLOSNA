@@ -107,6 +107,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie=? "
 			+ "WHERE no_article=?;";
 	
+	private final String UPDATE_PRIX_VENTE = "UPDATE ARTICLES_VENDUS SET prix_vente=? WHERE no_article=?;";
+	
 	private final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article=?;";
 	
 	private final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS;";
@@ -424,6 +426,29 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			throw new DALException("Select by categorie error");
 		}			
 		return listeArticlesVendus;
+	}
+	
+	public void updatePrixVente(Integer noArticle, Integer prixVente) throws DALException {
+		PreparedStatement stmt = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			stmt = con.prepareStatement(UPDATE_PRIX_VENTE);
+			
+			stmt.setInt(1, prixVente);
+			stmt.setInt(2, noArticle);
+			
+			int rowsAffected = stmt.executeUpdate();
+			
+			System.out.println(rowsAffected + " ligne modifiée");
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Update prix de vente de l'article error");
+		} catch (Exception e) {
+			e.getMessage();
+		}
 	}
 
 }

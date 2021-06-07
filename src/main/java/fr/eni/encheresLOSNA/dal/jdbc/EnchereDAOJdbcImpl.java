@@ -46,6 +46,8 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			+ "montant_enchere "
 			+ "FROM UTILISATEURS WHERE no_article=?;";
 	
+	private final String SELECT_MAX_MONTANT_BY_ARTICLE = "SELECT MAX(montant_enchere) FROM ENCHERES WHERE no_article = ?;";
+	
 	private final String UPDATE = "UPDATE ENCHERES SET "
 			+ "no_utilisateur=?, "
 			+ "no_article=?, "
@@ -80,6 +82,10 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			stmt.setTimestamp(3, Timestamp.from(Instant.now()));
 			stmt.setInt(4, t.getMontantEnchere());
 
+			stmt.executeUpdate();
+			System.out.println("1 ligne insérée");
+				
+			
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {
@@ -103,7 +109,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			
 			stmt.setInt(1, t.getNoUtilisateur());
 			stmt.setInt(2, t.getNoArticle());
-			//stmt.setDate(3, t.getDateEnchere());
 			stmt.setTimestamp(3, Timestamp.from(Instant.now()));
 			stmt.setInt(4, t.getMontantEnchere());
 			stmt.setInt(5, t.getNoUtilisateur());
@@ -273,5 +278,67 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 		}			
 		return listeEncheres;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Integer selectMaxMontantByNoArticle(Enchere enchere) throws DALException {
+		Integer montantMax = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_MAX_MONTANT_BY_ARTICLE);
+			
+			stmt.setInt(1, enchere.getNoArticle());
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				montantMax = rs.getInt("montant_enchere");
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select max montant by noArticle error");
+		}			
+		return montantMax;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * Retourne true si l'enchère existe dans la BDD
+	 */
+	@Override
+	public boolean isAlreadyCreated(Enchere enchere) throws DALException {
+		Enchere enchereATester = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_NO_UTILISATEUR_NO_ARTICLE);
+			
+			stmt.setInt(1, enchere.getNoUtilisateur());
+			stmt.setInt(2, enchere.getNoArticle());
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				enchere = new Enchere(rs.getInt("no_utilisateur"), rs.getInt("no_article"), 
+						rs.getDate("date_enchere"), rs.getInt("montant_enchere"));			
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select isAlreadyCreated error");
+		}
+		System.out.println(enchereATester);
+		boolean isAlreadyCreated = true;
+		if (enchereATester == null) {
+			isAlreadyCreated = false;
+		}
+		return isAlreadyCreated;
+	}
+	
+	
 
 }

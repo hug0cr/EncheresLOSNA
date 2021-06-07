@@ -18,4 +18,5 @@ public interface ArticleVenduDAO extends DAO<ArticleVendu> {
 	public List<ArticleVendu> selectEncheresEnCoursDUnUtilisateur(Integer noUtilisateur) throws DALException;
 	public List<ArticleVendu> selectByCategorie(Integer noCategorie) throws DALException;
 	public List<ArticleVendu> selectTop50() throws DALException;
+	public void updatePrixVente(Integer noArticle, Integer prixVente) throws DALException;
 }

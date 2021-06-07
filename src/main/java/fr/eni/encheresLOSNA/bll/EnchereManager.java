@@ -38,15 +38,28 @@ public class EnchereManager {
 	 * @throws BLLException
 	 */
 	public void addEnchere(Enchere newEnchere) throws BLLException {
-//		if(newEnchere.getNoArticle() != null && newEnchere.getNoUtilisateur() != null) {
-//			throw new BLLException("Enchère déjà existant.");
-//		}
+		Integer montantActuelMax = null;
+		
 		try {
-			validerEnchere(newEnchere);
-			enchereDAO.insert(newEnchere);
-		} catch (DALException e) {
-			throw new BLLException("Echec addEnchere ", e);
+			montantActuelMax = enchereDAO.selectMaxMontantByNoArticle(newEnchere);
+		} catch (DALException e1) {
+			System.err.println("AddEnchere - Erreur sur la récupération du montant max");
 		}
+		
+		if (montantActuelMax < newEnchere.getMontantEnchere()) {
+			try {
+				if (enchereDAO.isAlreadyCreated(newEnchere)) {
+					System.out.println("Enchère déjà crée, mise à jour de l'ancienne");
+					updateMontantEnchere(newEnchere.getMontantEnchere(), newEnchere.getNoUtilisateur(), newEnchere.getNoArticle());
+				} else {
+					System.out.println("Nouvelle enchère, ajout à la BDD");
+					validerEnchere(newEnchere);
+					enchereDAO.insert(newEnchere);
+				}
+			} catch (DALException e) {
+				System.err.println("Echec de la vérification isAlreadyCreated");
+			}
+		}		
 	}
 	
 	/**
@@ -63,17 +76,6 @@ public class EnchereManager {
 			throw new BLLException("Echec updateEnchere : " + enchere, e);
 		}
 	}
-
-//	public Enchere getEnchereById(int noUtilisateur, int noArticle) throws BLLException {
-//		Enchere a = null;
-//		try {
-//			a = enchereDAO.selectById(noUtilisateur, noArticle);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			throw new BLLException("Erreur récupération article", e);
-//		}
-//		return a;
-//	}
 	
 	/**
 	 * Methode en charge de
@@ -96,7 +98,7 @@ public class EnchereManager {
 	 * @param enchere
 	 * @throws BLLException
 	 */
-	public void removeArticleVendu(Enchere enchere) throws BLLException{
+	public void removeEnchere(Enchere enchere) throws BLLException{
 		try {
 			enchereDAO.delete(enchere);
 		} catch (DALException e) {
@@ -148,6 +150,17 @@ public class EnchereManager {
 		}
 		return encheres;
 	}
+	
+	public Integer getMaxMontantByNoArticle(Enchere enchere) throws BLLException {
+		Integer maxMontant = null;
+		try {
+			maxMontant = enchereDAO.selectMaxMontantByNoArticle(enchere);
+		} catch (DALException e) {
+			throw new BLLException("Erreur récupération montant max d'un article", e);
+		}
+		return maxMontant;
+	}
+	
 	
 	/**
 	 * Methode en charge de

@@ -16,4 +16,6 @@ public interface EnchereDAO extends DAO<Enchere> {
 	public void updateMontantEnchere (Integer nouveauMontant, Integer noUtilisateur, Integer noArticle) throws DALException;
 	public List<Enchere> selectAllByNoUtilisateur(Integer noUtilisateur) throws DALException;
 	public List<Enchere> selectAllByNoArticle(Integer noArticle) throws DALException;
+	public Integer selectMaxMontantByNoArticle(Enchere enchere) throws DALException;
+	public boolean isAlreadyCreated(Enchere enchere) throws DALException;
 }
