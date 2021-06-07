@@ -8,7 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="./component/header.jspf" %>
-	<%@ include file="./component/footer.jspf" %>
+	<header>
+		<%@ include file="./component/header.jspf" %>
+	</header>
+	
+	<main>
+		<h1>Etat enchère</h1>
+		
+	</main>
+	
+	<footer>
+		<%@ include file="./component/footer.jspf" %>
+	</footer>
+	
 </body>
 </html>

@@ -3,7 +3,6 @@
  */
 package fr.eni.encheresLOSNA.dal;
 
-import fr.eni.encheresLOSNA.bo.Retrait;
 import fr.eni.encheresLOSNA.dal.jdbc.ArticleVenduDAOJdbcImpl;
 import fr.eni.encheresLOSNA.dal.jdbc.CategorieDAOJdbcImpl;
 import fr.eni.encheresLOSNA.dal.jdbc.EnchereDAOJdbcImpl;
@@ -29,7 +28,7 @@ public class DAOFactory {
 		return new ArticleVenduDAOJdbcImpl();
 	}
 	
-	public static DAO<Retrait> getRetraitDAO(){
+	public static RetraitDAO getRetraitDAO(){
 		return new RetraitDAOJdbcImpl();
 	}
 	
