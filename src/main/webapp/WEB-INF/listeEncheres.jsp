@@ -38,7 +38,7 @@
 					<img alt="une image" src="">
 					<h4>${article.nomArticle}</h4>
 					<p>Prix : ${article.prixVente} points</p>
-					<p>Fin des enchères : <fmt:formatDate value="${article.dateFinEncheres }"/> </p>
+					<p>Fin des enchères : <fmt:formatDate value="${article.dateFinEncheres }"/></p>
 					<p>Vendeur : ${article.vendeur.pseudo}</p>
 				</div>
 			</c:forEach>

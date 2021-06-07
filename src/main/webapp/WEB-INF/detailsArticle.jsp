@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,7 @@
 	<h2>Mise à prix</h2>
 	<p>${article.miseAPrix}</p>
 	<h2>Fin des enchères</h2>
-	<p>${article.dateFinEncheres}</p>
+	<p><fmt:formatDate value="${article.dateFinEncheres }"/></p>
 	<h2>Retrait</h2>
 	<p>Adresse de retrait</p>
 	<h2>Vendeur</h2>
