@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="style_XL.css" rel="stylesheet">
 <title>Connexion</title>
 </head>
 <body>
