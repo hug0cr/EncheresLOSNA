@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
 import fr.eni.encheresLOSNA.bll.BLLException;
+import fr.eni.encheresLOSNA.bll.CategorieManager;
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
+import fr.eni.encheresLOSNA.bo.Categorie;
 import fr.eni.encheresLOSNA.bo.Utilisateur;
 
 /**
@@ -25,8 +27,26 @@ public class ArticleServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("./Controler").forward(request, response);
+		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
+		Integer noArticle = Integer.parseInt(request.getParameter("article"));
+		ArticleVendu lArticle = null;
+		Categorie categorie = null;
+		try {
+			lArticle = articleMgr.getArticleVenduById(noArticle);
+			int noCategorie = lArticle.getNoCategorie().intValue();
+			categorie = CategorieManager.getInstance().getCategorieById(noCategorie);
+		} catch (BLLException e) {
+			e.printStackTrace();
+		}
+		if (noArticle != null) {
+			request.setAttribute("article", lArticle);
+			request.setAttribute("categorie", categorie);
+			request.getRequestDispatcher("./detailsArticle").forward(request, response);;
+		} else {
+			request.getRequestDispatcher("./Controler").forward(request, response);	
+		}
 	}
 
 	/**

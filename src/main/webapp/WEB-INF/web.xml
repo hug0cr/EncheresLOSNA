@@ -35,12 +35,12 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>detailsEncheres</servlet-name>
-  	<jsp-file>/WEB-INF/detailsEncheres.jsp</jsp-file>
+  	<servlet-name>detailsArticle</servlet-name>
+  	<jsp-file>/WEB-INF/detailsArticle.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>detailsEncheres</servlet-name>
-  	<url-pattern>/detailsEncheres</url-pattern>
+  	<servlet-name>detailsArticle</servlet-name>
+  	<url-pattern>/detailsArticle</url-pattern>
   </servlet-mapping>
   
   <servlet>

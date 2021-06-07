@@ -54,7 +54,7 @@
 			<c:forEach items="${lesArticles }" begin="0" end="10" var="article">
 				<div class="enchere">
 					<img alt="une image" src="">
-					<h4>${article.nomArticle}</h4>
+					<h4><a href="./ArticleServlet?article=${article.noArticle}">${article.nomArticle}</a></h4>
 					<p>Mise à prix : ${article.prixVente} points</p>
 					<p>Fin des enchères : <fmt:formatDate value="${article.dateFinEncheres}"/></p>
 					<p>Vendeur : <a href="./ProfilServlet?user=${article.vendeur.noUtilisateur}">${article.vendeur.pseudo}</a></p>
