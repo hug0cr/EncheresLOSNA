@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link href="style_XL.css" rel="stylesheet">
 <c:if test="${empty sessionScope.user}">
 	<title>Créer un profil</title>
 </c:if>

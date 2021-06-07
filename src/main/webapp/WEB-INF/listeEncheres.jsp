@@ -12,8 +12,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Les Objets Sont Nos Amis - Liste des enchères</title>
-<meta name="description"
-	content="Découvrez les enchères « Les objets sont nos amis » ! Une plateforme web pour permettre la cession d’objets de seconde main sans transaction financière.">
+<meta name="description" content="Découvrez les enchères « Les objets sont nos amis » ! Une plateforme web pour permettre la cession d’objets de seconde main sans transaction financière.">
+<link href="css/style_XL.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="./component/header.jspf"%>
@@ -22,7 +22,7 @@
 	<form action="./FiltrageServlet" method="post">
 		<input type="text" name="motCle" placeholder="Le nom de l'article contient...">
 		<label for="categorie">Catégorie : </label>
-		<select name="categorie" required>
+		<select name="categorie" id="categorie" required>
 			<option value="0" selected>Toutes</option>
 			<c:forEach items="${categories}" var="c">
 				<option value="${c.noCategorie}">${c.libelle}</option>
