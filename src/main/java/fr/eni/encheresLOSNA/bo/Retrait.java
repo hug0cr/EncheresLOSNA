@@ -9,10 +9,11 @@ package fr.eni.encheresLOSNA.bo;
  * @date 1 juin 2021 - 09:47:55
  */
 public class Retrait {
+	private Integer noArticle;
 	private String rue;
-	private int codePostal;
+	private Integer codePostal;
 	private String ville;
-	
+		
 	private ArticleVendu article;
 
 	/**
@@ -22,7 +23,52 @@ public class Retrait {
 		super();
 	}
 	
+	/**
+	 * Constructeur
+	 * @param noArticle
+	 * @param rue
+	 * @param codePostal
+	 * @param ville
+	 */
+	public Retrait(Integer noArticle, String rue, Integer codePostal, String ville) {
+		super();
+		this.noArticle = noArticle;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
+
+
+
 	// Getters & Setters
+
+	/**
+	 * @return the noArticle
+	 */
+	public Integer getNoArticle() {
+		return noArticle;
+	}
+
+	/**
+	 * @param noArticle the noArticle to set
+	 */
+	public void setNoArticle(Integer noArticle) {
+		this.noArticle = noArticle;
+	}
+
+	/**
+	 * @return the codePostal
+	 */
+	public Integer getCodePostal() {
+		return codePostal;
+	}
+
+	/**
+	 * @param codePostal the codePostal to set
+	 */
+	public void setCodePostal(Integer codePostal) {
+		this.codePostal = codePostal;
+	}
 
 	/**
 	 * @return the rue
@@ -36,20 +82,6 @@ public class Retrait {
 	 */
 	public void setRue(String rue) {
 		this.rue = rue;
-	}
-
-	/**
-	 * @return the codePostal
-	 */
-	public int getCodePostal() {
-		return codePostal;
-	}
-
-	/**
-	 * @param codePostal the codePostal to set
-	 */
-	public void setCodePostal(int codePostal) {
-		this.codePostal = codePostal;
 	}
 
 	/**

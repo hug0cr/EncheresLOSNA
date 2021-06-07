@@ -77,17 +77,9 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			
 			stmt.setInt(1, t.getNoUtilisateur());
 			stmt.setInt(2, t.getNoArticle());
-			//stmt.setDate(3, t.getDateEnchere());
 			stmt.setTimestamp(3, Timestamp.from(Instant.now()));
 			stmt.setInt(4, t.getMontantEnchere());
-			
-//			int rowsAffected = stmt.executeUpdate();
-//			ResultSet rs = stmt.getGeneratedKeys();
-//			if (rs.next()) {
-//				t.setNoUtilisateur(rs.getInt(1));
-//				System.out.println(rowsAffected + " ligne(s) insérée(s) " + rs.getInt(1));
-//			}
-				
+
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {
@@ -114,6 +106,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			//stmt.setDate(3, t.getDateEnchere());
 			stmt.setTimestamp(3, Timestamp.from(Instant.now()));
 			stmt.setInt(4, t.getMontantEnchere());
+			stmt.setInt(5, t.getNoUtilisateur());
 			
 			int rowsAffected = stmt.executeUpdate();
 			

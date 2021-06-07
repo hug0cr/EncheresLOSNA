@@ -193,7 +193,6 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			}
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select by ID error");
@@ -226,7 +225,6 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			}
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select all error");
