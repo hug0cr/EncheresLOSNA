@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="style_XL.css" rel="stylesheet">
+<link href="css/style_XL.css" type="text/css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="./component/header.jspf" %>
-	<%@ include file="./component/footer.jspf" %>
+	<main>
+		<%@ include file="./component/header.jspf" %>
+		<%@ include file="./component/footer.jspf" %>
+	</main>
 </body>
 </html>

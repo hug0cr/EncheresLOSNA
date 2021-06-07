@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="style_XL.css" rel="stylesheet">
+<link href="css/style_XL.css" type="text/css" rel="stylesheet">
 <c:if test="${param.type == 'new' }">
 	<title>Nouvelle annonce</title>
 </c:if>
@@ -14,6 +14,7 @@
 </c:if>
 </head>
 <body>
+<main>
 	<%@ include file="./component/header.jspf"%>
 
 	<c:if test="${param.type == 'new'}">
@@ -86,5 +87,6 @@
 	</c:if>
 
 	<%@ include file="./component/footer.jspf"%>
+	</main>
 </body>
 </html>

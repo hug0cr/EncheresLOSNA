@@ -10,6 +10,7 @@
 <title>${article.nomArticle}</title>
 </head>
 <body>
+<main>
 	<%@ include file="./component/header.jspf" %>
 	<c:if test="${!empty classe}">
 		<p class="${classe}">${message}</p>
@@ -36,5 +37,6 @@
 	</form>
 	
 	<%@ include file="./component/footer.jspf" %>
+	</main>
 </body>
 </html>
