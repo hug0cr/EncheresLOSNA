@@ -61,13 +61,13 @@ public class EncherirServlet extends HttpServlet {
 		
 		if(enchere > lArticle.getPrixVente() && lArticle.getDateFinEncheres().after(today)) {
 			lEnchere = new Enchere(user.getNoUtilisateur(), noArticle, today, enchere);
+			//lArticle.setPrixVente(enchere);
 			try {
 				enchereMgr.addEnchere(lEnchere);
-				articleMgr.updateArticleVendu(lArticle);
+				//articleMgr.updateArticleVendu(lArticle);
 			} catch (BLLException e) {
 				e.printStackTrace();
 			}
-			lArticle.setPrixVente(enchere);
 			message = "Votre enchère a bien été prise en compte";
 			request.setAttribute("article", lArticle);
 			request.setAttribute("message", message);
