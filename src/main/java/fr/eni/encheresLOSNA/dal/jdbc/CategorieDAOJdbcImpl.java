@@ -28,7 +28,7 @@ public class CategorieDAOJdbcImpl implements CategorieDAO {
 	
 	private final String SELECT_BY_ID = "SELECT "
 			+ "no_categorie, "
-			+ "libelle, "
+			+ "libelle "
 			+ "FROM CATEGORIES WHERE no_categorie=?;";
 	
 	private final String UPDATE = "UPDATE CATEGORIES SET "
