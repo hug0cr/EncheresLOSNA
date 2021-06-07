@@ -8,10 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
 import fr.eni.encheresLOSNA.bll.BLLException;
+import fr.eni.encheresLOSNA.bll.EnchereManager;
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
+import fr.eni.encheresLOSNA.bo.Enchere;
+import fr.eni.encheresLOSNA.bo.Utilisateur;
 
 /**
  * Servlet implementation class EncherirServlet
@@ -39,7 +43,11 @@ public class EncherirServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
+		EnchereManager enchereMgr = EnchereManager.getInstance();
+		HttpSession session = request.getSession();
+		Utilisateur user = (Utilisateur) session.getAttribute("user");
 		ArticleVendu lArticle = null;
+		Enchere lEnchere = null;
 		Integer noArticle = Integer.parseInt(request.getParameter("article"));
 		Date today = new Date();
 		String message = "";
@@ -52,8 +60,10 @@ public class EncherirServlet extends HttpServlet {
 		Integer enchere = Integer.parseInt(request.getParameter("enchere"));
 		
 		if(enchere > lArticle.getPrixVente() && lArticle.getDateFinEncheres().after(today)) {
+			lEnchere = new Enchere(user.getNoUtilisateur(), noArticle, today, enchere);
 			lArticle.setPrixVente(enchere);
 			try {
+				enchereMgr.addEnchere(lEnchere);
 				articleMgr.updateArticleVendu(lArticle);
 			} catch (BLLException e) {
 				e.printStackTrace();
