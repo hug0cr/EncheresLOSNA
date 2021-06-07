@@ -5,6 +5,7 @@ package fr.eni.encheresLOSNA.bll;
 
 import java.util.List;
 
+import fr.eni.encheresLOSNA.bo.ArticleVendu;
 import fr.eni.encheresLOSNA.bo.Enchere;
 import fr.eni.encheresLOSNA.dal.DALException;
 import fr.eni.encheresLOSNA.dal.DAOFactory;
@@ -37,7 +38,7 @@ public class EnchereManager {
 	 * @param newEnchere
 	 * @throws BLLException
 	 */
-	public void addEnchere(Enchere newEnchere) throws BLLException {
+	public void addEnchere(Enchere newEnchere, ArticleVendu article) throws BLLException {
 		Integer montantActuelMax = null;
 		
 		try {
@@ -46,7 +47,7 @@ public class EnchereManager {
 			System.err.println("AddEnchere - Erreur sur la récupération du montant max");
 		}
 		
-		if (montantActuelMax < newEnchere.getMontantEnchere()) {
+		if (montantActuelMax == null || montantActuelMax < newEnchere.getMontantEnchere() && article.getMiseAPrix() < newEnchere.getMontantEnchere()) {
 			try {
 				if (enchereDAO.isAlreadyCreated(newEnchere)) {
 					System.out.println("Enchère déjà crée, mise à jour de l'ancienne");
@@ -59,7 +60,7 @@ public class EnchereManager {
 			} catch (DALException e) {
 				System.err.println("Echec de la vérification isAlreadyCreated");
 			}
-		}		
+		}
 	}
 	
 	/**

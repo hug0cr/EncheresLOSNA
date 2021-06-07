@@ -63,7 +63,7 @@ public class EncherirServlet extends HttpServlet {
 			lEnchere = new Enchere(user.getNoUtilisateur(), noArticle, today, enchere);
 			//lArticle.setPrixVente(enchere);
 			try {
-				enchereMgr.addEnchere(lEnchere);
+				enchereMgr.addEnchere(lEnchere, lArticle);
 				//articleMgr.updateArticleVendu(lArticle);
 			} catch (BLLException e) {
 				e.printStackTrace();
@@ -79,7 +79,7 @@ public class EncherirServlet extends HttpServlet {
 			request.setAttribute("message", message);
 			request.setAttribute("classe", "error");
 			request.setAttribute("article", lArticle);
-			request.getRequestDispatcher("./detailsArticle").forward(request, response);;
+			request.getRequestDispatcher("./detailsArticle").forward(request, response);
 		}
 	}
 
