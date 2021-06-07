@@ -73,7 +73,7 @@ public class ArticleServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		doGet(request, response);
+		request.getRequestDispatcher("./Controler").forward(request, response);	
 	}
 
 	/**

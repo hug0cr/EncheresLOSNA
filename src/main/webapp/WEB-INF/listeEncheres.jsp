@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <title>Les Objets Sont Nos Amis - Liste des enchères</title>
 <meta name="description" content="Découvrez les enchères « Les objets sont nos amis » ! Une plateforme web pour permettre la cession d’objets de seconde main sans transaction financière.">
-<link href="css/style_XL.css" type="text/css" rel="stylesheet">
+<!-- <link href="css/style_XL.css" type="text/css" rel="stylesheet"> -->
 </head>
 <body>
 	<%@ include file="./component/header.jspf"%>
