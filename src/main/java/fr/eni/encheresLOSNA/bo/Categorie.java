@@ -71,6 +71,14 @@ public class Categorie {
 		this.libelle = libelle;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
+	}
+
 //	/**
 //	 * @return the listeAriticles
 //	 */

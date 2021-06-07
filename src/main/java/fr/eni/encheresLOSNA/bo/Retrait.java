@@ -111,6 +111,15 @@ public class Retrait {
 	public void setArticle(ArticleVendu article) {
 		this.article = article;
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return "Retrait [noArticle=" + noArticle + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville
+				+ ", article=" + article + "]";
+	}
 	
 	
 }
