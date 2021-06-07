@@ -53,7 +53,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			+ "no_article=?, "
 			+ "date_enchere=?, "
 			+ "montant_enchere=? "
-			+ "WHERE no_utilisateur=?;";
+			+ "WHERE no_utilisateur=? AND no_article=?;";
 	
 	private final String UPDATE_MONTANT_ENCHERE = "UPDATE ENCHERES SET date_enchere=?, montant_enchere=? WHERE no_utilisateur=? AND no_article=?";
 	
@@ -112,6 +112,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			stmt.setTimestamp(3, Timestamp.from(Instant.now()));
 			stmt.setInt(4, t.getMontantEnchere());
 			stmt.setInt(5, t.getNoUtilisateur());
+			stmt.setInt(6, t.getNoArticle());
 			
 			int rowsAffected = stmt.executeUpdate();
 			
@@ -310,9 +311,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 	 * Retourne true si l'enchère existe dans la BDD
 	 */
 	@Override
-	public boolean isAlreadyCreated(Enchere enchere) throws DALException {
-		Enchere enchereATester = null;
-		
+	public boolean isAlreadyCreated(Enchere enchere) throws DALException {		
 		try {
 			con = ConnectionProvider.getConnection();
 			PreparedStatement stmt = con.prepareStatement(SELECT_NO_UTILISATEUR_NO_ARTICLE);
@@ -321,21 +320,20 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			stmt.setInt(2, enchere.getNoArticle());
 			ResultSet rs = stmt.executeQuery();
 			
-			while (rs.next()) {
-				enchere = new Enchere(rs.getInt("no_utilisateur"), rs.getInt("no_article"), 
-						rs.getDate("date_enchere"), rs.getInt("montant_enchere"));			
+			if (rs.next()) {
+				stmt.close();
+				con.close();
+				return true;
+			} else {
+				stmt.close();
+				con.close();
+				return false;
 			}
 			
-			stmt.close();
-			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select isAlreadyCreated error");
 		}
-		boolean isAlreadyCreated = true;
-		if (enchereATester == null) {
-			isAlreadyCreated = false;
-		}
-		return isAlreadyCreated;
+
 	}
 	
 	

@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * Classe utilitaire permettant de vérifier la conformité d'informations via regex.
  * @author hug0cr
  * @version EncheresLOSNA - V1.0
  * @date 3 juin 2021 - 14:44:59

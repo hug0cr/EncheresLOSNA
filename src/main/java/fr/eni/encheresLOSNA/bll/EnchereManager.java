@@ -21,6 +21,11 @@ public class EnchereManager {
 
 	private static EnchereManager instance = null;
 	
+	/**
+	 * Methode en charge de retourner la seule instance de la classe.
+	 * Singleton
+	 * @return
+	 */
 	public static EnchereManager getInstance() {
 		if (instance == null) instance = new EnchereManager();
 		return instance;
@@ -34,7 +39,7 @@ public class EnchereManager {
 	
 
 	/**
-	 * Methode en charge de
+	 * Methode en charge d'ajouter ou de mofifier l'enchère au cas où un utilisateur renchérit sur le même article.
 	 * @param newEnchere
 	 * @throws BLLException
 	 */
@@ -64,7 +69,8 @@ public class EnchereManager {
 	}
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de mettre à jour une enchère.
+	 * @warning la méthode addEnchere permet de mettre à jour tout en vérifiant que l'enchère n'est pas existante.
 	 * @param enchere
 	 * @throws BLLException
 	 */
@@ -79,7 +85,7 @@ public class EnchereManager {
 	}
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de retourner une liste contenant toutes les enchères de la base de données.
 	 * @return
 	 * @throws BLLException
 	 */
@@ -95,7 +101,7 @@ public class EnchereManager {
 	}
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de suppirmer une enchèrede la base de donnéees.
 	 * @param enchere
 	 * @throws BLLException
 	 */

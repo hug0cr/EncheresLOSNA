@@ -68,7 +68,7 @@ public class ArticleVendu {
 	}
 
 	
-	/** ArticleVendu Constructor
+	/** ArticleVendu Constructor ou le prix de vente se fait automatiquement par rapport à la mise à prix.
 	 * @param nomArticle le nom de l'article
 	 * @param description la description
 	 * @param dateDebutEncheres la date de début des enchères
@@ -93,8 +93,8 @@ public class ArticleVendu {
 	}
 
 	/**
-	 * Methode en charge de
-	 * @param noUtilisateur
+	 * Methode en charge de récupérer le vendeur sous forme d'objet Utilisateur.
+	 * @param noUtilisateur l'id de l'utilisateur/vendeur.
 	 * @return
 	 */
 	private Utilisateur recuperationDuVendeur(Integer noUtilisateur) {

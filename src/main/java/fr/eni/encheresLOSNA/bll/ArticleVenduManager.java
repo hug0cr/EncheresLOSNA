@@ -3,6 +3,8 @@
  */
 package fr.eni.encheresLOSNA.bll;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
@@ -20,6 +22,11 @@ public class ArticleVenduManager {
 	private static ArticleVenduManager instance;
 	private static ArticleVenduDAO articleVenduDAO;
 	
+	/**
+	 * Methode en charge de retourner la seule instance de la classe.
+	 * Singleton
+	 * @return
+	 */
 	public static ArticleVenduManager getInstance() {
 		if (instance == null) instance = new ArticleVenduManager();
 		return instance;
@@ -53,12 +60,14 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de
-	 * @param utilisateur
+	 * Methode en charge de modifier un article.
+	 * @Constraint Empêche la modification d'un article en cours de vente.
+	 * @param articleVendu
 	 * @throws BLLException
 	 */
 	public void updateArticleVendu(ArticleVendu articleVendu) throws BLLException {
 		try {
+			Date maintenant = new Date(Calendar.getInstance().getTimeInMillis()); 
 			validerArticleVendu(articleVendu);
 			articleVenduDAO.update(articleVendu);
 			
@@ -68,8 +77,8 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de
-	 * @param id
+	 * Methode en charge de retourner un article selon son id.
+	 * @param id de l'article
 	 * @return
 	 * @throws BLLException
 	 */
@@ -85,7 +94,7 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de retourner une liste contenant tout les articles du site.
 	 * @return
 	 * @throws BLLException
 	 */
@@ -102,8 +111,8 @@ public class ArticleVenduManager {
 
 	
 	/**
-	 * Methode en charge de
-	 * @param utilisateur
+	 * Methode en charge d'effacer un article posté sur le site. 
+	 * @param articleVendu 
 	 * @throws BLLException
 	 */
 	public void removeArticleVendu(ArticleVendu articleVendu) throws BLLException{
@@ -117,8 +126,9 @@ public class ArticleVenduManager {
 	///////// Fin des méthodes de base //////////
 	
 	/**
-	 * Methode en charge de
-	 * @param keyWord
+	 * Methode en charge de retourner une liste de tout les articles contenant le mot-clé passer en paramètre
+	 * dans leur nom ou leur description.
+	 * @param keyWord le mot-clé pour effectuer la recherche
 	 * @return
 	 * @throws BLLException
 	 */
@@ -136,7 +146,7 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de retourner une liste de tout les articles en cours de vente sur le site
 	 * @return
 	 * @throws BLLException
 	 */
@@ -153,8 +163,8 @@ public class ArticleVenduManager {
 	
 
 	/**
-	 * Methode en charge de
-	 * @param noUtilisateur
+	 * Methode en charge de retourner une liste contenant tout les articles en cours d'un vente d'un utilisateur.
+	 * @param noUtilisateur l'id de l'utilisateur
 	 * @return
 	 * @throws BLLException
 	 */
@@ -170,7 +180,7 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de retourner une liste des 50 derniers articles ajoutés sur le site
 	 * @return
 	 * @throws BLLException
 	 */
@@ -186,8 +196,8 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de
-	 * @param noCategorie
+	 * Methode en charge de retourner une liste de tout les articles en ventes d'une catégorie.
+	 * @param noCategorie le numéro id de la catégorie sur la TABLE CATEGORIE
 	 * @return
 	 * @throws BLLException
 	 */
@@ -203,7 +213,7 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de valider l'ajout ou la modification d'un article selon les règles définies.
 	 * @param a
 	 * @throws BLLException
 	 */

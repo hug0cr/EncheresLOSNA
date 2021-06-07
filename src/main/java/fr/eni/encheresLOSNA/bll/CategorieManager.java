@@ -20,6 +20,11 @@ public class CategorieManager {
 	private CategorieDAO categorieDAO;
 	private static CategorieManager instance = null;
 
+	/**
+	 * Methode en charge de retourner la seule instance de la classe.
+	 * Singleton
+	 * @return
+	 */
 	public static CategorieManager getInstance() {
 		if (instance == null) instance = new CategorieManager();
 		return instance;
@@ -32,7 +37,7 @@ public class CategorieManager {
 	///////// Méthodes insert, update, selectById, selectAll, delete //////////
 
 	/**
-	 * Methode en charge de
+	 * Methode en charge d'ajouter une catégorie à la base de données.
 	 * @param newCategorie
 	 * @throws BLLException
 	 */
@@ -49,7 +54,7 @@ public class CategorieManager {
 	}
 
 	/**
-	 * Methode en charge de
+	 * Methode en charge de mettre à jour une catégorie dans la base de données.
 	 * @param categorie
 	 * @throws BLLException
 	 */
@@ -64,8 +69,8 @@ public class CategorieManager {
 	}
 
 	/**
-	 * Methode en charge de
-	 * @param id
+	 * Methode en charge de retourner un objet Categorie selin son id.
+	 * @param id de la catégorie
 	 * @return
 	 * @throws BLLException
 	 */
@@ -81,7 +86,7 @@ public class CategorieManager {
 	}
 
 	/**
-	 * Methode en charge de
+	 * Methode en charge de retourner la liste de toutes les catégories dans la base de données.
 	 * @return
 	 * @throws BLLException
 	 */
@@ -98,7 +103,7 @@ public class CategorieManager {
 
 
 	/**
-	 * Methode en charge de
+	 * Methode en charge de supprimer une catégorie de la base de données
 	 * @param categorie
 	 * @throws BLLException
 	 */
@@ -113,7 +118,7 @@ public class CategorieManager {
 	///////// Fin des méthodes de base //////////
 
 	/**
-	 * Methode en charge de
+	 * Methode en charge de valider les informations d'un objet Categorie.
 	 * @param c
 	 * @throws BLLException
 	 */
@@ -125,8 +130,6 @@ public class CategorieManager {
 		if(c == null){
 			throw new BLLException("Catégorie null");
 		}
-
-		//Les attributs des utilisateur sont obligatoires
 		if(c.getLibelle() == null || c.getLibelle().trim().length()==0) {
 			sb.append("Le libelle de la catégorie est obligatoire.\n");
 			valide = false;

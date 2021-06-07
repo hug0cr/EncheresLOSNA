@@ -11,7 +11,7 @@ package fr.eni.encheresLOSNA.bo;
 public class Retrait {
 	private Integer noArticle;
 	private String rue;
-	private Integer codePostal;
+	private String codePostal;
 	private String ville;
 		
 	private ArticleVendu article;
@@ -30,7 +30,7 @@ public class Retrait {
 	 * @param codePostal
 	 * @param ville
 	 */
-	public Retrait(Integer noArticle, String rue, Integer codePostal, String ville) {
+	public Retrait(Integer noArticle, String rue, String codePostal, String ville) {
 		super();
 		this.noArticle = noArticle;
 		this.rue = rue;
@@ -59,14 +59,14 @@ public class Retrait {
 	/**
 	 * @return the codePostal
 	 */
-	public Integer getCodePostal() {
+	public String getCodePostal() {
 		return codePostal;
 	}
 
 	/**
 	 * @param codePostal the codePostal to set
 	 */
-	public void setCodePostal(Integer codePostal) {
+	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
 
