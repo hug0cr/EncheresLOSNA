@@ -64,6 +64,7 @@ public class EncherirServlet extends HttpServlet {
 			//lArticle.setPrixVente(enchere);
 			try {
 				enchereMgr.addEnchere(lEnchere, lArticle);
+				lArticle.setPrixVente(enchereMgr.getMaxMontantByNoArticle(lEnchere));
 				//articleMgr.updateArticleVendu(lArticle);
 			} catch (BLLException e) {
 				e.printStackTrace();
