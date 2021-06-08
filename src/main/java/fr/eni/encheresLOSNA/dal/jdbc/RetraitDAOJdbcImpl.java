@@ -180,7 +180,6 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 			System.out.println(rowsAffected + " ligne supprimée");
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Delete error");

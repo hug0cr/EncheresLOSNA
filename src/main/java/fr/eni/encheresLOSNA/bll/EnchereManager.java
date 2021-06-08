@@ -62,6 +62,7 @@ public class EnchereManager {
 					validerEnchere(newEnchere);
 					enchereDAO.insert(newEnchere);
 				}
+				ArticleVenduManager.getInstance().updatePrixVente(newEnchere.getNoArticle(), newEnchere.getMontantEnchere());
 			} catch (DALException e) {
 				System.err.println("Echec de la vérification isAlreadyCreated");
 			}
@@ -117,7 +118,8 @@ public class EnchereManager {
 	///////// Fin des méthodes de base //////////
 	
 	/**
-	 * Methode en charge de
+	 * Methode en charge de de mettre à jour le montant d'une enchère.
+	 * @warning la méthode addEnchere permet de mettre à jour tout en vérifiant que l'enchère n'est pas existante.
 	 * @return
 	 * @throws BLLException
 	 */

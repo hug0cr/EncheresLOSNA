@@ -247,6 +247,21 @@ public class ArticleVenduManager {
 	}
 	
 	/**
+	 * Methode en charge de mettre à jour le pruix de vente d'un article.
+	 * @param noArticle
+	 * @param prixVente
+	 * @throws BLLException
+	 */
+	public void updatePrixVente(Integer noArticle, Integer prixVente) throws BLLException {
+		try {
+			articleVenduDAO.updatePrixVente(noArticle, prixVente);
+			
+		} catch (DALException e) {
+			throw new BLLException("Echec updatePrixVente article id:" + noArticle, e);
+		}
+	}
+	
+	/**
 	 * Methode en charge de valider l'ajout ou la modification d'un article selon les règles définies.
 	 * @param a
 	 * @throws BLLException
