@@ -1,7 +1,7 @@
 package fr.eni.encheresLOSNA.ihm;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import fr.eni.encheresLOSNA.bll.BLLException;
 import fr.eni.encheresLOSNA.bll.UtilisateurManager;
 import fr.eni.encheresLOSNA.bo.Utilisateur;
-import fr.eni.encheresLOSNA.ihm.features.Mail;
 
 /**
  * Servlet implementation class ConnexionServlet
@@ -26,8 +25,13 @@ public class ConnexionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/seConnecter");
-		rd.forward(request, response);
+		Cookie[] cookies = request.getCookies();
+		for (Cookie c : cookies) {
+			if (c.getName().equals("loginLOSNA")) {
+				request.setAttribute("login", c.getValue());
+			}
+		}
+		request.getRequestDispatcher("./seConnecter").forward(request, response);
 	}
 
 	/**
