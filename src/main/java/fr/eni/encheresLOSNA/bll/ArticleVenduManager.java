@@ -233,7 +233,7 @@ public class ArticleVenduManager {
 	
 	/**
 	 * Methode en charge de retourner une liste de tout les articles dont l'utilisateur n'a pas fait d'enchère
-	 * @param noUtilisateur
+	 * @param noUtilisateur l'id de l'utilisateur
 	 * @return
 	 * @throws BLLException
 	 */
@@ -244,6 +244,23 @@ public class ArticleVenduManager {
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles dont la vente est en cours sans une enchère d'un utilisateur ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de retourner une liste contenant tout les articles dont l'utilisateur a remporté la vente
+	 * @param noUtilisateur l'id de l'utilisateur
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesEnchereRemporteeParUtilisateur(Integer noUtilisateur) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectArticlesEnchereRemporteePArUtilisateur(noUtilisateur);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles dont l'enchère à été remportée par l'utilisateur ", e);
 		}
 		return articlesVendus;
 	}

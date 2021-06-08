@@ -150,8 +150,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "FROM ENCHERES e JOIN ARTICLES_VENDUS a ON e.no_article = a.no_article "
 			+ "WHERE a.date_debut_encheres < GETDATE() AND a.date_fin_encheres > GETDATE() AND e.no_utilisateur=?;";
 	
-	private final String SELECT_ALL_WHERE_UTILISATEUR_DONT_HAVE_ENCHERE_EN_COURS = "SELECT "
-			+ "a.no_article, "
+	private final String SELECT_ALL_WHERE_UTILISATEUR_DONT_HAVE_ENCHERE_EN_COURS = "SELECT a.no_article, "
 			+ "a.nom_article, "
 			+ "a.description, "
 			+ "a.date_debut_encheres, "
@@ -160,8 +159,21 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "a.prix_vente, "
 			+ "a.no_utilisateur, "
 			+ "a.no_categorie "
-			+ "FROM ENCHERES e JOIN ARTICLES_VENDUS a ON e.no_article = a.no_article "
-			+ "WHERE a.date_debut_encheres < GETDATE() AND a.date_fin_encheres > GETDATE() AND e.no_utilisateur!=?;";
+			+ "FROM ARTICLES_VENDUS a "
+			+ "WHERE a.date_debut_encheres < GETDATE() AND a.date_fin_encheres > GETDATE() AND a.no_utilisateur!=? "
+			+ "AND a.no_article not in (SELECT no_article FROM ENCHERES WHERE no_utilisateur=?);";
+	
+	public final String SELECT_ALL_WHERE_UTILISATEUR_HAS_WON_THE_ENCHERE = "SELECT a.no_article, "
+			+ "a.nom_article, "
+			+ "a.description, "
+			+ "a.date_debut_encheres, "
+			+ "a.date_fin_encheres, "
+			+ "a.prix_initial, "
+			+ "a.prix_vente, "
+			+ "a.no_utilisateur, "
+			+ "a.no_categorie "
+			+ "FROM ARTICLES_VENDUS a JOIN ENCHERES e ON a.no_article = e.no_article "
+			+ "WHERE a.date_fin_encheres < GETDATE() AND e.no_utilisateur=? AND a.prix_vente = e.montant_enchere;";
 	
 	private static Connection con;
 	
@@ -507,6 +519,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_WHERE_UTILISATEUR_DONT_HAVE_ENCHERE_EN_COURS);
 			
 			stmt.setInt(1, noUtilisateur);
+			stmt.setInt(2, noUtilisateur);
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()) {
@@ -521,6 +534,33 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select articles en cours de vente sans encheres d'un utilisateur erreur");
+		}			
+		return listeArticlesVendus;
+	}
+	
+	public List<ArticleVendu> selectArticlesEnchereRemporteePArUtilisateur(Integer noUtilisateur) throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_WHERE_UTILISATEUR_HAS_WON_THE_ENCHERE);
+			
+			stmt.setInt(1, noUtilisateur);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+						rs.getString("description"), new java.util.Date(rs.getDate("date_debut_encheres").getTime()), 
+						new java.util.Date(rs.getDate("date_fin_encheres").getTime()), rs.getInt("prix_initial"), 
+						rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select articles remportés d'un utilisateur erreur");
 		}			
 		return listeArticlesVendus;
 	}
