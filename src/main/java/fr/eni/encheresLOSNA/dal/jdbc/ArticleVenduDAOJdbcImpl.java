@@ -81,7 +81,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE date_debut_encheres < GETDATE() AND date_fin_encheres > GETDATE();";
 	
-	private static final String SELECT_ENCHERES_EN_COURS_D_UN_UTILISATEUR = "SELECT "
+	private static final String SELECT_ALL_VENTE_EN_COURS_D_UN_UTILISATEUR = "SELECT "
 			+ "no_article, "
 			+ "nom_article, "
 			+ "description, "
@@ -93,7 +93,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE date_debut_encheres < GETDATE() AND date_fin_encheres > GETDATE() AND no_utilisateur=?;";
 	
-	private static final String SELECT_ENCHERES_NON_COMMENCEE_D_UN_UTILISATEUR = "SELECT "
+	private static final String SELECT_ALL_VENTE_NON_COMMENCEE_D_UN_UTILISATEUR = "SELECT "
 			+ "no_article, "
 			+ "nom_article, "
 			+ "description, "
@@ -105,7 +105,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE date_debut_encheres > GETDATE() AND no_utilisateur=?;";
 	
-	private static final String SELECT_ENCHERES_TERMINEES_D_UN_UTILISATEUR = "SELECT "
+	private static final String SELECT_ALL_VENTE_TERMINEES_D_UN_UTILISATEUR = "SELECT "
 			+ "no_article, "
 			+ "nom_article, "
 			+ "description, "
@@ -136,6 +136,19 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	private final String DELETE = "DELETE FROM ARTICLES_VENDUS WHERE no_article=?;";
 	
 	private final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS;";
+	
+	private final String SELECT_ALL_WHERE_UTILISATEUR_HAVE_ENCHERE_EN_COURS = "SELECT "
+			+ "a.no_article, "
+			+ "a.nom_article, "
+			+ "a.description, "
+			+ "a.date_debut_encheres, "
+			+ "a.date_fin_encheres, "
+			+ "a.prix_initial, "
+			+ "a.prix_vente, "
+			+ "a.no_utilisateur, "
+			+ "a.no_categorie "
+			+ "FROM ENCHERES e JOIN ARTICLES_VENDUS a ON e.no_article = a.no_article "
+			+ "WHERE a.date_debut_encheres < GETDATE() AND a.date_fin_encheres > GETDATE() AND e.no_utilisateur=?;";
 	
 	private static Connection con;
 	
@@ -336,7 +349,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ArticleVendu> selectEncheresEnCours() throws DALException {
+	public List<ArticleVendu> selectArticlesEnCoursDeVente() throws DALException {
 		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
 		ArticleVendu a = null;
 		
@@ -365,13 +378,13 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<ArticleVendu> selectEncheresEnCoursDUnUtilisateur(Integer noUtilisateur) throws DALException {
+	public List<ArticleVendu> selectArticlesEnCoursDeVenteDUnUtilisateur(Integer noUtilisateur) throws DALException {
 		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
 		ArticleVendu a = null;
 		
 		try {
 			con = ConnectionProvider.getConnection();
-			PreparedStatement stmt = con.prepareStatement(SELECT_ENCHERES_EN_COURS_D_UN_UTILISATEUR);
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_VENTE_EN_COURS_D_UN_UTILISATEUR);
 			
 			stmt.setInt(1, noUtilisateur);
 			ResultSet rs = stmt.executeQuery();
@@ -392,13 +405,13 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		return listeArticlesVendus;
 	}
 	
-	public List<ArticleVendu> selectEncheresNonCommenceeDUnUtilisateur(Integer noUtilisateur) throws DALException {
+	public List<ArticleVendu> selectArticlesVenteNonCommenceeDUnUtilisateur(Integer noUtilisateur) throws DALException {
 		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
 		ArticleVendu a = null;
 		
 		try {
 			con = ConnectionProvider.getConnection();
-			PreparedStatement stmt = con.prepareStatement(SELECT_ENCHERES_NON_COMMENCEE_D_UN_UTILISATEUR);
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_VENTE_NON_COMMENCEE_D_UN_UTILISATEUR);
 			
 			stmt.setInt(1, noUtilisateur);
 			ResultSet rs = stmt.executeQuery();
@@ -419,13 +432,13 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		return listeArticlesVendus;
 	}
 	
-	public List<ArticleVendu> selectEncheresTermineesDUnUtilisateur(Integer noUtilisateur) throws DALException {
+	public List<ArticleVendu> selectArticlesVenteTermineeDUnUtilisateur(Integer noUtilisateur) throws DALException {
 		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
 		ArticleVendu a = null;
 		
 		try {
 			con = ConnectionProvider.getConnection();
-			PreparedStatement stmt = con.prepareStatement(SELECT_ENCHERES_TERMINEES_D_UN_UTILISATEUR);
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_VENTE_TERMINEES_D_UN_UTILISATEUR);
 			
 			stmt.setInt(1, noUtilisateur);
 			ResultSet rs = stmt.executeQuery();

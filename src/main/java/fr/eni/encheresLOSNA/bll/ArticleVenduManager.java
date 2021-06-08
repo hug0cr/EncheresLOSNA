@@ -153,7 +153,7 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> getArticlesVendusEnCours() throws BLLException {
 		List<ArticleVendu> articlesVendus = null;
 		try {
-			articlesVendus = articleVenduDAO.selectEncheresEnCours();
+			articlesVendus = articleVenduDAO.selectArticlesEnCoursDeVente();
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles vendus en cours de vente ", e);
@@ -171,7 +171,7 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> getArticlesVendusEnCoursByUtilisateur(Integer noUtilisateur) throws BLLException {
 		List<ArticleVendu> articlesVendus = null;
 		try {
-			articlesVendus = articleVenduDAO.selectEncheresEnCoursDUnUtilisateur(noUtilisateur);
+			articlesVendus = articleVenduDAO.selectArticlesEnCoursDeVenteDUnUtilisateur(noUtilisateur);
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles vendus en cours de vente d'un utilisateur ", e);
@@ -188,7 +188,7 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> getArticlesVentesNonCommenceesByUtilisateur(Integer noUtilisateur) throws BLLException {
 		List<ArticleVendu> articlesVendus = null;
 		try {
-			articlesVendus = articleVenduDAO.selectEncheresNonCommenceeDUnUtilisateur(noUtilisateur);
+			articlesVendus = articleVenduDAO.selectArticlesVenteNonCommenceeDUnUtilisateur(noUtilisateur);
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles dont la vente n'a pas commencée d'un utilisateur ", e);
@@ -205,7 +205,7 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> getArticlesVentesTermineeByUtilisateur(Integer noUtilisateur) throws BLLException {
 		List<ArticleVendu> articlesVendus = null;
 		try {
-			articlesVendus = articleVenduDAO.selectEncheresTermineesDUnUtilisateur(noUtilisateur);
+			articlesVendus = articleVenduDAO.selectArticlesVenteTermineeDUnUtilisateur(noUtilisateur);
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles dont la vente est terminée d'un utilisateur ", e);
@@ -296,14 +296,6 @@ public class ArticleVenduManager {
 			sb.append("Une mise à prix est obligatoire.\n");
 			valide = false;
 		}
-//		if(a.getPrixVente() == null){
-//			sb.append("La rue est obligatoire.\n");
-//			valide = false;
-//		}
-//		if(a.getEtatVente() == null || a.getEtatVente().trim().length()==0){
-//			sb.append("Le code postal est obligatoire.\n");
-//			valide = false;
-//		}
 		if(a.getNoUtilisateur() == null){
 			sb.append("Un numéro d'utilisateur est obligatoire.\n");
 			valide = false;

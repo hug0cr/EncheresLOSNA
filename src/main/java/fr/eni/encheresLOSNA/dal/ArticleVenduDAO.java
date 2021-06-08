@@ -15,13 +15,15 @@ import fr.eni.encheresLOSNA.bo.ArticleVendu;
 public interface ArticleVenduDAO extends DAO<ArticleVendu> {
 	//Articles vendus du site
 	public List<ArticleVendu> selectByKW(String keyWord) throws DALException;
-	public List<ArticleVendu> selectEncheresEnCours() throws DALException;
+	public List<ArticleVendu> selectArticlesEnCoursDeVente() throws DALException;
 	public List<ArticleVendu> selectByCategorie(Integer noCategorie) throws DALException;
 	public List<ArticleVendu> selectTop50() throws DALException;
 	//Articles vendus par un utilisateur
-	public List<ArticleVendu> selectEncheresEnCoursDUnUtilisateur(Integer noUtilisateur) throws DALException;
-	public List<ArticleVendu> selectEncheresNonCommenceeDUnUtilisateur(Integer noUtilisateur) throws DALException;
-	public List<ArticleVendu> selectEncheresTermineesDUnUtilisateur(Integer noUtilisateur) throws DALException;
+	public List<ArticleVendu> selectArticlesEnCoursDeVenteDUnUtilisateur(Integer noUtilisateur) throws DALException;
+	public List<ArticleVendu> selectArticlesVenteNonCommenceeDUnUtilisateur(Integer noUtilisateur) throws DALException;
+	public List<ArticleVendu> selectArticlesVenteTermineeDUnUtilisateur(Integer noUtilisateur) throws DALException;
+	//Articles dont l'utilisateur a enchérit
+	
 	//Modifie le prix de vente
 	public void updatePrixVente(Integer noArticle, Integer prixVente) throws DALException;
 	
