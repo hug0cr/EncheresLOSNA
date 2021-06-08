@@ -3,7 +3,7 @@
 	<a href="./Controler"><img alt="Logo de l'association Les Objets Sont Nos Amis" src="img/logoLOSNA.png"></a>
 	<nav>
 		<c:if test="${empty sessionScope.user}">
-			<p><a href="./seConnecter" id="seConnecter"	>S'inscrire - Se Connecter</a></p>
+			<p><a href="./ConnexionServlet">S'inscrire - Se Connecter</a></p>
 		</c:if>
 		<c:if test="${!empty sessionScope.user}">
 			<ul>
