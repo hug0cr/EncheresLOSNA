@@ -63,7 +63,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 			
 			stmt.setInt(1, t.getNoArticle());
 			stmt.setString(2, t.getRue());
-			stmt.setInt(3, t.getCodePostal());
+			stmt.setString(3, t.getCodePostal());
 			stmt.setString(4, t.getVille());
 				
 			stmt.close();
@@ -89,7 +89,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 			
 			stmt.setInt(1, t.getNoArticle());
 			stmt.setString(2, t.getRue());
-			stmt.setInt(3, t.getCodePostal());
+			stmt.setString(3, t.getCodePostal());
 			stmt.setString(4, t.getVille());
 			stmt.setInt(5, t.getNoArticle());
 			
@@ -123,7 +123,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 			
 			while (rs.next()) {				
 				r = new Retrait(rs.getInt("no_article"), rs.getString("rue"), 
-						rs.getInt("code_postal"), rs.getString("ville"));
+						rs.getString("code_postal"), rs.getString("ville"));
 			}
 			
 			stmt.close();
@@ -150,7 +150,7 @@ public class RetraitDAOJdbcImpl implements RetraitDAO {
 			
 			while (rs.next()) {
 				r = new Retrait(rs.getInt("no_article"), rs.getString("rue"), 
-						rs.getInt("code_postal"), rs.getString("ville"));			
+						rs.getString("code_postal"), rs.getString("ville"));			
 				listeRetraits.add(r);
 			}
 			

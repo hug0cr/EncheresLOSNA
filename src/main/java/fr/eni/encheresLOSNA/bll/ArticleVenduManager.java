@@ -180,6 +180,40 @@ public class ArticleVenduManager {
 	}
 	
 	/**
+	 * Methode en charge de retourner une liste contenant les articles vendu d'un utilisateur dont la vente n'a pas commencée.
+	 * @param noUtilisateur l'id de l'utilisateur
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVentesNonCommenceesByUtilisateur(Integer noUtilisateur) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectEncheresNonCommenceeDUnUtilisateur(noUtilisateur);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles dont la vente n'a pas commencée d'un utilisateur ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de retourner une liste contenant les articles vendu d'un utilisateur dont la vente est terminée.
+	 * @param noUtilisateur l'id de l'utilisateur
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVentesTermineeByUtilisateur(Integer noUtilisateur) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectEncheresTermineesDUnUtilisateur(noUtilisateur);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles dont la vente est terminée d'un utilisateur ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
 	 * Methode en charge de retourner une liste des 50 derniers articles ajoutés sur le site
 	 * @return
 	 * @throws BLLException

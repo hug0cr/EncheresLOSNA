@@ -105,6 +105,18 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE date_debut_encheres > GETDATE() AND no_utilisateur=?;";
 	
+	private static final String SELECT_ENCHERES_TERMINEES_D_UN_UTILISATEUR = "SELECT "
+			+ "no_article, "
+			+ "nom_article, "
+			+ "description, "
+			+ "date_debut_encheres, "
+			+ "date_fin_encheres, "
+			+ "prix_initial, "
+			+ "prix_vente, "
+			+ "no_utilisateur, "
+			+ "no_categorie "
+			+ "FROM ARTICLES_VENDUS WHERE date_fin_encheres < GETDATE() AND no_utilisateur=?;";
+	
 	private static final String SELECT_TOP_50 = "SELECT TOP (50) * FROM ARTICLES_VENDUS;";
 	
 	private final String UPDATE = "UPDATE ARTICLES_VENDUS SET "
@@ -403,6 +415,33 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select encheres non commencées d'un utilisateur erreur");
+		}			
+		return listeArticlesVendus;
+	}
+	
+	public List<ArticleVendu> selectEncheresTermineesDUnUtilisateur(Integer noUtilisateur) throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ENCHERES_TERMINEES_D_UN_UTILISATEUR);
+			
+			stmt.setInt(1, noUtilisateur);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+						rs.getString("description"), new java.util.Date(rs.getDate("date_debut_encheres").getTime()), 
+						new java.util.Date(rs.getDate("date_fin_encheres").getTime()), rs.getInt("prix_initial"), 
+						rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select encheres terminées d'un utilisateur erreur");
 		}			
 		return listeArticlesVendus;
 	}
