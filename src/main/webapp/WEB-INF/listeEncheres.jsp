@@ -84,7 +84,7 @@
 						<h4>
 							<a href="./ArticleServlet?article=${article.noArticle}">${article.nomArticle}</a>
 						</h4>
-						<p>Mise à prix : ${article.prixVente} points</p>
+						<p>Prix : ${article.prixVente} points</p>
 						<p>
 							Fin des enchères :
 							<fmt:formatDate value="${article.dateFinEncheres}" />
