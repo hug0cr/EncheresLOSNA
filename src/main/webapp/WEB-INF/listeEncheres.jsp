@@ -31,6 +31,30 @@
 					<option value="${c.noCategorie}">${c.libelle}</option>
 				</c:forEach>
 			</select>
+			<c:if test="${!empty sessionScope.user}">
+				<c:if test="${mode == 'achat'}">
+					<div id="modeAchat">
+						<input type="checkbox" name="encheresOuvertes" id="encheresOuvertes">
+						<label for="encheresOuvertes">Enchères ouvertes</label>
+						<input type="checkbox" name="encheresEnCours" id="encheresEnCours">
+						<label for="encheresEnCours">Enchères en cours</label>
+						<input type="checkbox" name="encheresRemportees" id="encheresRemportees">
+						<label for="encheresRemportees">Enchères remportées</label>
+					</div>
+				</c:if>
+				<c:if test="${mode == 'vente'}">
+					<div id="modeVente">
+						<input type="checkbox" name="ventesEnCours" id="ventesEnCours">
+						<label for="ventesEnCours">Mes ventes en cours</label>
+						<input type="checkbox" name="ventesNonDebutees" id="ventesNonDebutees">
+						<label for="ventesNonDebutees">Ventes non débutées</label>
+						<input type="checkbox" name="ventesTerminees" id="ventesTerminees">
+						<label for="ventesTerminees">Ventes terminées</label>
+					</div>
+				</c:if>
+				<p><a href="./Controler?mode=achat">Mode achat</a></p>
+				<p><a href="./Controler?mode=vente">Mode vente</a></p>
+			</c:if>
 			<button type="submit">Rechercher</button>
 		</form>
 		<c:if test="${empty sessionScope.user}">
@@ -50,10 +74,6 @@
 				</c:forEach>
 			</section>
 		</c:if>
-
-
-
-
 		<c:if test="${!empty sessionScope.user}">
 			<!-- Utilisateur connecté -->
 			<section id="liste-encheres">
