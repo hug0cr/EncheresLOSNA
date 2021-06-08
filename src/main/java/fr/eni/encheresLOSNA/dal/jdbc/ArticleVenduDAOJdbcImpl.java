@@ -150,6 +150,19 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "FROM ENCHERES e JOIN ARTICLES_VENDUS a ON e.no_article = a.no_article "
 			+ "WHERE a.date_debut_encheres < GETDATE() AND a.date_fin_encheres > GETDATE() AND e.no_utilisateur=?;";
 	
+	private final String SELECT_ALL_WHERE_UTILISATEUR_DONT_HAVE_ENCHERE_EN_COURS = "SELECT "
+			+ "a.no_article, "
+			+ "a.nom_article, "
+			+ "a.description, "
+			+ "a.date_debut_encheres, "
+			+ "a.date_fin_encheres, "
+			+ "a.prix_initial, "
+			+ "a.prix_vente, "
+			+ "a.no_utilisateur, "
+			+ "a.no_categorie "
+			+ "FROM ENCHERES e JOIN ARTICLES_VENDUS a ON e.no_article = a.no_article "
+			+ "WHERE a.date_debut_encheres < GETDATE() AND a.date_fin_encheres > GETDATE() AND e.no_utilisateur!=?;";
+	
 	private static Connection con;
 	
 	/**
@@ -315,7 +328,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 	 * {@inheritDoc}
 	 * @throws DALException 
 	 */
-	// TODO vérifier si la requête s'exécute correctement avec le %?% pour rechercher les descriptions
 	@Override
 	public List<ArticleVendu> selectByKW(String keyWord) throws DALException {
 		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
@@ -455,6 +467,60 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select encheres terminées d'un utilisateur erreur");
+		}			
+		return listeArticlesVendus;
+	}
+	
+	public List<ArticleVendu> selectArticlesVenteEnCoursAvecEnchereDUnUtilisateur(Integer noUtilisateur) throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_WHERE_UTILISATEUR_HAVE_ENCHERE_EN_COURS);
+			
+			stmt.setInt(1, noUtilisateur);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+						rs.getString("description"), new java.util.Date(rs.getDate("date_debut_encheres").getTime()), 
+						new java.util.Date(rs.getDate("date_fin_encheres").getTime()), rs.getInt("prix_initial"), 
+						rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select articles en cours de vente avec encheres d'un utilisateur erreur");
+		}			
+		return listeArticlesVendus;
+	}
+	
+	public List<ArticleVendu> selectArticlesVenteEnCoursSansEnchereDUnUtilisateur(Integer noUtilisateur) throws DALException {
+		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
+		ArticleVendu a = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ALL_WHERE_UTILISATEUR_DONT_HAVE_ENCHERE_EN_COURS);
+			
+			stmt.setInt(1, noUtilisateur);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				a = new ArticleVendu(rs.getInt("no_article"), rs.getString("nom_article"), 
+						rs.getString("description"), new java.util.Date(rs.getDate("date_debut_encheres").getTime()), 
+						new java.util.Date(rs.getDate("date_fin_encheres").getTime()), rs.getInt("prix_initial"), 
+						rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));			
+				listeArticlesVendus.add(a);
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select articles en cours de vente sans encheres d'un utilisateur erreur");
 		}			
 		return listeArticlesVendus;
 	}

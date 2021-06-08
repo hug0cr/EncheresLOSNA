@@ -62,6 +62,7 @@ public class ArticleVenduManager {
 	/**
 	 * Methode en charge de modifier un article.
 	 * @Constraint Empêche la modification d'un article en cours de vente.
+	 * TODO la contrainte
 	 * @param articleVendu
 	 * @throws BLLException
 	 */
@@ -209,6 +210,40 @@ public class ArticleVenduManager {
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles dont la vente est terminée d'un utilisateur ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de retourner une liste de tout les articles dont l'utilisateur a fait une enchère
+	 * @param noUtilisateur l'id de l'utilisateur
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVentesEnCoursAvecEnchereUtilisateur(Integer noUtilisateur) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectArticlesVenteEnCoursAvecEnchereDUnUtilisateur(noUtilisateur);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles dont la vente est en cours avec une enchère d'un utilisateur ", e);
+		}
+		return articlesVendus;
+	}
+	
+	/**
+	 * Methode en charge de retourner une liste de tout les articles dont l'utilisateur n'a pas fait d'enchère
+	 * @param noUtilisateur
+	 * @return
+	 * @throws BLLException
+	 */
+	public List<ArticleVendu> getArticlesVentesEnCoursSansEnchereUtilisateur(Integer noUtilisateur) throws BLLException {
+		List<ArticleVendu> articlesVendus = null;
+		try {
+			articlesVendus = articleVenduDAO.selectArticlesVenteEnCoursSansEnchereDUnUtilisateur(noUtilisateur);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur récupération des articles dont la vente est en cours sans une enchère d'un utilisateur ", e);
 		}
 		return articlesVendus;
 	}
