@@ -78,7 +78,12 @@ public class FiltrageServlet extends HttpServlet {
 						}
 						break;
 					case ENCHERES_REMPORTEES:
-						System.out.println("Features à venir");
+						//System.out.println("Features à venir");
+						try {
+							lesArticlesParOption.addAll(articleMgr.getArticlesEnchereRemporteeParUtilisateur(user.getNoUtilisateur()));
+						} catch (BLLException e) {
+							e.printStackTrace();
+						}
 						break;
 					default:
 						break;
