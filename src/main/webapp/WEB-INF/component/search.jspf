@@ -1,0 +1,55 @@
+<%@page import="fr.eni.encheresLOSNA.ihm.FiltrageServlet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<div id="search" class="glass">
+	<h3>Filtrez les annonces</h3>
+	<form action="./FiltrageServlet" method="post">
+		<input type="text" id="search-KW" name="motCle" placeholder="Le nom de l'article contient...">
+		<div id="search-categorie">
+			<label id="labelCategorie" for="categorie">Catégorie : </label>
+			<select name="categorie" id="categorie" required>
+				<option value="0" selected>Toutes</option>
+				<c:forEach items="${categories}" var="c">
+					<option value="${c.noCategorie}">${c.libelle}</option>
+				</c:forEach>
+			</select>
+		</div>
+		<c:if test="${!empty sessionScope.user}">
+			<c:if test="${mode == 'achat'}">
+				<div class="mode">
+					<div>
+						<input type="checkbox" name="achat" id="<%= FiltrageServlet.ENCHERES_OUVERTE %>" value="<%= FiltrageServlet.ENCHERES_OUVERTE %>">
+						<label for="<%= FiltrageServlet.ENCHERES_OUVERTE %>">Enchères ouvertes</label>
+					</div>
+					<div>
+						<input type="checkbox" name="achat" id="<%= FiltrageServlet.ENCHERES_EN_COURS %>" value="<%= FiltrageServlet.ENCHERES_EN_COURS %>">
+						<label for="<%= FiltrageServlet.ENCHERES_EN_COURS %>">Enchères en cours</label>
+					</div>
+					<div>
+						<input type="checkbox" name="achat" id="<%= FiltrageServlet.ENCHERES_REMPORTEES %>" value="<%= FiltrageServlet.ENCHERES_REMPORTEES %>">
+						<label for="<%= FiltrageServlet.ENCHERES_REMPORTEES %>">Enchères remportées</label>
+					</div>
+				</div>
+			</c:if>
+			<c:if test="${mode == 'vente'}">
+				<div class="mode">
+					<div>
+						<input type="checkbox" name="vente" id="<%= FiltrageServlet.VENTES_EN_COURS %>" value="<%= FiltrageServlet.VENTES_EN_COURS %>">
+						<label for="<%= FiltrageServlet.VENTES_EN_COURS %>">Mes ventes en cours</label>
+					</div>
+					<div>
+						<input type="checkbox" name="vente" id="<%= FiltrageServlet.VENTES_NON_DEBUTEES %>" value="<%= FiltrageServlet.VENTES_NON_DEBUTEES %>">
+						<label for="<%= FiltrageServlet.VENTES_NON_DEBUTEES %>">Ventes non débutées</label>
+					</div>
+					<div>
+						<input type="checkbox" name="vente" id="<%= FiltrageServlet.VENTES_TERMINEES %>" value="<%= FiltrageServlet.VENTES_TERMINEES %>">
+						<label for="<%= FiltrageServlet.VENTES_TERMINEES %>">Ventes terminées</label>
+					</div>
+				</div>
+			</c:if>
+			<p><a href="./Controler?mode=achat">Mode achat</a></p>
+			<p><a href="./Controler?mode=vente">Mode vente</a></p>
+		</c:if>
+		<button type="submit">Rechercher</button>
+	</form>
+</div>

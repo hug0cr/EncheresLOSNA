@@ -5,38 +5,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="css/style_XL.css" type="text/css" rel="stylesheet">
 <title>Connexion</title>
-</head>
-<body>
-	<main>
-		<%@ include file="./component/header.jspf"%>
-
-		<h1>Se connecter</h1>
+<link href="css/style_SeConnecter.css" type="text/css" rel="stylesheet">
+<%@ include file="./component/header.jspf"%>
+	<main class="glass">
+		<h1>Connexion</h1>
 		<form action="./ConnexionServlet" method="post">
-			<label for="id">Votre e-mail</label>
-
+			<label for="inputMail">Votre e-mail</label>
 			<c:if test="${!empty login}">
-				<input type="email" name="mail" value="${login}">
+				<input type="email" name="mail" id="inputMail" value="${login}">
 			</c:if>
-
 			<c:if test="${empty login}">
 				<input type="email" name="mail">
 			</c:if>
-
-
-			<label for="mdp">Mot de passe</label> <input type="password"
-				name="mdp"> <input type="checkbox" name="seSouvenirDeMoi">
+			<label for="mdp">Votre mot de passe</label>
+			<input type="password" name="mdp"> <input type="checkbox" name="seSouvenirDeMoi">
 			<label for="seSouvenirDeMoi">Se souvenir de moi</label>
-			<button type="submit">Connexion</button>
-			<a href="./motDePasseOublie">Mot de passe oublié</a>
+			<button type="submit">Se connecter</button>
 		</form>
-
-		<p>
-			<a href="./gererProfil">Créer un compte</a>
-		</p>
-
-		<%@ include file="./component/footer.jspf"%>
+		<p><a href="./motDePasseOublie">Mot de passe oublié</a></p>
+		<p><a href="./gererProfil">Créer un compte</a></p>
 	</main>
+	<%@ include file="./component/footer.jspf"%>
 </body>
 </html>
