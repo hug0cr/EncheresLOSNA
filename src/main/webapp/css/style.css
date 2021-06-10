@@ -42,14 +42,20 @@ body *{
     z-index: 1;
 }
 
+main{
+    position: relative;
+    max-width: 80vw;
+    margin: 2em auto;
+}
 
 .glass{
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
+    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 2em;
 }
 
 .button{
@@ -62,6 +68,7 @@ body *{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
+    font-size: 1em;
     transition: color .3s ease-out, background-color .3s ease-out;
 }
 
@@ -96,12 +103,6 @@ p{
 a{
     color: inherit;
     text-decoration: inherit;
-}
-
-label{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 1.2em; 
 }
 
 /*
@@ -182,6 +183,32 @@ header{
 
 /*
 ----------------------------------------------------------------------------------------------------
+                                Form
+----------------------------------------------------------------------------------------------------
+*/
+
+input{
+    height: 2em;
+    color: #2E282A;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    align-self: center;
+}
+
+input[type="checkbox"]{
+    margin-right: 10px;
+}
+
+label{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.2em;
+    align-self: center;
+}
+
+/*
+----------------------------------------------------------------------------------------------------
                                 Footer
 ----------------------------------------------------------------------------------------------------
 */
@@ -206,13 +233,10 @@ footer{
 */
 
 #home{
-    position: relative;
-    max-width: 90vw;
-    margin: 2em auto;
     display: grid;
     grid-template:
-        "a a a b" auto
-        "c c c c" auto / 21vw 21vw 21vw 21vw;
+        "a a a b b" auto
+        "c c c c c" auto;
     gap: 2em;
     justify-content: space-between;
     align-items: center;
@@ -230,7 +254,7 @@ footer{
 */
 
 #search{
-    padding: 2em;
+    grid-area: b;
     display: grid;
     grid-template:
         "a a" auto
@@ -288,6 +312,12 @@ footer{
 
 .search-mode{
     grid-area: a;
+    margin-bottom: 1em;
+}
+
+.search-mode > div{
+    display: flex;
+    align-items: center;
 }
 
 #search-KW{
@@ -309,3 +339,86 @@ footer{
 #search form button{
     align-self: center;
 }
+
+/*
+----------------------------------------------------------------------------------------------------
+                                Annonces
+----------------------------------------------------------------------------------------------------
+*/
+
+.liste-encheres{
+    grid-area: c;
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
+    gap: 2em;
+}
+
+/*
+####################################################################################################
+                                SE CONNECTER
+####################################################################################################
+*/
+
+#connexion-panel{
+    padding: 4em;
+    max-width: 60vw;
+    display: grid;
+    grid-template:
+        "a a" auto
+        "b b" auto
+        "c d" auto;
+}
+
+#connexion-panel h1{
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    grid-area: a;
+}
+
+#connexion-panel #mdpOublie{
+    grid-area: c;
+}
+
+#connexion-panel #new-account{
+    grid-area: d;
+}
+
+/*
+----------------------------------------------------------------------------------------------------
+                                Form
+----------------------------------------------------------------------------------------------------
+*/
+
+#connexion-panel form{
+    margin: 4em 0em;
+    grid-area: b;
+    display: grid;
+    grid-template:
+        "a b b b" auto
+        "c d d d" auto
+        ". . f e" auto
+        ". g g ." auto;
+    row-gap: 2em;
+    align-items: center;
+}
+
+#connexion-panel p{
+    text-align: center;
+}
+
+#connexion-panel form label:nth-of-type(1){grid-area: a;}
+#connexion-panel form label:nth-of-type(2){grid-area: c;}
+#connexion-panel form label:nth-of-type(3){
+    grid-area: e;
+    justify-self: flex-start;
+}
+
+#connexion-panel form input:nth-of-type(1){grid-area: b;}
+#connexion-panel form input:nth-of-type(2){grid-area: d;}
+#connexion-panel form input:nth-of-type(3){
+    grid-area: f;
+    justify-self: flex-end;
+}
+
+#connexion-panel form button{grid-area: g;}

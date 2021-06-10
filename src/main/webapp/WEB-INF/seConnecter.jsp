@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Connexion</title>
 <%@ include file="./component/header.jspf"%>
-	<main class="glass">
+	<main id="connexion-panel" class="glass">
 		<h1>Connexion</h1>
 		<form action="./ConnexionServlet" method="post">
 			<label for="inputMail">Votre e-mail</label>
@@ -20,10 +20,10 @@
 			<label for="mdp">Votre mot de passe</label>
 			<input type="password" name="mdp"> <input type="checkbox" name="seSouvenirDeMoi">
 			<label for="seSouvenirDeMoi">Se souvenir de moi</label>
-			<button type="submit">Se connecter</button>
+			<button type="submit" class="button">Se connecter</button>
 		</form>
-		<p><a href="./motDePasseOublie">Mot de passe oublié</a></p>
-		<p><a href="./gererProfil">Créer un compte</a></p>
+		<p><a id="mdpOublie" href="./motDePasseOublie" class="button">Mot de passe oublié</a></p>
+		<p><a id="new-account" href="./gererProfil" class="button">Créer un compte</a></p>
 	</main>
 	<%@ include file="./component/footer.jspf"%>
 </body>
