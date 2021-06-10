@@ -69,6 +69,10 @@ public class ArticleVenduManager {
 	public void updateArticleVendu(ArticleVendu articleVendu) throws BLLException {
 		try {
 			Date maintenant = new Date(Calendar.getInstance().getTimeInMillis()); 
+			if (maintenant.after(articleVendu.getDateDebutEncheres())) {
+				throw new BLLException("Impossible de modifier un article dont la date de début d'enchère est dépassée.");
+			}
+			
 			validerArticleVendu(articleVendu);
 			articleVenduDAO.update(articleVendu);
 			
@@ -257,7 +261,7 @@ public class ArticleVenduManager {
 	public List<ArticleVendu> getArticlesEnchereRemporteeParUtilisateur(Integer noUtilisateur) throws BLLException {
 		List<ArticleVendu> articlesVendus = null;
 		try {
-			articlesVendus = articleVenduDAO.selectArticlesEnchereRemporteePArUtilisateur(noUtilisateur);
+			articlesVendus = articleVenduDAO.selectArticlesEnchereRemporteeParUtilisateur(noUtilisateur);
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des articles dont l'enchère à été remportée par l'utilisateur ", e);

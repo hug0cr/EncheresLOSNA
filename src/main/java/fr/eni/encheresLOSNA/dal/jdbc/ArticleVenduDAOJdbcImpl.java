@@ -538,7 +538,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		return listeArticlesVendus;
 	}
 	
-	public List<ArticleVendu> selectArticlesEnchereRemporteePArUtilisateur(Integer noUtilisateur) throws DALException {
+	public List<ArticleVendu> selectArticlesEnchereRemporteeParUtilisateur(Integer noUtilisateur) throws DALException {
 		List<ArticleVendu> listeArticlesVendus = new ArrayList<>();
 		ArticleVendu a = null;
 		

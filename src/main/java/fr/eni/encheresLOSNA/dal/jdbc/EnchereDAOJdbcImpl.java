@@ -32,7 +32,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			+ "montant_enchere) "
 			+ "VALUES (?, ?, ?, ?);";
 	
-	private final String SELECT_ALL_BY_NO_UTILISATEUR = "SELECT * "
+	private final String SELECT_ALL_BY_NO_UTILISATEUR = "SELECT "
 			+ "no_utilisateur, "
 			+ "no_article, "
 			+ "date_enchere, "

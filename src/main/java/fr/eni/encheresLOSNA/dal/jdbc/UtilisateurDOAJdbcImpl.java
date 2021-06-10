@@ -84,6 +84,10 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 	
 	private final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
 	
+	private final String UPDATE_CREDIT_BY_NO_UTILISATEUR = "UPDATE UTILISATEURS SET "
+			+ "credit=?, "
+			+ "WHERE no_utilisateur=?;";
+	
 	private static Connection con;
 	
 	/**
@@ -287,12 +291,34 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 			}
 			
 			stmt.close();
-			//JdbcTools.closeConnection();
 			con.close();
 		} catch (SQLException e) {
 			throw new DALException("Select by email error");
 		}	
 		return u;
+	}
+	
+	public void updateCreditByNoUtilisateur(Integer noUtilisateur, Integer credit) throws DALException {
+		PreparedStatement stmt = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			stmt = con.prepareStatement(UPDATE_CREDIT_BY_NO_UTILISATEUR);
+			
+			stmt.setInt(1, credit);
+			stmt.setInt(2, noUtilisateur);
+			
+			int rowsAffected = stmt.executeUpdate();
+			
+			System.out.println(rowsAffected + " ligne modifiée");
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Update error");
+		} catch (Exception e) {
+			e.getMessage();
+		}	
 	}
 
 }

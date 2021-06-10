@@ -70,4 +70,5 @@ public class Controler extends HttpServlet {
 		doGet(request, response);
 	}
 
+
 }

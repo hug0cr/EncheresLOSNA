@@ -137,6 +137,15 @@ public class UtilisateurManager {
 		return u;
 	}
 	
+	public void updateCreditUtilisateur(Integer noUtilisateur, Integer credit) throws BLLException {
+		try {
+			utilisateurDAO.updateCreditByNoUtilisateur(noUtilisateur, credit);
+			
+		} catch (DALException e) {
+			throw new BLLException("Echec updateCreditUtilisateur - utilisateur no "+ noUtilisateur, e);
+		}
+	}
+	
 	
 	public void validerUtilisateur(Utilisateur u) throws BLLException
 	{

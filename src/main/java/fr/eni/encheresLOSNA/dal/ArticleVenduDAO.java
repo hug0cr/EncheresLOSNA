@@ -25,7 +25,7 @@ public interface ArticleVenduDAO extends DAO<ArticleVendu> {
 	//Articles dont l'utilisateur en fonction des enchères
 	public List<ArticleVendu> selectArticlesVenteEnCoursAvecEnchereDUnUtilisateur(Integer noUtilisateur) throws DALException;
 	public List<ArticleVendu> selectArticlesVenteEnCoursSansEnchereDUnUtilisateur(Integer noUtilisateur) throws DALException;
-	public List<ArticleVendu> selectArticlesEnchereRemporteePArUtilisateur(Integer noUtilisateur) throws DALException;
+	public List<ArticleVendu> selectArticlesEnchereRemporteeParUtilisateur(Integer noUtilisateur) throws DALException;
 	//Modifie le prix de vente
 	public void updatePrixVente(Integer noArticle, Integer prixVente) throws DALException;
 	

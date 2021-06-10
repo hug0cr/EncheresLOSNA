@@ -16,7 +16,6 @@ import fr.eni.encheresLOSNA.dal.DAOFactory;
  */
 public class CategorieManager {
 
-
 	private CategorieDAO categorieDAO;
 	private static CategorieManager instance = null;
 

@@ -6,6 +6,7 @@ package fr.eni.encheresLOSNA.dal;
 import fr.eni.encheresLOSNA.dal.jdbc.ArticleVenduDAOJdbcImpl;
 import fr.eni.encheresLOSNA.dal.jdbc.CategorieDAOJdbcImpl;
 import fr.eni.encheresLOSNA.dal.jdbc.EnchereDAOJdbcImpl;
+import fr.eni.encheresLOSNA.dal.jdbc.EnchereRemporteeDAOJdbcImpl;
 import fr.eni.encheresLOSNA.dal.jdbc.RetraitDAOJdbcImpl;
 import fr.eni.encheresLOSNA.dal.jdbc.UtilisateurDOAJdbcImpl;
 
@@ -34,5 +35,9 @@ public class DAOFactory {
 	
 	public static EnchereDAO getEnchereDAO(){
 		return new EnchereDAOJdbcImpl();
+	}
+	
+	public static EnchereRemporteeDAO getEnchereRemporteeDAO(){
+		return new EnchereRemporteeDAOJdbcImpl();
 	}
 }

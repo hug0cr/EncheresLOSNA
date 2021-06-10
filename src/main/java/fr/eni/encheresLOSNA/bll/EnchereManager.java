@@ -39,7 +39,7 @@ public class EnchereManager {
 	
 
 	/**
-	 * Methode en charge d'ajouter ou de mofifier l'enchère au cas où un utilisateur renchérit sur le même article.
+	 * Methode en charge d'ajouter ou de modifier l'enchère au cas où un utilisateur renchérit sur le même article.
 	 * @param newEnchere
 	 * @throws BLLException
 	 */

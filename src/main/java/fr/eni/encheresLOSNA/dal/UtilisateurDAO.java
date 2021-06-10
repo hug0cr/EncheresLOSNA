@@ -14,4 +14,5 @@ import fr.eni.encheresLOSNA.bo.Utilisateur;
 // TODO rajouter select by mot clé ?
 public interface UtilisateurDAO extends DAO<Utilisateur> {
 	public Utilisateur selectByEmail(String email) throws DALException;
+	public void updateCreditByNoUtilisateur(Integer noUtilisateur, Integer credit) throws DALException;
 }
