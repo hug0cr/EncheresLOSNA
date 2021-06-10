@@ -19,6 +19,7 @@ import fr.eni.encheresLOSNA.bll.EnchereRemporteeManager;
 import fr.eni.encheresLOSNA.bll.UtilisateurManager;
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
 import fr.eni.encheresLOSNA.bo.Enchere;
+import fr.eni.encheresLOSNA.bo.EnchereRemportee;
 import fr.eni.encheresLOSNA.bo.Utilisateur;
 
 /**
@@ -42,7 +43,7 @@ public class InitServlet extends HttpServlet {
 			public void run() {
 				System.out.println("Hello world !");
 				
-				// Beginning //
+				// Beginning of task //
 				
 				try {
 					// Récupération de tout les articles du site
@@ -62,7 +63,15 @@ public class InitServlet extends HttpServlet {
 									Integer creditACrediter = u.getCredit();
 									UtilisateurManager.getInstance().updateCreditUtilisateur(enchere.getNoUtilisateur(), enchere.getMontantEnchere() + creditACrediter);
 								}
-								
+								// Débite l'utilisateur ayant remporté l'enchère
+								Enchere enchereMax = EnchereManager.getInstance().getMaxMontantByNoArticle(articleVendu.getNoArticle());
+								if (enchereMax != null) {
+									Utilisateur u = UtilisateurManager.getInstance().getUtilisateurById(enchereMax.getNoUtilisateur());
+									Integer creditADebiter = u.getCredit() - enchereMax.getMontantEnchere();
+									UtilisateurManager.getInstance().updateCreditUtilisateur(enchereMax.getNoUtilisateur(), creditADebiter);
+									// Ajoute l'enchère à la table ENCHERES_REMPORTEES
+									EnchereRemporteeManager.getInstance().addEnchereRemportee(articleVendu.getNoArticle(), u.getNoUtilisateur());
+								}
 							}
 							
 						} else {
@@ -72,13 +81,12 @@ public class InitServlet extends HttpServlet {
 					
 				} catch (BLLException e) {
 					e.printStackTrace();
-				}
-								
-				// Ending //	
+				}					
+				// End of task //	
 			}
 		};
 		//////////// End of task /////////////
 		
-		timer.scheduleAtFixedRate(task, 10, 10000);
+		timer.scheduleAtFixedRate(task, 2000, 10000);
 	}
 }

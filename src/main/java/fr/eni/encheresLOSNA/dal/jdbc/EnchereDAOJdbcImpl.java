@@ -39,14 +39,21 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			+ "montant_enchere "
 			+ "FROM ENCHERES WHERE no_utilisateur=?;";
 	
-	private final String SELECT_ALL_BY_NO_ARTICLE = "SELECT * "
+	private final String SELECT_ALL_BY_NO_ARTICLE = "SELECT "
 			+ "no_utilisateur, "
 			+ "no_article, "
 			+ "date_enchere, "
 			+ "montant_enchere "
-			+ "FROM UTILISATEURS WHERE no_article=?;";
+			+ "FROM ENCHERES WHERE no_article=?;";
 	
-	private final String SELECT_MAX_MONTANT_BY_ARTICLE = "SELECT MAX(montant_enchere) FROM ENCHERES WHERE no_article = ?;";
+	private final String SELECT_MAX_MONTANT_BY_ARTICLE = "SELECT MAX(montant_enchere) AS montant_enchere FROM ENCHERES WHERE no_article = ?;";
+	
+	private final String SELECT_ENCHERE_WHERE_MAX_MONTANT_AND_NO_ARTICLE = "SELECT "
+			+ "no_utilisateur, "
+			+ "no_article, "
+			+ "date_enchere, "
+			+ "montant_enchere "
+			+ "FROM ENCHERES WHERE no_article=? AND montant_enchere=?;";
 	
 	private final String UPDATE = "UPDATE ENCHERES SET "
 			+ "no_utilisateur=?, "
@@ -275,7 +282,7 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			stmt.close();
 			con.close();
 		} catch (SQLException e) {
-			throw new DALException("Select all by noUtilisateur error");
+			throw new DALException("Select all by noArticle error");
 		}			
 		return listeEncheres;
 	}
@@ -304,6 +311,55 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 			throw new DALException("Select max montant by noArticle error");
 		}			
 		return montantMax;
+	}
+	
+	public Integer selectMaxMontantByNoArticle(Integer noArticle) throws DALException {
+		Integer montantMax = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_MAX_MONTANT_BY_ARTICLE);
+			
+			stmt.setInt(1, noArticle);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				montantMax = rs.getInt("montant_enchere");
+			}
+			
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select max montant by noArticle error", e);
+		}			
+		return montantMax;
+	}
+	
+	public Enchere selectEnchereMaxByNoArticle(Integer noArticle) throws DALException {
+		Integer montantMax = selectMaxMontantByNoArticle(noArticle);
+		Enchere enchereMax = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_ENCHERE_WHERE_MAX_MONTANT_AND_NO_ARTICLE);
+			
+			stmt.setInt(1, noArticle);
+			stmt.setInt(2, montantMax);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				enchereMax = new Enchere(rs.getInt("no_utilisateur"), rs.getInt("no_article"), 
+						new java.util.Date(rs.getDate("date_enchere").getTime()), rs.getInt("montant_enchere"));
+			}
+			
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select max montant by noArticle error");
+		}			
+		return enchereMax;
 	}
 
 	/**
@@ -335,7 +391,6 @@ public class EnchereDAOJdbcImpl implements EnchereDAO {
 		}
 
 	}
-	
 	
 
 }

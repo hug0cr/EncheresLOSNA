@@ -152,7 +152,7 @@ public class EnchereManager {
 	public List<Enchere> getAllByNoArticle(Integer noArticle) throws BLLException {
 		List<Enchere> encheres = null;
 		try {
-			encheres = enchereDAO.selectAllByNoUtilisateur(noArticle);
+			encheres = enchereDAO.selectAllByNoArticle(noArticle);
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur récupération des enchères par noArticle", e);
@@ -168,6 +168,16 @@ public class EnchereManager {
 			throw new BLLException("Erreur récupération montant max d'un article", e);
 		}
 		return maxMontant;
+	}
+	
+	public Enchere getMaxMontantByNoArticle(Integer noArticle) throws BLLException {
+		Enchere enchereMax = null;
+		try {
+			enchereMax = enchereDAO.selectEnchereMaxByNoArticle(noArticle);
+		} catch (DALException e) {
+			throw new BLLException("Erreur récupération montant max d'un article", e);
+		}
+		return enchereMax;
 	}
 	
 	

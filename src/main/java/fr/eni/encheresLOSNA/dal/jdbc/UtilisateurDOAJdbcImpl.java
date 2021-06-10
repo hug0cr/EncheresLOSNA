@@ -84,9 +84,7 @@ public class UtilisateurDOAJdbcImpl implements UtilisateurDAO {
 	
 	private final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
 	
-	private final String UPDATE_CREDIT_BY_NO_UTILISATEUR = "UPDATE UTILISATEURS SET "
-			+ "credit=?, "
-			+ "WHERE no_utilisateur=?;";
+	private final String UPDATE_CREDIT_BY_NO_UTILISATEUR = "UPDATE UTILISATEURS SET credit=? WHERE no_utilisateur=?;";
 	
 	private static Connection con;
 	
