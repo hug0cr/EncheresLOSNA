@@ -43,48 +43,48 @@ public class InitServlet extends HttpServlet {
 				
 				// Beginning of task //
 				
-//				try {
-//					// Récupération de tout les articles du site
-//					List<ArticleVendu> articles = ArticleVenduManager.getInstance().getArticlesVendus();
-//					// Boucle sur tout les articles
-//					for (ArticleVendu articleVendu : articles) {
-//						// Si la date de fin d'enchère est dépassée
-//						if (articleVendu.getDateFinEncheres().before(new Date())) {
-//							System.out.println("Vente terminée");
-//							// Si l'enchère n'a toujours pas été ajoutée à la table ENCHERES_REMPORTEES
-//							if (!EnchereRemporteeManager.getInstance().isEnchereRemportee(articleVendu.getNoArticle())) {
-//								// Récupération de toutes les enchères sur l'article
-//								List<Enchere> encheres = EnchereManager.getInstance().getAllByNoArticle(articleVendu.getNoArticle());
-//								// Redonne les crédits à tout les enchérisseurs
-//								for (Enchere enchere : encheres) {
-//									Utilisateur u = UtilisateurManager.getInstance().getUtilisateurById(enchere.getNoUtilisateur());
-//									Integer creditACrediter = u.getCredit();
-//									UtilisateurManager.getInstance().updateCreditUtilisateur(enchere.getNoUtilisateur(), enchere.getMontantEnchere() + creditACrediter);
-//								}
-//								// Débite l'utilisateur ayant remporté l'enchère
-//								Enchere enchereMax = EnchereManager.getInstance().getMaxMontantByNoArticle(articleVendu.getNoArticle());
-//								if (enchereMax != null) {
-//									Utilisateur u = UtilisateurManager.getInstance().getUtilisateurById(enchereMax.getNoUtilisateur());
-//									Integer creditADebiter = u.getCredit() - enchereMax.getMontantEnchere();
-//									UtilisateurManager.getInstance().updateCreditUtilisateur(enchereMax.getNoUtilisateur(), creditADebiter);
-//									// Ajoute l'enchère à la table ENCHERES_REMPORTEES
-//									EnchereRemporteeManager.getInstance().addEnchereRemportee(articleVendu.getNoArticle(), u.getNoUtilisateur());
-//								}
-//							}
-//							
-//						} else {
-//							System.out.println("Vente non terminée");
-//						}
-//					}
-//					
-//				} catch (BLLException e) {
-//					e.printStackTrace();
-//				}					
+				try {
+					// Récupération de tout les articles du site
+					List<ArticleVendu> articles = ArticleVenduManager.getInstance().getArticlesVendus();
+					// Boucle sur tout les articles
+					for (ArticleVendu articleVendu : articles) {
+						// Si la date de fin d'enchère est dépassée
+						if (articleVendu.getDateFinEncheres().before(new Date())) {
+							System.out.println("Vente terminée");
+							// Si l'enchère n'a toujours pas été ajoutée à la table ENCHERES_REMPORTEES
+							if (!EnchereRemporteeManager.getInstance().isEnchereRemportee(articleVendu.getNoArticle())) {
+								// Récupération de toutes les enchères sur l'article
+								List<Enchere> encheres = EnchereManager.getInstance().getAllByNoArticle(articleVendu.getNoArticle());
+								// Redonne les crédits à tout les enchérisseurs
+								for (Enchere enchere : encheres) {
+									Utilisateur u = UtilisateurManager.getInstance().getUtilisateurById(enchere.getNoUtilisateur());
+									Integer creditACrediter = u.getCredit();
+									UtilisateurManager.getInstance().updateCreditUtilisateur(enchere.getNoUtilisateur(), enchere.getMontantEnchere() + creditACrediter);
+								}
+								// Débite l'utilisateur ayant remporté l'enchère
+								Enchere enchereMax = EnchereManager.getInstance().getMaxMontantByNoArticle(articleVendu.getNoArticle());
+								if (enchereMax != null) {
+									Utilisateur u = UtilisateurManager.getInstance().getUtilisateurById(enchereMax.getNoUtilisateur());
+									Integer creditADebiter = u.getCredit() - enchereMax.getMontantEnchere();
+									UtilisateurManager.getInstance().updateCreditUtilisateur(enchereMax.getNoUtilisateur(), creditADebiter);
+									// Ajoute l'enchère à la table ENCHERES_REMPORTEES
+									EnchereRemporteeManager.getInstance().addEnchereRemportee(articleVendu.getNoArticle(), u.getNoUtilisateur());
+								}
+							}
+							
+						} else {
+							System.out.println("Vente non terminée");
+						}
+					}
+					
+				} catch (BLLException e) {
+					e.printStackTrace();
+				}					
 				// End of task //	
 			}
 		};
 		//////////// End of task /////////////
 		
-		//timer.scheduleAtFixedRate(task, 2000, 10000);
+		timer.scheduleAtFixedRate(task, 3000, 10000);
 	}
 }

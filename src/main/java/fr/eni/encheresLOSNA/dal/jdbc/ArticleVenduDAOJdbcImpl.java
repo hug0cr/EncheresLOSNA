@@ -117,7 +117,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE date_fin_encheres < GETDATE() AND no_utilisateur=?;";
 	
-	private static final String SELECT_TOP_50 = "SELECT TOP (50) * FROM ARTICLES_VENDUS;";
+	private static final String SELECT_TOP_50 = "SELECT TOP (50) * FROM ARTICLES_VENDUS ORDER BY date_fin_encheres DESC;";
 	
 	private final String UPDATE = "UPDATE ARTICLES_VENDUS SET "
 			+ "nom_article=?, "
