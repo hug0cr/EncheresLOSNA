@@ -20,7 +20,7 @@
 	<c:if test="${param.type == 'new'}">
 		<!-- Nouvelle annonce -->
 		<h1>Nouvelle annonce</h1>
-		<form action="./ArticleServlet?type=crea" method="post">
+		<form action="./ArticleServlet?type=crea" method="post" enctype="multipart/form-data">
 			<label for="nom">Article : </label>
 			<input type="text" name="nom" placeholder="Le nom de l'article" required autofocus>
 			<label for="description">Description : </label>
@@ -38,6 +38,8 @@
 			<input type="date" name="dateDebut" required>
 			<label for="dateFin">Fin des enchères</label>
 			<input type="date" name="dateFin" required>
+			<label for="inputPhoto">Ajoutez une photo</label>
+			<input type="file" name="photo" id="inputPhoto">
 			<fieldset>
 				<legend>Retrait</legend>
 				<label for="rue">Rue : </label>
@@ -54,7 +56,7 @@
 	<c:if test="${param.type != 'new'}">
 		<!-- Modifier annonce -->
 		<h1>Modifier une annonce</h1>
-		<form action="./ArticleServlet?type=modif" method="post">
+		<form action="./ArticleServlet?type=modif" method="post" enctype="multipart/form-data">
 			<label for="nom">Article : </label>
 			<input type="text" name="nom" placeholder="Le nom de l'article" required autofocus>
 			<label for="description">Description : </label>
@@ -72,6 +74,8 @@
 			<input type="date" name="dateDebut" required>
 			<label for="dateFin">Fin des enchères</label>
 			<input type="date" name="dateFin" required>
+			<label for="inputPhoto">Ajoutez une photo</label>
+			<input type="file" name="photo" id="inputPhoto" accept="image/*">
 			<fieldset>
 				<legend>Retrait</legend>
 				<label for="rue">Rue : </label>

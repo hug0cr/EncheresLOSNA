@@ -44,7 +44,7 @@ body *{
 
 main{
     position: relative;
-    max-width: 80vw;
+    max-width: 80vw !important;
     margin: 2em auto;
 }
 
@@ -235,8 +235,8 @@ footer{
 #home{
     display: grid;
     grid-template:
-        "a a a b b" auto
-        "c c c c c" auto;
+        "a a b" auto
+        "c c c" auto;
     gap: 2em;
     justify-content: space-between;
     align-items: center;
