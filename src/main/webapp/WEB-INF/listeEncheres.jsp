@@ -14,15 +14,14 @@
 <meta charset="UTF-8">
 <title>Les Objets Sont Nos Amis - Liste des enchères</title>
 <meta name="description" content="Découvrez les enchères « Les objets sont nos amis » ! Une plateforme web pour permettre la cession d’objets de seconde main sans transaction financière.">
-<link href="css/style_Home.css" type="text/css" rel="stylesheet">
 	<%@ include file="./component/header.jspf"%>
-	<main>
+	<main id="home">
 		<h1>Liste des enchères</h1>
 		<%@ include file="./component/search.jspf"%>
 		<c:if test="${empty sessionScope.user}">
 			<!-- Utilisateur non connecté -->
 			<section class="liste-encheres">
-				<c:forEach items="${lesArticles }" begin="0" end="10" var="article">
+				<c:forEach items="${lesArticles }" var="article">
 					<div class="glass">
 						<img alt="une image" src="">
 						<h4>${article.nomArticle}</h4>

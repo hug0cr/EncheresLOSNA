@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Connexion</title>
-<link href="css/style_SeConnecter.css" type="text/css" rel="stylesheet">
 <%@ include file="./component/header.jspf"%>
 	<main class="glass">
 		<h1>Connexion</h1>

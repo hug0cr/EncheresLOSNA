@@ -57,9 +57,10 @@ public class Controler extends HttpServlet {
 			}
 			request.setAttribute("lesArticles", lesArticles);
 		}
-		if (request.getParameter("mode") != null) {
-			request.setAttribute("mode", request.getParameter("mode"));
-		}
+		
+		if (request.getParameter("mode") != null) request.setAttribute("mode", request.getParameter("mode"));
+		else request.setAttribute("mode", "achat");
+		
 		request.getRequestDispatcher("./listeEncheres").forward(request, response);			
 	}
 
