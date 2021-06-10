@@ -5,10 +5,14 @@ main{
     width: 50vw;
     margin: auto;
     padding: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+
+
+    display: grid;
+    grid-template:
+        ". a a a ." auto
+        ". b b b ." auto
+        ". c . d ." auto;
+    row-gap: 4em;
 }
 
 h1{
@@ -17,29 +21,42 @@ h1{
     font-size: 5em;
     color: #2E282A;
     margin: 0;
-    margin-bottom: 0.5em;
     grid-area: a;
     width: 100%;
+    text-align: center;
 }
 
 
 form{
+    grid-area: b;
     display: grid;
     grid-template:
         "a a b b b b b b" auto
         "c c d d d d d d" auto
-        ". . . . e f f ." auto
-        ". . . g g . . ." auto
-        ". . h h h h . ." auto;
-    gap: 2em;
-    width: 100%;
+        ". g g . e f f ." auto;
+    row-gap: 3em;
+    column-gap: 1em;
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+    align-items: center;
 }
 
 input[type="email"], input[type="password"]{
     height: 2em;
     font-size: 1em;
-    font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    padding-left: 1em;
+}
+
+input[type="checkbox"]{
+    align-self: center;
+    justify-self: flex-end;
+}
+
+form label{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #2E282A;
 }
 
 form label:nth-of-type(1){grid-area: a;}
@@ -50,10 +67,44 @@ form input:nth-of-type(1){grid-area: b;}
 form input:nth-of-type(2){grid-area: d;}
 form input:nth-of-type(3){grid-area: e;}
 
-form button{grid-area: g;}
+form button{
+    grid-area: g;
+    padding: 1em 2em;
+    background-color: #FFFFF0;
+    color: #2E282A;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    border: 0;
+    transition: color .3s ease-in-out, background-color .3s ease-out;
+}
+
+form button:hover{
+    color: #FFFFF0;
+    background-color: #2E282A;
+    transition: all .3s ease-in;
+}
 
 main p{
-    padding: 1em 2em;
-    background-color: #2E282A;
-    color: #FFFFF0;
+    padding: .5em 1em;
+    background-color: #FFFFF0;
+    color: #2E282A;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    transition: color .3s ease-out, background-color .3s ease-out;
 }
+
+main p:hover{
+    color: #FFFFF0;
+    background-color: #2E282A;
+    transition: all .3s ease-in;
+}
+
+main p:nth-of-type(1){grid-area: c;}
+main p:nth-of-type(2){grid-area: d;}

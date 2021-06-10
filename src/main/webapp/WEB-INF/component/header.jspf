@@ -1,10 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link href="css/base.css" type="text/css" rel="stylesheet">
+<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <header>
-	<a href="./Controler"><img alt="Logo de l'association Les Objets Sont Nos Amis" src="img/logoLOSNA.png"></a>
-	<nav>
+	<a href="./Controler"><img alt="Logo de l'association Les Objets Sont Nos Amis" src="img/logoLOSNA.png" class="logo"></a>
+	<nav id="main-menu">
 		<c:if test="${empty sessionScope.user}">
 			<p><a href="./ConnexionServlet" class="underline">S'inscrire - Se Connecter</a></p>
 		</c:if>
