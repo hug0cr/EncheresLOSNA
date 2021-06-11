@@ -12,11 +12,11 @@
 <body>
 <%@ include file="./component/header.jspf" %>
 	<main>
+		<h1>${article.nomArticle}</h1>
 	<c:if test="${!empty classe}">
 		<p class="${classe}">${message}</p>
 	</c:if>
 	<img alt="al" src="img\MSI_HUGO - Jet Ski Tenerife.jpg">
-	<h1>${article.nomArticle}</h1>
 	<section id="section-description" class="glass">
 		<h2 id="titre-description">Description</h2>
 		<p id="description">${article.description}</p>
