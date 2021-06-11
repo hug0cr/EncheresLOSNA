@@ -6,7 +6,6 @@ package fr.eni.encheresLOSNA.bll;
 import java.util.List;
 
 import fr.eni.encheresLOSNA.bo.Retrait;
-import fr.eni.encheresLOSNA.bo.Utilisateur;
 import fr.eni.encheresLOSNA.dal.DALException;
 import fr.eni.encheresLOSNA.dal.DAOFactory;
 import fr.eni.encheresLOSNA.dal.RetraitDAO;

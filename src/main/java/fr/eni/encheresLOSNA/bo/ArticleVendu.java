@@ -6,7 +6,6 @@ package fr.eni.encheresLOSNA.bo;
 import java.util.Date;
 import java.util.Calendar;
 
-import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
 import fr.eni.encheresLOSNA.bll.BLLException;
 import fr.eni.encheresLOSNA.bll.UtilisateurManager;
 

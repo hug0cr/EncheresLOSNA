@@ -1,6 +1,5 @@
 package fr.eni.encheresLOSNA.ihm;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
 import fr.eni.encheresLOSNA.bll.BLLException;
