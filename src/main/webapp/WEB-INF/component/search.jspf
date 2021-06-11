@@ -17,15 +17,15 @@
 				<div class="search-mode">
 					<div>
 						<input type="checkbox" name="achat" id="<%= FiltrageServlet.ENCHERES_OUVERTE %>" value="<%= FiltrageServlet.ENCHERES_OUVERTE %>">
-						<label for="<%= FiltrageServlet.ENCHERES_OUVERTE %>">Enchères ouvertes</label>
+						<label for="<%= FiltrageServlet.ENCHERES_OUVERTE %>">EnchÃ¨res ouvertes</label>
 					</div>
 					<div>
 						<input type="checkbox" name="achat" id="<%= FiltrageServlet.ENCHERES_EN_COURS %>" value="<%= FiltrageServlet.ENCHERES_EN_COURS %>">
-						<label for="<%= FiltrageServlet.ENCHERES_EN_COURS %>">Enchères en cours</label>
+						<label for="<%= FiltrageServlet.ENCHERES_EN_COURS %>">EnchÃ¨res en cours</label>
 					</div>
 					<div>
 						<input type="checkbox" name="achat" id="<%= FiltrageServlet.ENCHERES_REMPORTEES %>" value="<%= FiltrageServlet.ENCHERES_REMPORTEES %>">
-						<label for="<%= FiltrageServlet.ENCHERES_REMPORTEES %>">Enchères remportées</label>
+						<label for="<%= FiltrageServlet.ENCHERES_REMPORTEES %>">EnchÃ¨res remportÃ©es</label>
 					</div>
 				</div>
 			</c:if>
@@ -37,18 +37,18 @@
 					</div>
 					<div>
 						<input type="checkbox" name="vente" id="<%= FiltrageServlet.VENTES_NON_DEBUTEES %>" value="<%= FiltrageServlet.VENTES_NON_DEBUTEES %>">
-						<label for="<%= FiltrageServlet.VENTES_NON_DEBUTEES %>">Ventes non débutées</label>
+						<label for="<%= FiltrageServlet.VENTES_NON_DEBUTEES %>">Ventes non dÃ©butÃ©es</label>
 					</div>
 					<div>
 						<input type="checkbox" name="vente" id="<%= FiltrageServlet.VENTES_TERMINEES %>" value="<%= FiltrageServlet.VENTES_TERMINEES %>">
-						<label for="<%= FiltrageServlet.VENTES_TERMINEES %>">Ventes terminées</label>
+						<label for="<%= FiltrageServlet.VENTES_TERMINEES %>">Ventes terminÃ©es</label>
 					</div>
 				</div>
 			</c:if>
 		</c:if>
-		<input type="text" id="search-KW" name="motCle" placeholder="Le nom de l'article contient...">
+		<input type="text" id="search-KW" name="motCle" placeholder="Votre recherche...">
 		<div id="search-categorie">
-			<label for="categorie">Catégorie : </label>
+			<label for="categorie">CatÃ©gorie : </label>
 			<select name="categorie" id="categorie" required>
 				<option value="0" selected>Toutes</option>
 				<c:forEach items="${categories}" var="c">
