@@ -317,6 +317,16 @@ public class ArticleVenduManager {
 		}
 	}
 	
+	public String getPathPhotoById(Integer id) throws BLLException {
+		String pathPhoto = null;
+		try {
+			pathPhoto = articleVenduDAO.selectPathPhotoById(id);
+		} catch (DALException e) {
+			throw new BLLException("Echec getPathPhotoById article id:" + id, e);
+		}
+		return pathPhoto;
+	}
+	
 	/**
 	 * Methode en charge de valider l'ajout ou la modification d'un article selon les règles définies.
 	 * @param a

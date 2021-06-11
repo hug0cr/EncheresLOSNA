@@ -15,6 +15,7 @@
 	<c:if test="${!empty classe}">
 		<p class="${classe}">${message}</p>
 	</c:if>
+	<img alt="al" src="img\MSI_HUGO - Jet Ski Tenerife.jpg">
 	<h1>${article.nomArticle}</h1>
 	<h2>Description</h2>
 	<p>${article.description}</p>

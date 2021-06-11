@@ -45,6 +45,10 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "no_categorie "
 			+ "FROM ARTICLES_VENDUS WHERE no_article=?;";
 	
+	private final String SELECT_PATH_PHOTO_BY_ID = "SELECT "
+			+ "path_photo "
+			+ "FROM ARTICLES_VENDUS WHERE no_article=?;";
+	
 	private final String SELECT_BY_NO_CATEGORIE = "SELECT "
 			+ "no_article, "
 			+ "nom_article, "
@@ -650,6 +654,29 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		} catch (Exception e) {
 			e.getMessage();
 		}
+	}
+	
+	public String selectPathPhotoById(Integer id) throws DALException {
+		String pathPhoto = null;
+		
+		try {
+			
+			con = ConnectionProvider.getConnection();
+			PreparedStatement stmt = con.prepareStatement(SELECT_PATH_PHOTO_BY_ID);
+			
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				pathPhoto = rs.getString("path_photo");
+			}
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Select path photo by ID error");
+		}	
+		return pathPhoto;
 	}
 
 }
