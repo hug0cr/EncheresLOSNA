@@ -49,10 +49,7 @@
 							Fin des enchères :
 							<fmt:formatDate value="${article.dateFinEncheres}" />
 						</p>
-						<p>
-							Vendeur : <a
-								href="./ProfilServlet?user=${article.vendeur.noUtilisateur}">${article.vendeur.pseudo}</a>
-						</p>
+						<p>Vendeur : <a href="./ProfilServlet?user=${article.vendeur.noUtilisateur}" class="underline">${article.vendeur.pseudo}</a></p>
 					</div>
 				</c:forEach>
 			</section>
