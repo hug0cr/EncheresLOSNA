@@ -3,7 +3,6 @@
  */
 package fr.eni.encheresLOSNA.ihm;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Timer;
@@ -19,7 +18,6 @@ import fr.eni.encheresLOSNA.bll.EnchereRemporteeManager;
 import fr.eni.encheresLOSNA.bll.UtilisateurManager;
 import fr.eni.encheresLOSNA.bo.ArticleVendu;
 import fr.eni.encheresLOSNA.bo.Enchere;
-import fr.eni.encheresLOSNA.bo.EnchereRemportee;
 import fr.eni.encheresLOSNA.bo.Utilisateur;
 
 /**
@@ -87,6 +85,6 @@ public class InitServlet extends HttpServlet {
 		};
 		//////////// End of task /////////////
 		
-		timer.scheduleAtFixedRate(task, 2000, 10000);
+		timer.scheduleAtFixedRate(task, 3000, 10000);
 	}
 }

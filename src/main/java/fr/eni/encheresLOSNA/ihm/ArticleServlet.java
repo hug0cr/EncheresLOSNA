@@ -1,15 +1,19 @@
 package fr.eni.encheresLOSNA.ihm;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
 import fr.eni.encheresLOSNA.bll.BLLException;
 import fr.eni.encheresLOSNA.bll.CategorieManager;
@@ -21,14 +25,19 @@ import fr.eni.encheresLOSNA.bo.Utilisateur;
  * Servlet implementation class GestionArticleServlet
  */
 @WebServlet("/ArticleServlet")
+@MultipartConfig
 public class ArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+	public static final String IMAGES_FOLDER = "/img";
+	public String uploadPath;
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@SuppressWarnings("unused")
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
 		Integer noArticle = Integer.parseInt(request.getParameter("article"));
 		ArticleVendu lArticle = null;
@@ -43,28 +52,40 @@ public class ArticleServlet extends HttpServlet {
 		if (noArticle != null) {
 			request.setAttribute("article", lArticle);
 			request.setAttribute("categorie", categorie);
-			request.getRequestDispatcher("./detailsArticle").forward(request, response);;
+			try {
+				request.getRequestDispatcher("./detailsArticle").forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			}
 		} else {
-			request.getRequestDispatcher("./Controler").forward(request, response);	
+			try {
+				request.getRequestDispatcher("./Controler").forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String type = (String) request.getParameter("type");
 		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
 		ArticleVendu article = createArticle(request, articleMgr);
-		
+
+		getImage(request);
+
 		if (type.equals("crea")) {
 			try {
 				articleMgr.addArticleVendu(article);
 			} catch (BLLException e) {
 				request.setAttribute("message", "Une erreur est survenue");
 				e.printStackTrace();
-			}	
+			}
 		}
 		if (type.equals("modif")) {
 			try {
@@ -73,7 +94,7 @@ public class ArticleServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		request.getRequestDispatcher("./Controler").forward(request, response);	
+		request.getRequestDispatcher("./Controler").forward(request, response);
 	}
 
 	/**
@@ -97,7 +118,19 @@ public class ArticleServlet extends HttpServlet {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		article = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, noUser, categorie);
+		article = new ArticleVendu(nomArticle, description, dateDebutEncheres, dateFinEncheres, miseAPrix, noUser,
+				categorie);
 		return article;
+	}
+
+	private void getImage(HttpServletRequest request) throws IOException, ServletException {
+		Part image = request.getPart("photo");
+		String fileName = null;
+		for (String content : image.getHeader("content-disposition").split(";")) {
+			if (content.trim().startsWith("filename")) fileName = content.substring(content.indexOf("=") + 2, content.length() - 1);
+			else fileName = "default.file";
+		}
+		String fullPath = getServletContext().getRealPath(IMAGES_FOLDER) + File.separator + fileName;
+        image.write( fullPath );
 	}
 }
