@@ -92,7 +92,7 @@ public class ProfilServlet extends HttpServlet {
 				home.forward(request, response);
 			} catch (BLLException e) {
 				e.printStackTrace();
-				request.setAttribute("message", "La création du profil a échoué - " + e.getMessage());
+				request.setAttribute("message", "La création du profil a échoué");
 				gererProfil.forward(request, response);
 			}
 			break;

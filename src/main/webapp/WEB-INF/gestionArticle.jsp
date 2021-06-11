@@ -20,7 +20,7 @@
 	<c:if test="${param.type == 'new'}">
 		<!-- Nouvelle annonce -->
 		<h1>Nouvelle annonce</h1>
-		<form action="./ArticleServlet?type=crea" method="post" enctype="multipart/form-data" accept="image/*">>
+		<form action="./ArticleServlet?type=crea" method="post" enctype="multipart/form-data">
 			<label for="nom">Article : </label>
 			<input type="text" name="nom" placeholder="Le nom de l'article" required autofocus>
 			<label for="description">Description : </label>

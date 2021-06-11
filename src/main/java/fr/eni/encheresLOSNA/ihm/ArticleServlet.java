@@ -25,11 +25,7 @@ import fr.eni.encheresLOSNA.bo.Utilisateur;
  * Servlet implementation class GestionArticleServlet
  */
 @WebServlet("/ArticleServlet")
-@MultipartConfig(
-		  fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
-		  maxFileSize = 1024 * 1024 * 10,      // 10 MB
-		  maxRequestSize = 1024 * 1024 * 100   // 100 MB
-)
+@MultipartConfig
 public class ArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -127,8 +123,7 @@ public class ArticleServlet extends HttpServlet {
 		return article;
 	}
 
-	private String getImage(HttpServletRequest request) throws IOException, ServletException {
-		String pathImg = null;
+	private void getImage(HttpServletRequest request) throws IOException, ServletException {
 		Part image = request.getPart("photo");
 		String fileName = null;
 		for (String content : image.getHeader("content-disposition").split(";")) {
@@ -136,11 +131,6 @@ public class ArticleServlet extends HttpServlet {
 			else fileName = "default.file";
 		}
 		String fullPath = getServletContext().getRealPath(IMAGES_FOLDER) + File.separator + fileName;
-		System.out.println(fullPath);
-		if (!fileName.isEmpty()) {
-			image.write(fullPath);
-			pathImg = "img/" + fileName;
-		}
-		return pathImg;
+        image.write( fullPath );
 	}
 }
