@@ -46,7 +46,7 @@
 				</div>
 			</c:if>
 		</c:if>
-		<input type="text" id="search-KW" name="motCle" placeholder="Le nom de l'article contient...">
+		<input type="text" id="search-KW" name="motCle" placeholder="Votre recherche...">
 		<div id="search-categorie">
 			<label for="categorie">Catégorie : </label>
 			<select name="categorie" id="categorie" required>
