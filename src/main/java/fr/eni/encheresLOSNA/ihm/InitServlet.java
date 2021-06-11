@@ -39,7 +39,6 @@ public class InitServlet extends HttpServlet {
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
-				System.out.println("Hello world !");
 				
 				// Beginning of task //
 				
@@ -72,8 +71,6 @@ public class InitServlet extends HttpServlet {
 								}
 							}
 							
-						} else {
-							System.out.println("Vente non terminée");
 						}
 					}
 					
