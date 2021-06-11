@@ -6,6 +6,7 @@ package fr.eni.encheresLOSNA.bo;
 import java.util.Date;
 import java.util.Calendar;
 
+import fr.eni.encheresLOSNA.bll.ArticleVenduManager;
 import fr.eni.encheresLOSNA.bll.BLLException;
 import fr.eni.encheresLOSNA.bll.UtilisateurManager;
 
@@ -25,6 +26,7 @@ public class ArticleVendu {
 	private String etatVente;
 	private Integer noUtilisateur;
 	private Integer noCategorie;
+	private String pathPhoto;
 	
 	private Utilisateur vendeur;
 
@@ -65,6 +67,9 @@ public class ArticleVendu {
 		this.noCategorie = noCategorie;
 		this.etatVente = verificationEtatVente(dateDebutEncheres, dateFinEncheres);
 		this.vendeur = recuperationDuVendeur(noUtilisateur);
+		
+		String  pathPhoto = recuperationPathPhoto(noArticle);
+		
 	}
 
 	
@@ -106,6 +111,17 @@ public class ArticleVendu {
 			e.printStackTrace();
 		}
 		return vendeur;
+	}
+	
+	private String recuperationPathPhoto(Integer noArticle) {
+		String pathPhoto = null;
+		try {
+			pathPhoto = ArticleVenduManager.getInstance().getPathPhotoById(noArticle);
+		} catch (BLLException e) {
+			System.err.println("Echec de récupération du path photo de l'article.");
+			e.printStackTrace();
+		}
+		return pathPhoto;
 	}
 
 	/**
@@ -283,6 +299,20 @@ public class ArticleVendu {
 	 */
 	public void setVendeur(Utilisateur vendeur) {
 		this.vendeur = vendeur;
+	}
+
+	/**
+	 * @return the pathPhoto
+	 */
+	public String getPathPhoto() {
+		return pathPhoto;
+	}
+
+	/**
+	 * @param pathPhoto the pathPhoto to set
+	 */
+	public void setPathPhoto(String pathPhoto) {
+		this.pathPhoto = pathPhoto;
 	}
 
 	/**
