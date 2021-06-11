@@ -28,7 +28,8 @@ public interface ArticleVenduDAO extends DAO<ArticleVendu> {
 	public List<ArticleVendu> selectArticlesEnchereRemporteeParUtilisateur(Integer noUtilisateur) throws DALException;
 	//Modifie le prix de vente
 	public void updatePrixVente(Integer noArticle, Integer prixVente) throws DALException;
-	//Récupération du chemin d'accès pour la photo
+	//Méthodes chemin d'accès pour la photo
 	public String selectPathPhotoById(Integer id) throws DALException;
+	public void updatePathPhoto(Integer noArticle, String pathPhoto) throws DALException;
 	
 }

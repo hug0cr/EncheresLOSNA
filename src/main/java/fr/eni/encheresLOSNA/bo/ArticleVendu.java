@@ -66,10 +66,7 @@ public class ArticleVendu {
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
 		this.etatVente = verificationEtatVente(dateDebutEncheres, dateFinEncheres);
-		this.vendeur = recuperationDuVendeur(noUtilisateur);
-		
-		String  pathPhoto = recuperationPathPhoto(noArticle);
-		
+		this.vendeur = recuperationDuVendeur(noUtilisateur);	
 	}
 
 	
@@ -111,17 +108,6 @@ public class ArticleVendu {
 			e.printStackTrace();
 		}
 		return vendeur;
-	}
-	
-	private String recuperationPathPhoto(Integer noArticle) {
-		String pathPhoto = null;
-		try {
-			pathPhoto = ArticleVenduManager.getInstance().getPathPhotoById(noArticle);
-		} catch (BLLException e) {
-			System.err.println("Echec de récupération du path photo de l'article.");
-			e.printStackTrace();
-		}
-		return pathPhoto;
 	}
 
 	/**

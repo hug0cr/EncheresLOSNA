@@ -303,7 +303,7 @@ public class ArticleVenduManager {
 	}
 	
 	/**
-	 * Methode en charge de mettre à jour le pruix de vente d'un article.
+	 * Methode en charge de mettre à jour le prix de vente d'un article.
 	 * @param noArticle
 	 * @param prixVente
 	 * @throws BLLException
@@ -325,6 +325,14 @@ public class ArticleVenduManager {
 			throw new BLLException("Echec getPathPhotoById article id:" + id, e);
 		}
 		return pathPhoto;
+	}
+	
+	public void updatePathPhoto(Integer noArticle, String pathPhoto) throws BLLException {
+		try {
+			articleVenduDAO.updatePathPhoto(noArticle, pathPhoto);
+		} catch (DALException e) {
+			throw new BLLException("Echec updatePathPhoto article id:" + noArticle, e);
+		}
 	}
 	
 	/**

@@ -49,6 +49,10 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			+ "path_photo "
 			+ "FROM ARTICLES_VENDUS WHERE no_article=?;";
 	
+	private final String UPDATE_PATH_PHOTO = "UPDATE ARTICLES_VENDUS SET "
+			+ "path_photo=? "
+			+ "WHERE no_article=?;";
+	
 	private final String SELECT_BY_NO_CATEGORIE = "SELECT "
 			+ "no_article, "
 			+ "nom_article, "
@@ -677,6 +681,29 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 			throw new DALException("Select path photo by ID error");
 		}	
 		return pathPhoto;
+	}
+	
+	public void updatePathPhoto(Integer noArticle, String pathPhoto) throws DALException {
+		PreparedStatement stmt = null;
+		
+		try {
+			con = ConnectionProvider.getConnection();
+			stmt = con.prepareStatement(UPDATE_PRIX_VENTE);
+			
+			stmt.setString(1, pathPhoto);
+			stmt.setInt(2, noArticle);
+			
+			int rowsAffected = stmt.executeUpdate();
+			
+			System.out.println(rowsAffected + " ligne modifiée");
+			
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			throw new DALException("Update prix de vente de l'article error");
+		} catch (Exception e) {
+			e.getMessage();
+		}
 	}
 
 }
