@@ -53,7 +53,7 @@ public class UtilisateurManager {
 			validerUtilisateur(newUtilisateur);
 			utilisateurDAO.insert(newUtilisateur);
 		} catch (DALException e) {
-			throw new BLLException("Echec addArticle", e);
+			throw new BLLException("Echec addUtilisateur", e);
 		}
 	}
 	
