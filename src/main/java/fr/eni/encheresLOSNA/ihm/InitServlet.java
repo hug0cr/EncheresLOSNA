@@ -31,7 +31,7 @@ public class InitServlet extends HttpServlet {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
+	@Override 
 	public void init() throws ServletException {
 		Timer timer = new Timer();
 		
