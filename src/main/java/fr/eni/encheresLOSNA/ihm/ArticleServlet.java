@@ -80,9 +80,14 @@ public class ArticleServlet extends HttpServlet {
 		String type = (String) request.getParameter("type");
 		ArticleVenduManager articleMgr = ArticleVenduManager.getInstance();
 		ArticleVendu article = createArticle(request, articleMgr);
-
-		getImage(request);
-
+//		String pathPhoto = getImage(request);
+//		
+//		try {
+//			articleMgr.updatePathPhoto(article.getNoArticle(), pathPhoto);
+//		} catch (BLLException e1) {
+//			e1.printStackTrace();
+//		}
+		
 		if (type.equals("crea")) {
 			try {
 				articleMgr.addArticleVendu(article);
@@ -127,20 +132,20 @@ public class ArticleServlet extends HttpServlet {
 		return article;
 	}
 
-	private String getImage(HttpServletRequest request) throws IOException, ServletException {
-		String pathImg = null;
-		Part image = request.getPart("photo");
-		String fileName = null;
-		for (String content : image.getHeader("content-disposition").split(";")) {
-			if (content.trim().startsWith("filename")) fileName = content.substring(content.indexOf("=") + 2, content.length() - 1);
-			else fileName = "default.file";
-		}
-		String fullPath = getServletContext().getRealPath(IMAGES_FOLDER) + File.separator + fileName;
-		System.out.println(fullPath);
-		if (!fileName.isEmpty()) {
-			image.write(fullPath);
-			pathImg = "img/" + fileName;
-		}
-		return pathImg;
-	}
+//	private String getImage(HttpServletRequest request) throws IOException, ServletException {
+//		String pathImg = null;
+//		Part image = request.getPart("photo");
+//		String fileName = null;
+//		for (String content : image.getHeader("content-disposition").split(";")) {
+//			if (content.trim().startsWith("filename")) fileName = content.substring(content.indexOf("=") + 2, content.length() - 1);
+//			else fileName = "default.file";
+//		}
+//		String fullPath = getServletContext().getRealPath(IMAGES_FOLDER) + File.separator + fileName;
+//		System.out.println(fullPath);
+//		if (!fileName.isEmpty()) {
+//			image.write(fullPath);
+//			pathImg = "img/" + fileName;
+//		}
+//		return pathImg;
+//	}
 }

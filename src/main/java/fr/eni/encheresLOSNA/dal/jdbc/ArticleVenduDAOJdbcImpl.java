@@ -688,7 +688,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO {
 		
 		try {
 			con = ConnectionProvider.getConnection();
-			stmt = con.prepareStatement(UPDATE_PRIX_VENTE);
+			stmt = con.prepareStatement(UPDATE_PATH_PHOTO);
 			
 			stmt.setString(1, pathPhoto);
 			stmt.setInt(2, noArticle);

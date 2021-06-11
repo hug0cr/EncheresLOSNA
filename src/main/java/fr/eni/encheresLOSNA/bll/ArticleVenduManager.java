@@ -317,12 +317,12 @@ public class ArticleVenduManager {
 		}
 	}
 	
-	public String getPathPhotoById(Integer id) throws BLLException {
+	public String getPathPhotoById(Integer noArticle) throws BLLException {
 		String pathPhoto = null;
 		try {
-			pathPhoto = articleVenduDAO.selectPathPhotoById(id);
+			pathPhoto = articleVenduDAO.selectPathPhotoById(noArticle);
 		} catch (DALException e) {
-			throw new BLLException("Echec getPathPhotoById article id:" + id, e);
+			throw new BLLException("Echec getPathPhotoById article id:" + noArticle, e);
 		}
 		return pathPhoto;
 	}

@@ -40,6 +40,8 @@ public class InitServlet extends HttpServlet {
 			@Override
 			public void run() {
 				
+				System.out.println("Vérification fin d'enchères");
+				
 				// Beginning of task //
 				
 				try {
@@ -49,9 +51,9 @@ public class InitServlet extends HttpServlet {
 					for (ArticleVendu articleVendu : articles) {
 						// Si la date de fin d'enchère est dépassée
 						if (articleVendu.getDateFinEncheres().before(new Date())) {
-							System.out.println("Vente terminée");
 							// Si l'enchère n'a toujours pas été ajoutée à la table ENCHERES_REMPORTEES
 							if (!EnchereRemporteeManager.getInstance().isEnchereRemportee(articleVendu.getNoArticle())) {
+								//System.out.println("Vente en traitement de fin d'enchère");
 								// Récupération de toutes les enchères sur l'article
 								List<Enchere> encheres = EnchereManager.getInstance().getAllByNoArticle(articleVendu.getNoArticle());
 								// Redonne les crédits à tout les enchérisseurs
@@ -82,6 +84,6 @@ public class InitServlet extends HttpServlet {
 		};
 		//////////// End of task /////////////
 		
-		timer.scheduleAtFixedRate(task, 3000, 10000);
+//		timer.scheduleAtFixedRate(task, 3000, 1000 * 60);
 	}
 }
