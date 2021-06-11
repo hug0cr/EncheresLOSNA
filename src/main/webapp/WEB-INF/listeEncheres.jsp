@@ -50,9 +50,9 @@
 							<fmt:formatDate value="${article.dateFinEncheres}" />
 						</p>
 						<p>
-							Vendeur : <a
-								href="./ProfilServlet?user=${article.vendeur.noUtilisateur}">${article.vendeur.pseudo}</a>
+							Vendeur : <a href="./ProfilServlet?user=${article.vendeur.noUtilisateur}" class="underline">${article.vendeur.pseudo}</a>
 						</p>
+						<a href="./ArticleServlet?article=${article.noArticle}"><p class="button">Consulter</p></a>
 					</div>
 				</c:forEach>
 			</section>
